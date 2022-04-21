@@ -1,0 +1,19 @@
+{%- set nextPost = collections.developers | getNextCollectionItem(page) -%}
+{%- set previousPost = collections.developers | getPreviousCollectionItem(page) -%}
+{%- if nextPost or previousPost -%}
+
+<hr class="mt-5" aria-hidden="true">
+
+<nav aria-label="Pagination" class="pt-4">
+  <ul class="pagination justify-content-center">
+    {%- if previousPost %}
+      <li class="mx-2"><a class="btn btn-sa11y" href="{{ previousPost.url | url }}">
+        <i class="bi bi-arrow-left"></i> Previous: {{ previousPost.data.title }}</a></li>
+    {%- endif -%}
+
+    {%- if nextPost -%}
+      <li class="mx-2"><a class="btn btn-sa11y" href="{{ nextPost.url | url }}">Next: {{ nextPost.data.title }} <i class="bi bi-arrow-right"></i></a></li>
+    {%- endif -%}
+ </ul>
+</nav>
+{%- endif -%}

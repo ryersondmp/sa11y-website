@@ -1,0 +1,349 @@
+---
+layout: base
+title: Props
+permalink: '/developers/props/'
+order: 2
+---
+
+<h1>{{title}}</h1>
+
+<p>Props allow you to easily customize the experience for content authors. For example:</p>
+<ul>
+    <li>Set the target area to check. If your content authors can't edit it, don't flag it!</li>
+    <li>Ignore entire sections of a page.</li>
+    <li>Add exclusions to ignore false positives.</li>
+    <li>Turn off specific modules or checks.</li>
+</ul>
+
+<h2>Example</h2>
+<pre><code class="language-js">&#x3C;script&#x3E;
+    const sa11y = new Sa11y({
+        checkRoot: &#x27;main&#x27;,
+        readabilityRoot: &#x27;main&#x27;,
+        formLabelsPlugin: false,
+        containerIgnore: &#x27;#pagination, aside&#x27;
+    });
+&#x3C;/script&#x3E;</code></pre>
+
+<h2>Target area and exclusions</h2>
+<p>Identify elements by <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS selectors</a> or <a
+        href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html">HTML sectioning elements.</a> Use
+    a comma to pass multiple selector unless otherwise indicated.</p>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th width="20%">Prop</th>
+            <th width="15%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>checkRoot</td>
+            <td>'body'</td>
+            <td>The main target area you would like Sa11y to check. For example, pass <code>main</code> for main content
+                area. Accepts a <strong>single selector</strong> only.</td>
+        </tr>
+        <tr>
+            <td>containerIgnore</td>
+            <td>'.sa11y-ignore'</td>
+            <td>Ignore specific regions of the page.</td>
+        </tr>
+        <tr>
+            <td>contrastIgnore</td>
+            <td>'.sr-only'</td>
+            <td>Ignore specific elements from contrast check.</td>
+        </tr>
+        <tr>
+            <td>outlineIgnore</td>
+            <td>''</td>
+            <td>Exclude specific headings from appearing in the Show Outline panel. For example, visually hidden
+                headings that may not make sense to sighted people.</td>
+        </tr>
+        <tr>
+            <td>headerIgnore</td>
+            <td>''</td>
+            <td>Ignore specific headings on the page (will not recieve annotations, appear in the Show Outline panel or
+                recieve a heading label).</td>
+        </tr>
+        <tr>
+            <td>imageIgnore</td>
+            <td>''</td>
+            <td>Ignore specific images on the page.</td>
+        </tr>
+        <tr>
+            <td>linkIgnore</td>
+            <td>'nav, [role=&quot;navigation&quot;]'</td>
+            <td>Ignore specific links on the page.</td>
+        </tr>
+        <tr>
+            <td>linkIgnoreSpan</td>
+            <td>''</td>
+            <td>Ignore elements within a link to improve accuracy of link checks. For example, pass
+                <code>.sr-only</code> to ignore the text "external link": <code>&lt;a href="#"&gt;learn more
+                    <strong>&lt;span class="sr-only"&gt;external link&lt;/span&gt;</strong>&lt;/a&gt;</code></td>
+        </tr>
+        <tr>
+            <td>linksToFlag</td>
+            <td>''</td>
+            <td>Check for URLs that you do not want your content authors linking to. For example, absolute URLs that
+                point to a development environment: <code>a[href*=&quot;dev.&quot;]</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Other features</h2>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Prop</th>
+            <th width="15%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>nonConsecutiveHeadingIsError</td>
+            <td>true</td>
+            <td>Boolean. Set to false if you would like skipped headings to be flagged as a warning instead. By default,
+                Sa11y flags skipped headings as an error, however, this is not a WCAG failure.</td>
+        </tr>
+        <tr>
+            <td>flagLongHeadings</td>
+            <td>true</td>
+            <td>Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.</td>
+        </tr>
+        <tr>
+            <td>showGoodLinkButton</td>
+            <td>true</td>
+            <td>Boolean. Show "Good" annotations on links with an accessible name that was defined with an
+                <code>aria-label</code> or <code>aria-labelledby</code> attribute. Sometimes content authors wonder why
+                some "learn more" links are not flagged by Sa11y.</td>
+        </tr>
+        <tr>
+            <td>detectSPArouting</td>
+            <td>false</td>
+            <td>Boolean. Detects URL changes and re-checks the page. This prop is intended for the bookmarklet to
+                improve usability when testing single page applications (SPA).</td>
+        </tr>
+        <tr>
+            <td>doNotRun</td>
+            <td>''</td>
+            <td>Using a comma seperated list, provide selectors to unique pages where you do not want Sa11y to check.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2>Readability module</h2>
+<p>The readability module is based on <a
+        href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease">Flesch reading
+        ease.</a></p>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th width="20%">Prop</th>
+            <th width="15%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>readabilityPlugin</td>
+            <td>true</td>
+            <td>Boolean. Set to false to turn off and hide Readability check from the Settings panel.</td>
+        </tr>
+        <tr>
+            <td>readabilityRoot</td>
+            <td>'body'</td>
+            <td>Target area for readability check. For example, pass <code>main</code> for main content area. Accepts a
+                <strong>single selector</strong> only.</td>
+        </tr>
+        <tr>
+            <td>readabilityLang</td>
+            <td>'en'</td>
+            <td>Default is English. Currently supports English (<code>en</code>), French (<code>fr</code>), German
+                (<code>de</code>), Spanish (<code>sp</code>), Italian (<code>it</code>), and Dutch (<code>nl</code>).
+            </td>
+        </tr>
+        <tr>
+            <td>readabilityIgnore</td>
+            <td>''</td>
+            <td>Ignore specific content from readability check. Hard default excludes list (<code>&lt;li&gt;</code>)
+                tags within navigation landmarks.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Toggleable rulesets in Settings panel</h2>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th width="20%">Prop</th>
+            <th width="15%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>contrastPlugin</td>
+            <td>true</td>
+            <td>Set to false to turn off and hide contrast check from Settings panel.</td>
+        </tr>
+        <tr>
+            <td>formLabelsPlugin</td>
+            <td>true</td>
+            <td>Set to false to turn off and hide Form labels check from Settings panel.</td>
+        </tr>
+        <tr>
+            <td>linksAdvancedPlugin</td>
+            <td>true</td>
+            <td>Set to false to turn off and hide Links (Advanced) check from Settings panel.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Quality assurance module</h2>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th width="20%">Prop</th>
+            <th width="15%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>badLinksQA</td>
+            <td>true</td>
+            <td>Related to <code>linksToFlag</code> prop.</td>
+        </tr>
+        <tr>
+            <td>strongItalicsQA</td>
+            <td>true</td>
+            <td>Flags entire paragraphs that are bold or italicized.</td>
+        </tr>
+        <tr>
+            <td>pdfQA</td>
+            <td>true</td>
+            <td>Warning about PDF content.</td>
+        </tr>
+        <tr>
+            <td>langQA</td>
+            <td>true</td>
+            <td>Error if page language is not set.</td>
+        </tr>
+        <tr>
+            <td>blockquotesQA</td>
+            <td>true</td>
+            <td>Warning if blockquote suspiciously resembles a heading.</td>
+        </tr>
+        <tr>
+            <td>tablesQA</td>
+            <td>true</td>
+            <td>Various errors about innaccessible HTML tables.</td>
+        </tr>
+        <tr>
+            <td>allCapsQA</td>
+            <td>true</td>
+            <td>Warning about use of ALL CAPS. <strong>Note:</strong> Sometimes this check can be problematic because of
+                regex usage. Set to false if problematic.</td>
+        </tr>
+        <tr>
+            <td>fakeHeadingsQA</td>
+            <td>true</td>
+            <td>Warning about bolded text that suspiciously resembles a heading. Uses regex.</td>
+        </tr>
+        <tr>
+            <td>fakeListQA</td>
+            <td>true</td>
+            <td>Warning about suspiciously formatted content that should be a semantic list.</td>
+        </tr>
+        <tr>
+            <td>duplicateIdQA</td>
+            <td>true</td>
+            <td>Error if duplicate <code>id</code> exist on the page.</td>
+        </tr>
+        <tr>
+            <td>underlinedTextQA</td>
+            <td>true</td>
+            <td>Warning for &lt;u&gt;underlined&lt;u&gt; text.</td>
+        </tr>
+        <tr>
+            <td>pageTitleQA</td>
+            <td>true</td>
+            <td>Error if meta page <code>&lt;title&gt;</code> is missing or empty.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Embedded content (iFrames) module</h2>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th width="20%">Prop</th>
+            <th width="30%">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead class="table-dark">
+    <tbody>
+        <tr>
+            <td>embeddedContentAll</td>
+            <td>true</td>
+            <td>Set to false to ignore all iFrames.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentAudio</td>
+            <td>true</td>
+            <td>Warning about audio content and transcripts.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentVideo</td>
+            <td>true</td>
+            <td>Warning about video content and captions.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentTwitter</td>
+            <td>true</td>
+            <td>Warning about endless Twitter widgets.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentDataViz</td>
+            <td>true</td>
+            <td>Warning about data visualizations.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentTitles</td>
+            <td>true</td>
+            <td>Warning about iFrame missing a descriptive title or accessible name.</td>
+        </tr>
+        <tr>
+            <td>embeddedContentGeneral</td>
+            <td>true</td>
+            <td>General warning about unknown iFrame content.</td>
+        </tr>
+        <tr>
+            <td>videoContent</td>
+            <td>'video, youtube.com, vimeo.com, yuja.com, panopto.com'</td>
+            <td>Common video players.</td>
+        </tr>
+        <tr>
+            <td>audioContent</td>
+            <td>'audio, soundcloud.com, simplecast.com, podbean.com, buzzsprout.com, blubrry.com, transistor.fm,
+                fusebox.fm, libsyn.com'</td>
+            <td>Common podcast widgets or audio players.</td>
+        </tr>
+        <tr>
+            <td>dataVizContent</td>
+            <td>'datastudio.google.com, tableau'</td>
+            <td>Common data visualization widgets.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Feedback</h2>
+<p>Provide feedback on props via <a href="https://github.com/ryersondmp/sa11y/issues">GitHub</a> or <a href="https://forms.gle/sjzK9XykETaoqZv99">Report a bug</a>.</p>
+
+{% include "partials/pagination-developers.njk" %}
+{% include "partials/prism.njk" %}

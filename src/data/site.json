@@ -1,0 +1,8 @@
+{
+    "name": "Sa11y",
+    "description": "Sa11y is an accessibility quality assurance tool that visually highlights common accessibility and usability issues.",
+    "sa11yBuild" : "2.2.0",
+    "lang": "en",
+    "university": "Ryerson University",
+    "copyright": "2022"
+}

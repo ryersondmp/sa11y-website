@@ -1,0 +1,36 @@
+<nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block bg-white sidebar sidebar-sticky collapse">
+  <div class="flex-shrink-0 p-5 position-sticky pt-3">
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1 nav-item">
+        <a class="nav-link homepage-link {% if page.url == "/" %}active{% endif %}" {% if page.url == "/" %} aria-current="page"{% endif %} href="{{ '/' | url }}">
+          <span class="sa11y-nav display-6">Sa11y</span>
+        </a>
+      </li>
+      {% for post in collections.pages %}
+          <li class="nav-item">
+              <a href="{{ post.url }}" class="nav-link link-dark rounded {% if page.url == post.url %}active{% endif %}" {% if page.url == post.url %} aria-current="page"{% endif %}>{{ post.data.title}}</a>
+          </li>
+      {% endfor %}
+      <li class="mb-1">
+        <button 
+          class="btn btn-toggle w-100 align-items-center rounded collapsed" 
+          data-bs-toggle="collapse"
+          data-bs-target="#developers-collapse" 
+          aria-expanded="{% if '/developers' in page.url %}true{% else %}false{% endif %}"
+          >
+            Developers
+        </button>
+        <div class="collapse {% if '/developers' in page.url %}show{% endif %}" id="developers-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+              {% for post in collections.developers %}
+                  <li>
+                      <a href="{{ post.url }}" class="link-dark rounded {% if page.url == post.url %}active{% endif %}" {% if page.url == post.url %} aria-current="page"{% endif %}>{{ post.data.title}}</a>
+                  </li>
+              {% endfor %}
+          </ul>
+        </div>
+      </li>
+      {% include 'partials/other-links.njk' %}
+    </ul>
+  </div>
+</nav>

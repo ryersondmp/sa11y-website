@@ -1,0 +1,64 @@
+---
+layout: base
+title: Custom bookmarklet
+permalink: '/developers/bookmarklet/'
+order: 5
+---
+
+<h1>{{title}}</h1>
+
+<p>Create your own custom bookmarklet powered by <a href="https://www.jsdelivr.com/">jsDelivr.</a> This is exactly how the official bookmarklet is maintained.</p>
+
+<h2>Step 1</h2>
+<p>Create a fork of Sa11y on GitHub. Give a ⭐️ while you're there. 😉</p>
+
+<h2>Step 2</h2>
+<p>Navigate to <code>/bookmarklet/sa11y-en.js</code> within your fork.</p>
+
+<h2>Step 3</h2>
+<p>Modify the file as needed.</p>
+
+<ol>
+    <li>Refer to <a href="/developers/props">Props</a> to customize your bookmarklet.</li>
+    <li><strong>Optional:</strong> Replace <code>ryersondmp</code> with your username if you customize your fork.</li>
+    <li><strong>Optional:</strong> Replace <code>{{site.sa11yBuild}}</code> with the text <code>latest</code> so your bookmarklet automatically updates to the latest version of Sa11y.</li>
+    <li>Once you are done modifying, commit your changes.</li>
+</ol>
+
+<pre><code class="language-js">const sa11ycss = document.createElement("link");
+sa11ycss.setAttribute("rel", "stylesheet");
+sa11ycss.setAttribute("href", "https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.css");
+sa11ycss.setAttribute("type", "text/css");
+
+const bodyheader = document.getElementsByTagName("head")[0];
+bodyheader.appendChild(sa11ycss);
+
+/* Queue Poppers.js, Tippy.js, and Sa11y. Thanks to JSDeliver for this cool combine feature! */
+const combine = document.createElement("script");
+combine.src = "https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y-english.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js";
+
+document.body.appendChild(combine);
+combine.onload = combine.onreadystatechange = function() {
+    new Sa11y({
+        detectSPArouting: true
+    });
+};</pre></code>
+
+
+<h2>Step 4</h2>
+<ol>
+    <li>Using any text editor as a scratch pad, copy and paste the following snippet below.</li>
+    <li>Replace YOURUSERNAME with your GitHub account username.</li>
+    <li>Then select the entire snippet of code again, copy to clipboard.</li>
+    <li>Go to your browser, create a new bookmark or favourite.</li>
+    <li>Paste the modified snippet of code in the URL field. Provide a name for your custom bookmarklet.</li>
+</ol>
+
+<pre><code class="language-js">javascript:void((function(doc)%7Bdocument.body.appendChild(document.createElement(%27script%27)).src%3D%27https://cdn.jsdelivr.net/gh/YOURUSERNAME/sa11y%40latest/bookmarklet/sa11y-en.min.js%27%3B%7D)(document))
+</code></pre>
+
+<h2>Short note on CDN</h2>
+<p>When using <code>@latest</code> within the CDN link, any changes you make to your fork will take time to propogate. You can manually purge the cache by replacing <code>https://cdn.jsdelivr...</code> with <code>https://purge.jsdelivr...</code> - however, this does not always work instantly either, nor is it recommended. We recommend publishing new Releases on GitHub, and replace <code>@latest</code> or Sa11y's release tag <code>{{site.sa11yBuild}}</code> with your own.</p> 
+
+{% include "partials/pagination-developers.njk" %}
+{% include "partials/prism.njk" %}

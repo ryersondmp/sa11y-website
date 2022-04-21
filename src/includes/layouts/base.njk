@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang}}">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>{{ title }} - Sa11y</title>
+        <meta name="description" content="{{site.description}}">
+        <meta name="author" content="{{ site.university }}">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://ryersondmp.github.io/sa11y/">
+        <meta property="og:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
+        <meta property="og:description" content="{{site.description}}">
+        <meta property="og:image" content="{{ '/images/github-banner.png' | url }}">
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://ryersondmp.github.io/sa11y/">
+        <meta property="twitter:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
+        <meta property="twitter:description" content="{{site.description}}">
+        <meta property="twitter:image" content="{{ '/images/github-banner.png' | url }}">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+        <link rel="preload" href="{{ '/fonts/lineto-replica-regular.woff' | url }}" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="{{ '/fonts/lineto-replica-bold.woff' | url }}" as="font" type="font/woff" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/src/sa11y.css"/>
+        <style>
+            @font-face {
+                font-family: "Replica-Regular";
+                font-style: normal;
+                font-weight: normal;
+                font-display: block;
+                src: url("{{ '/fonts/lineto-replica-regular.woff' | url }}") format("woff");
+            }
+            @font-face {
+                font-family: "Replica-Bold";
+                font-style: normal;
+                font-weight: normal;
+                font-display: block;
+                src: url("{{ '/fonts/lineto-replica-bold.woff' | url }}") format("woff");
+            }
+        </style>
+    </head>
+    <body>
+        {% include "partials/header.njk" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "partials/navigation.njk" %}
+                    <main id="content" class="col-md-8 ms-sm-auto col-lg-9 px-md-5">
+                        {{ content | safe}}
+                    </main>
+                {% include "partials/footer.njk" %}
+            </div>
+        </div>
+        <script src="https://cdn.disability.illinois.edu/skipto.min.js"></script>
+        <script src="{{ '/js/main.js' | url }}"></script>
+        <script>
+            var SkipToConfig = {
+                'settings': {
+                    'skipTo': {
+                    landmarks: 'main',
+                    displayOption: 'popup',
+                    headings: 'main h1, main h2, main h3',
+                    colorTheme: 'default',
+                    buttonLabel: 'Skip to content',
+                    focusBorderColor: '#5bc2f4',
+                    positionLeft: '5%',
+                    fontSize: '1.2rem'
+                    }
+                }
+            };
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+        <script>
+            anchors.options = {
+                placement: 'right',
+                visible: 'hover'
+            };
+            anchors.add('h2:not(.accordion-header), h3:not(.accordion-header), h4:not(.accordion-header), h5, h6');
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@latest/src/sa11y-custom-checks.min.js,gh/ryersondmp/sa11y@latest/src/sa11y-english.min.js,gh/ryersondmp/sa11y@latest/src/sa11y.min.js"></script>
+        <script>
+            const sa11y = new Sa11y({
+                containerIgnore: 'footer',
+                contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
+                customChecks: true
+            });
+        </script>
+    </body>
+</html>
