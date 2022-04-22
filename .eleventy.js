@@ -5,6 +5,7 @@ function eleventyConfig(config) {
 	config.addPassthroughCopy("src/img");
 	config.addPassthroughCopy("src/fonts");
 	config.addPassthroughCopy("src/images");
+	config.addPassthroughCopy("src/favicons");
 
 	//Sort main pages.
 	config.addCollection("pages", collection => {

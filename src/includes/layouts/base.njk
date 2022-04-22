@@ -6,7 +6,6 @@
         <title>{{ title }} - Sa11y</title>
         <meta name="description" content="{{site.description}}">
         <meta name="author" content="{{ site.university }}">
-
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://sa11y.netlify.app/">
@@ -19,7 +18,7 @@
         <meta property="twitter:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
         <meta property="twitter:description" content="{{site.description}}">
         <meta property="twitter:image" content="{{ '/images/github-banner.png' | url }}">
-
+         {% include "partials/favicons.njk" %}
         <!-- Styles -->
         <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
         <link rel="preload" href="{{ '/fonts/lineto-replica-regular.woff' | url }}" as="font" type="font/woff" crossorigin="">
