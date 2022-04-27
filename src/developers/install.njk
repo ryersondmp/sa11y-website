@@ -19,7 +19,7 @@ order: 1
 </ul>
 
 <h2>Demo and local development</h2>
-<p>As of <code>2.2.0</code>, the <code>/docs</code> folder within the main repo has been converted into a comprehensive demo site for development and testing. The project website has been moved to another repo.</p>
+<p>The <code>/docs</code> folder within the main repo has been converted into a comprehensive demo site for development and testing. The project website has been moved to another repo.</p>
 <ol>
     <li>Fork or download the <a href="https://github.com/ryersondmp/sa11y/releases">latest release</a> (less than 90KB)</li>
     <li>Navigate to <code>/docs/demo/sa11y-demo-cdn.js</code> and change <code>const production = true;</code> to <code>false</code> to develop locally.</li>
@@ -75,6 +75,18 @@ order: 1
 &#x3C;script&#x3E;
     const sa11y = new Sa11y();
 &#x3C;/script&#x3E;</code></pre>
+
+<hr class="mt-5" aria-hidden="true">
+
+<h2>Languages</h2>
+<p>Sa11y has been translated into: French, Polish, and Ukrainian. You can view the <a href="https://github.com/ryersondmp/sa11y/tree/master/src/languages">translations on GitHub.</a></p>
+
+<p>Want to help translate or improve Sa11y? Consider <a href="https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md">contributing!</a> Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: <a href="mailto:adam.chaboryk@ryerson.ca">adam.chaboryk@ryerson.ca</a></p>
+
+<h3>Readability</h3>
+<p>Sa11y's readability feature is based on <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease">Flesch reading-ease test (Wikipedia).</a> At this time, Sa11y <strong>only</strong> supports English, Dutch, Italian, French, German, and Spanish.</p>
+
+<hr class="mt-5" aria-hidden="true">
 
 <h2>Accessibility note about Tippy.js</h2>
 <p>Sa11y appends tooltips to the end of the body by default to ensure tooltips do not get hidden by conflicting CSS styling. If you customize the tooltips to include interactive content, please read <a href="https://atomiks.github.io/tippyjs/v6/accessibility/#interactivity">Tippy.js documentation on creating accessible interactive tooltips for keyboard users.</a></p>
