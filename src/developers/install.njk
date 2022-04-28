@@ -13,15 +13,15 @@ order: 1
 
 <ul>
     <li><strong>sa11y.css</strong> - The main stylesheet. Should be included in the <code>&lt;head&gt;</code> of the document (if possible).</li>
+     <li><strong>lang/en.js</strong> - All text strings and tooltip messages. View <a href="#languages">supported languages.</a></li>
     <li><span class="badge bg-secondary">Optional</span> <strong>sa11y-custom-checks.js</strong> - Any custom checks creataed by you.</li>
-    <li><strong>sa11y-english.js</strong> - All text strings and tooltip messages.</li>
     <li><strong>sa11y.js</strong> - Contains all logic.</li>
 </ul>
 
 <h2>Demo and local development</h2>
 <p>The <code>/docs</code> folder within the main repo has been converted into a comprehensive demo site for development and testing. The project website has been moved to another repo.</p>
 <ol>
-    <li>Fork or download the <a href="https://github.com/ryersondmp/sa11y/releases">latest release</a> (less than 90KB)</li>
+    <li>Fork or download the <a href="https://github.com/ryersondmp/sa11y/releases">latest release</a></li>
     <li>Navigate to <code>/docs/demo/sa11y-demo-cdn.js</code> and change <code>const production = true;</code> to <code>false</code> to develop locally.</li>
 </ol>
 
@@ -38,8 +38,8 @@ order: 1
 &#x3C;script src=&#x22;https://unpkg.com/tippy.js@6&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Sa11y (fork the latest code from GitHub) --&#x3E;
+&#x3C;script src=&#x22;lang/en.js&#x22;&#x3E;&#x3C;/script&#x3E; &#x3C;!--Language --&#x3E;
 &#x3C;script src=&#x22;sa11y-custom-checks.js&#x22;&#x3E;&#x3C;/script&#x3E;
-&#x3C;script src=&#x22;sa11y-english.js&#x22;&#x3E;&#x3C;/script&#x3E;
 &#x3C;script src=&#x22;sa11y.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
@@ -54,7 +54,7 @@ order: 1
 &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.css&#x22;/&#x3E;
 
 &#x3C;!-- Script --&#x3E;
-&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y-english.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/lang/en.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
 &#x3C;script&#x3E;
@@ -69,7 +69,7 @@ order: 1
 &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/src/sa11y.css&#x22;/&#x3E;
 
 &#x3C;!-- Script --&#x3E;
-&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@latest/src/sa11y-english.min.js,gh/ryersondmp/sa11y@latest/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@latest/src/lang/en.min.js,gh/ryersondmp/sa11y@latest/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
 &#x3C;script&#x3E;
@@ -78,10 +78,13 @@ order: 1
 
 <hr class="mt-5" aria-hidden="true">
 
-<h2>Languages</h2>
-<p>Sa11y has been translated into: French, Polish, and Ukrainian. You can view the <a href="https://github.com/ryersondmp/sa11y/tree/master/src/languages">translations on GitHub.</a></p>
+<h2 id="languages">Languages</h2>
+<p>Sa11y has been translated into: French (fr-ca), Polish (pl), and Ukrainian (ua). You can view the <a href="https://github.com/ryersondmp/sa11y/tree/master/src/languages">translations on GitHub.</a></p>
 
 <p>Want to help translate or improve Sa11y? Consider <a href="https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md">contributing!</a> Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: <a href="mailto:adam.chaboryk@ryerson.ca">adam.chaboryk@ryerson.ca</a></p>
+
+<h3>CDN</h3>
+<p>To utilize CDN links above, simply replace <code>en.min.js</code> with preferred language code.
 
 <h3>Readability</h3>
 <p>Sa11y's readability feature is based on <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease">Flesch reading-ease test (Wikipedia).</a> At this time, Sa11y <strong>only</strong> supports English, Dutch, Italian, French, German, and Spanish.</p>
