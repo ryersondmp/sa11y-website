@@ -19,46 +19,75 @@ order: 1
 </ul>
 
 <h2>Demo and local development</h2>
-<p>The <code>/docs</code> folder within the main repo has been converted into a comprehensive demo site for development and testing. The project website has been moved to another repo.</p>
+<p>A light server for development is included. Any change inside <code>/src</code> folder files will trigger the build process for the files and will reload the page with the new changes. To use this environment:</p>
+
 <ol>
     <li>Fork or download the <a href="https://github.com/ryersondmp/sa11y/releases">latest release</a></li>
-    <li>Navigate to <code>/docs/demo/sa11y-demo-cdn.js</code> and change <code>const production = true;</code> to <code>false</code> to develop locally.</li>
+    <li>Be sure you have node installed and up to date.</li>
+    <li>Execute <code>npm install</code></li>
+    <li>In a terminal execute: <code>npm run serve</code>. Then open <code>http://localhost:8080/docs/demo/en/</code> in your browser.</li>
 </ol>
 
 <p><a href="https://ryersondmp.github.io/sa11y/demo/" class="btn btn-sa11y">View demo</a></p>
 
-<h2>Example installation</h2>
-<p>Fork or download the latest release from <a href="https://github.com/ryersondmp/sa11y">GitHub.</a></p>
+<h2>Example installation (modules)</h2>
 
 <pre><code class="language-html">&#x3C;!-- Stylesheet --&#x3E;
 &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;sa11y.css&#x22;/&#x3E;
 
-&#x3C;!-- Tippy.js V6 CDN (tooltip library) --&#x3E;
-&#x3C;script src=&#x22;https://unpkg.com/@popperjs/core@2&#x22;&#x3E;&#x3C;/script&#x3E;
-&#x3C;script src=&#x22;https://unpkg.com/tippy.js@6&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script type="module"&#x3E;
+  import { Sa11y, Lang } from '../assets/js/sa11y.esm.js';
+  import Sa11yLangEn from '../assets/js/lang/en.js';
+
+  // Optional: Custom checks
+  import CustomChecks from '../assets/js/sa11y-custom-checks.esm.js';
+
+  // Set translations
+  Lang.addI18n(Sa11yLangEn.strings);
+
+  // Instantiate
+  const sa11y = new Sa11y({
+    customChecks: new CustomChecks, // Optional
+    checkRoot: "body",
+  });
+&#x3C;/script&#x3E;</code></pre>
+
+<h2>Example installation (regular script)</h2>
+<pre><code class="language-html">&#x3C;!-- Stylesheet --&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;sa11y.css&#x22;/&#x3E;
 
 &#x3C;!-- Sa11y (fork the latest code from GitHub) --&#x3E;
-&#x3C;script src=&#x22;lang/en.js&#x22;&#x3E;&#x3C;/script&#x3E; &#x3C;!--Language --&#x3E;
-&#x3C;script src=&#x22;sa11y-custom-checks.js&#x22;&#x3E;&#x3C;/script&#x3E;
-&#x3C;script src=&#x22;sa11y.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;/dist/js/sa11y.umd.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;/dist/js/lang/en.umd.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+&#x3C;!-- Optional: Custom checks --&#x3E;
+&#x3C;script src=&#x22;/dist/js/sa11y-custom-checks.umd.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
 &#x3C;script&#x3E;
-    const sa11y = new Sa11y();
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    customChecks: new CustomChecks, // Optional
+    checkRoot: "body",
+  });
 &#x3C;/script&#x3E;</code></pre>
 
 <h2>CDN via jsDelivr</h2>
-<p>The CDN link below is the latest and greatest (stable) release of Sa11y. It combines both Tippy.js and Sa11y in a single, minified CDN link. Current version: <code>@{{site.sa11yBuild}}</code></p>
+<p>The CDN link below is the latest and greatest (stable) release of Sa11y. Current version: <code>@{{site.sa11yBuild}}</code></p>
 
 <pre><code class="language-html">&#x3C;!-- Stylesheet --&#x3E;
-&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.css&#x22;/&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css&#x22;/&#x3E;
 
 &#x3C;!-- Script --&#x3E;
-&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/lang/en.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
 &#x3C;script&#x3E;
-    const sa11y = new Sa11y();
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    customChecks: new CustomChecks, // Optional
+    checkRoot: "body",
+  });
 &#x3C;/script&#x3E;</code></pre>
 
 <h3>CDN with automatic updates</h3>
@@ -66,14 +95,18 @@ order: 1
 <p class="alert alert-danger"><strong>Warning:</strong> This is not recommended for production... or you know, use at your own risk. 😬</p>
 
 <pre><code class="language-html">&#x3C;!-- Stylesheet --&#x3E;
-&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/src/sa11y.css&#x22;/&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/dist/css/sa11y.min.css&#x22;/&#x3E;
 
 &#x3C;!-- Script --&#x3E;
-&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@latest/src/lang/en.min.js,gh/ryersondmp/sa11y@latest/src/sa11y.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script src=&#x22;https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@latest/dist/js/sa11y.umd.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 
 &#x3C;!-- Instantiate--&#x3E;
 &#x3C;script&#x3E;
-    const sa11y = new Sa11y();
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    customChecks: new CustomChecks, // Optional
+    checkRoot: "body",
+  });
 &#x3C;/script&#x3E;</code></pre>
 
 <hr class="mt-5" aria-hidden="true">
@@ -84,7 +117,7 @@ order: 1
 <p>Want to help translate or improve Sa11y? Consider <a href="https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md">contributing!</a> Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: <a href="mailto:adam.chaboryk@ryerson.ca">adam.chaboryk@ryerson.ca</a></p>
 
 <h3>CDN</h3>
-<p>To utilize CDN links above, simply replace <code>en.min.js</code> with preferred language code.
+<p>To utilize CDN links above, simply replace <code>lang/en.umd.js</code> with preferred language code.
 
 <h3>Readability</h3>
 <p>Sa11y's readability feature is based on <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease">Flesch reading-ease test (Wikipedia).</a> At this time, Sa11y <strong>only</strong> supports English, Dutch, Italian, French, German, and Spanish.</p>
