@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
         <link rel="preload" href="{{ '/fonts/lineto-replica-regular.woff' | url }}" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="{{ '/fonts/lineto-replica-bold.woff' | url }}" as="font" type="font/woff" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css"/>
         <style>
             @font-face {
                 font-family: "Replica-Regular";
@@ -80,12 +80,14 @@
             anchors.add('h2:not(.accordion-header), h3:not(.accordion-header), h4:not(.accordion-header), h5, h6');
         </script>
 
-        <script src="https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/lang/en.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y-custom-checks.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y-custom-checks.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js"></script>
+
         <script>
-            const sa11y = new Sa11y({
+            Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+            const sa11y = new Sa11y.Sa11y({
+                customChecks: new CustomChecks,
                 containerIgnore: 'footer',
                 contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
-                customChecks: true,
             });
         </script>
         <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>

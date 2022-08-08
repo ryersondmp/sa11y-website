@@ -27,23 +27,22 @@ order: 5
 
 <pre><code class="language-js">const sa11ycss = document.createElement("link");
 sa11ycss.setAttribute("rel", "stylesheet");
-sa11ycss.setAttribute("href", "https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.css");
+sa11ycss.setAttribute("href", "https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css");
 sa11ycss.setAttribute("type", "text/css");
 
 const bodyheader = document.getElementsByTagName("head")[0];
 bodyheader.appendChild(sa11ycss);
 
-/* Queue Poppers.js, Tippy.js, and Sa11y. Thanks to JSDeliver for this cool combine feature! */
 const combine = document.createElement("script");
-combine.src = "https://cdn.jsdelivr.net/combine/npm/@popperjs/core@2/dist/umd/popper.min.js,npm/tippy.js@6/dist/tippy.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y-english.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/src/sa11y.min.js";
+combine.src = `https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js`;
 
 document.body.appendChild(combine);
 combine.onload = combine.onreadystatechange = function() {
-    new Sa11y({
-        detectSPArouting: true
+    Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+    new Sa11y.Sa11y({
+        detectSPArouting: true,
     });
 };</pre></code>
-
 
 <h2>Step 4</h2>
 <ol>
@@ -58,7 +57,7 @@ combine.onload = combine.onreadystatechange = function() {
 </code></pre>
 
 <h2>Short note on CDN</h2>
-<p>When using <code>@latest</code> within the CDN link, any changes you make to your fork will take time to propogate. You can manually purge the cache by replacing <code>https://cdn.jsdelivr...</code> with <code>https://purge.jsdelivr...</code> - however, this does not always work instantly either, nor is it recommended. We recommend publishing new Releases on GitHub, and replace <code>@latest</code> or Sa11y's release tag <code>{{site.sa11yBuild}}</code> with your own.</p> 
+<p>When using <code>@latest</code> within the CDN link, any changes you make to your fork will take time to propogate. You can manually purge the cache by replacing <code>https://cdn.jsdelivr...</code> with <code>https://purge.jsdelivr...</code> - however, this does not always work instantly either, nor is it recommended. We recommend publishing new Releases on GitHub, and replace <code>@latest</code> or Sa11y's release tag <code>{{site.sa11yBuild}}</code> with your own.</p>
 
 {% include "partials/pagination-developers.njk" %}
 {% include "partials/prism.njk" %}

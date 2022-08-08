@@ -40,7 +40,7 @@ a.overlay-link:hover .text, a.overlay-link:focus .text {
       left: 0;
       right: 0;
       transition: 0.5s ease;
-  
+
       .text {
         color: white;
         font-size: 20px;
@@ -73,7 +73,7 @@ a.overlay-link:hover .text, a.overlay-link:focus .text {
 }
 
 .flex-item img {
-  width: 200px;    
+  width: 200px;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   opacity: .8;
@@ -208,9 +208,9 @@ main li {
   font-family: 'Replica-Bold', sans-serif;
 }
 
-.homepage-link:hover, 
+.homepage-link:hover,
 .homepage-link:focus,
-h1:not(#homepage-heading), 
+h1:not(#homepage-heading),
 .sa11y {
   background: #E040FB;
   background: -webkit-linear-gradient(to top right, #E040FB 0%, #00BCD4 100%);
@@ -257,6 +257,7 @@ h1:not(#homepage-heading),
 
 .nav-link {
   font-size: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .navbar-logo {
@@ -277,7 +278,7 @@ h1:not(#homepage-heading),
     padding: 60px 0 0; /* Height of navbar */
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   }
-  
+
   .sidebar-sticky {
     position: relative;
     top: 0;
@@ -286,11 +287,11 @@ h1:not(#homepage-heading),
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
-  
+
   /*
    * Navbar
    */
-  
+
   .navbar-brand {
     padding-top: .75rem;
     padding-bottom: .75rem;
@@ -298,7 +299,7 @@ h1:not(#homepage-heading),
     background-color: rgba(0, 0, 0, .25);
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
   }
-  
+
   .navbar .navbar-toggler {
     top: 1.25rem;
     right: 1.25rem;
@@ -316,7 +317,7 @@ h1:not(#homepage-heading),
     color: rgba(0, 0, 0, .85);
     background-color: #a6daff;
   }
-  
+
   .btn-toggle::before {
     width: 1.25em;
     line-height: 0;
@@ -324,14 +325,14 @@ h1:not(#homepage-heading),
     transition: transform .35s ease;
     transform-origin: .5em 50%;
   }
-  
+
   .btn-toggle[aria-expanded="true"] {
     color: rgba(0, 0, 0, .85);
   }
   .btn-toggle[aria-expanded="true"]::before {
     transform: rotate(90deg);
   }
-  
+
   .btn-toggle-nav a {
     display: inline-flex;
     padding: .1875rem .5rem;
