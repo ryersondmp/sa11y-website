@@ -15,42 +15,42 @@ order: 4
   <div class="accordion-item">
     <h3 class="accordion-header" id="headingOne">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Utilities and selectors 
+        Utilities and selectors
       </button>
     </h3>
     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <h4>Utilities</h4>
         <ul>
-            <li><code>Sa11y.computeAriaLabel()</code> - Process ARIA attributes on elements.</li>
-            <li><code>Sa11y.fnIgnore()</code> - Ignore children of element.</li>
-            <li><code>Sa11y.debounce()</code> - Simple <a href="https://www.joshwcomeau.com/snippets/javascript/debounce/">debounce</a> utility.</li>
-            <li><code>Sa11y.computeTextNodeWithImage()</code> - Compute alt text on images within a text node.</li>
-            <li><code>Sa11y.sanitizeForHTML()</code> - Converts various HTML characters back to their respective entity code.</li>
+            <li><code>this.sa11y.computeAriaLabel()</code> - Process ARIA attributes on elements.</li>
+            <li><code>this.sa11y.fnIgnore()</code> - Ignore children of element.</li>
+            <li><code>this.sa11y.debounce()</code> - Simple <a href="https://www.joshwcomeau.com/snippets/javascript/debounce/">debounce</a> utility.</li>
+            <li><code>this.sa11y.computeTextNodeWithImage()</code> - Compute alt text on images within a text node.</li>
+            <li><code>this.sa11y.sanitizeForHTML()</code> - Converts various HTML characters back to their respective entity code.</li>
         </ul>
         <h4>Selectors</h4>
         <p>For performance, you can reuse these selectors when creating custom checks.</p>
         <ul class="ul-dual">
-            <li><code>Sa11y.$h</code> - Select all H1, H2, H3, H4, H5, H6, [role='heading'][aria-level]</li>
-            <li><code>Sa11y.$h1</code> - Select all H1</li>
-            <li><code>Sa11y.$img</code> - Select all IMG</li>
-            <li><code>Sa11y.$links</code> - Select all A[HREF]</li>
-            <li><code>Sa11y.$inputs</code> - Select all INPUT</li>
-            <li><code>Sa11y.$iframes</code> - Select all IFRAME</li>
-            <li><code>Sa11y.$videos</code> - Select all IFRAME that contains a video player only</li>
-            <li><code>Sa11y.$audio</code>  - Select all IFRAME and AUDIO that contains an audio player only</li>
-            <li><code>Sa11y.$dataviz</code> - Select all IFRAME that contains a visualization only</li>
-            <li><code>Sa11y.$twitter</code> - Select all Twitter IFRAME</li>
-            <li><code>Sa11y.$embeddedContent</code> - Select all IFRAME that is not an identified audio player, video player, Twitter widget or visualization</li>
-            <li><code>Sa11y.$strongitalics</code> - Select all STRONG and EM</li>
-            <li><code>Sa11y.$badDevLinks</code> - Select all links via <code>linksToFlag</code> prop.</li>
-            <li><code>Sa11y.$checkPDF</code> - Select all a[href$='.pdf']</code></li>
-            <li><code>Sa11y.$tables</code> - Select all TABLE</li>
-            <li><code>Sa11y.$lang</code> - Select HTML's LANG attribute</li>
-            <li><code>Sa11y.$blockquotes</code> - Select all BLOCKQUOTE</li>
-            <li><code>Sa11y.$p</code> - Select all P</li>
-            <li><code>Sa11y.$allCaps</code> - Select all H1, H2, H3, H4, H5, H6, LI, BLOCKQUOTE</li>
-            <li><code>Sa11y.$readability</code> - Select all P and LI within specified container</li>
+            <li><code>this.sa11y.$h</code> - Select all H1, H2, H3, H4, H5, H6, [role='heading'][aria-level]</li>
+            <li><code>this.sa11y.$h1</code> - Select all H1</li>
+            <li><code>this.sa11y.$img</code> - Select all IMG</li>
+            <li><code>this.sa11y.$links</code> - Select all A[HREF]</li>
+            <li><code>this.sa11y.$inputs</code> - Select all INPUT</li>
+            <li><code>this.sa11y.$iframes</code> - Select all IFRAME</li>
+            <li><code>this.sa11y.$videos</code> - Select all IFRAME that contains a video player only</li>
+            <li><code>this.sa11y.$audio</code>  - Select all IFRAME and AUDIO that contains an audio player only</li>
+            <li><code>this.sa11y.$dataviz</code> - Select all IFRAME that contains a visualization only</li>
+            <li><code>this.sa11y.$twitter</code> - Select all Twitter IFRAME</li>
+            <li><code>this.sa11y.$embeddedContent</code> - Select all IFRAME that is not an identified audio player, video player, Twitter widget or visualization</li>
+            <li><code>this.sa11y.$strongitalics</code> - Select all STRONG and EM</li>
+            <li><code>this.sa11y.$badDevLinks</code> - Select all links via <code>linksToFlag</code> prop.</li>
+            <li><code>this.sa11y.$checkPDF</code> - Select all a[href$='.pdf']</code></li>
+            <li><code>this.sa11y.$tables</code> - Select all TABLE</li>
+            <li><code>this.sa11y.$lang</code> - Select HTML's LANG attribute</li>
+            <li><code>this.sa11y.$blockquotes</code> - Select all BLOCKQUOTE</li>
+            <li><code>this.sa11y.$p</code> - Select all P</li>
+            <li><code>this.sa11y.$allCaps</code> - Select all H1, H2, H3, H4, H5, H6, LI, BLOCKQUOTE</li>
+            <li><code>this.sa11y.$readability</code> - Select all P and LI within specified container</li>
         </ul>
       </div>
     </div>
@@ -60,52 +60,49 @@ order: 4
 <h3>Button annotation</h3>
 <ol>
     <li>Create your condition.</li>
-    <li>Use <code>Sa11y.root</code> instead of <code>document</code> within your selector.</li>
-    <li>Add <code>Sa11y.warningCount++;</code> or <code>Sa11y.errorCount++;</code> to update the warning or error count.</li>
+    <li>Use <code>this.sa11y.root</code> instead of <code>document</code> within your selector.</li>
     <li>Add respective CSS classes.
         <ul>
             <li><strong>Highlighting text:</strong> <code>.sa11y-warning-text</code> or <code>.sa11y-error-text</code></li>
             <li><strong>Border around elements:</strong> <code>.sa11y-warning-border</code> or <code>.sa11y-error-border</code> or <code>.sa11y-good-border</code></li>
         </ul>
     </li>
-    <li>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML">insertAdjacentHTML() method</a> to append the annotation either before or after the element.</li> 
-    <li>Use <code class="language-js">Sa11y.annotate(string, string, boolean)</code> within the aforementioned method to generate the annotation.
+    <li>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML">insertAdjacentHTML() method</a> to append the annotation either before or after the element.</li>
+    <li>Use <code class="language-js">this.sa11y.annotate(string, string, boolean)</code> within the aforementioned method to generate the annotation.
         <ul>
             <li><strong>String (type of annotation):</strong> <code>M["ERROR"]</code> or <code>M["WARNING"]</code> or <code>M["GOOD"]</code></li>
             <li><strong>String:</strong> <code>C["YOUR_CUSTOM_TOOLTIP_MESSAGE"])</code></li>
             <li><strong>Boolean (Optional):</strong> Pass <code>true</code> if you'd like to position the annotation inline with text.</li>
-        </ul>    
+        </ul>
     </li>
 </ol>
 <h3>Full-width banner annotation</h3>
 <ol>
     <li>Create your condition.</li>
-    <li>Use <code>Sa11y.root</code> instead of <code>document</code> within your selector.</li>
-    <li>Add <code>Sa11y.warningCount++;</code> or <code>Sa11y.errorCount++;</code> to update the warning or error count.</li>
-    <li>Banners should be appended after Sa11y's container. Use <code>Sa11y.panel.insertAdjacentHTML()</code> method with a position parameter of <code>afterend</code>.</li>
-    <li>Use <code class="language-js">Sa11y.annotateBanner(string, string)</code> within the aforementioned method to generate the annotation.
+    <li>Use <code>this.sa11y.root</code> instead of <code>document</code> within your selector.</li>
+    <li>Banners should be appended after Sa11y's container. Use <code>this.sa11y.panel.insertAdjacentHTML()</code> method with a position parameter of <code>afterend</code>.</li>
+    <li>Use <code class="language-js">this.sa11y.annotateBanner(string, string)</code> within the aforementioned method to generate the annotation.
         <ul>
             <li><strong>String (type of annotation):</strong> <code>M["ERROR"]</code> or <code>M["WARNING"]</code> or <code>M["GOOD"]</code></li>
             <li><strong>String:</strong> <code>C["YOUR_CUSTOM_TOOLTIP_MESSAGE"])</code></li>
-        </ul>    
+        </ul>
     </li>
 </ol>
-	
+
 <h2>Recipes</h2>
 <p>Both recipes below are included in <a href="https://github.com/ryersondmp/sa11y/blob/master/src/sa11y-custom-checks.js">sa11y-custom-checks.js</a></p>
 
 <h3>Overusing a component on a page</h3>
 <p>The example detects if more than one announcement is detected on a page, although it could be easily extended to anything. Too many slideshows? Too many accordions? You name it.</p>
 
-<pre><code class="language-js">const $checkAnnouncement = Sa11y.root.querySelectorAll(".announcement-component");
+<pre><code class="language-js">const $checkAnnouncement = this.sa11y.root.querySelectorAll(".announcement-component");
 if ($checkAnnouncement.length &lt; 1) {
-    Sa11y.warningCount++;
     for (let i = 1; i &lt; $checkAnnouncement.length; i++) {
         $checkAnnouncement[i].classList.add("sa11y-warning-border");
         $checkAnnouncement[i].insertAdjacentHTML(
-            "beforebegin", 
-            Sa11y.annotate(
-                M["WARNING"], 
+            "beforebegin",
+            this.sa11y.annotate(
+                M["WARNING"],
                 C["QA_TOO_MANY_COMPONENTS_EXAMPLE"]
             )
         );
@@ -124,15 +121,14 @@ if ($checkAnnouncement.length &lt; 1) {
 
 <h3>Accordion component contains a form</h3>
 <p>Forms nested within accordion components can be problematic if it uses server-sided validation. The page will reload, and the accordion usually returns back to its closed state. This is problematic for everyone.</p>
-<pre><code class="language-js">const $checkAccordions = Sa11y.root.querySelectorAll(".sa11y-accordion-example");
+<pre><code class="language-js">const $checkAccordions = this.sa11y.root.querySelectorAll(".sa11y-accordion-example");
 $checkAccordions.forEach($el => {
     const checkForm = $el.querySelector("form");
     if (!!checkForm && checkForm.length) {
-        Sa11y.errorCount++;
         $el.classList.add("sa11y-error-border");
-        $el.insertAdjacentHTML("beforebegin", 
-            Sa11y.annotate(
-                M["ERROR"], 
+        $el.insertAdjacentHTML("beforebegin",
+            this.sa11y.annotate(
+                M["ERROR"],
                 C["ACCORDION_FORM_MESSAGE"]
             )
         );
