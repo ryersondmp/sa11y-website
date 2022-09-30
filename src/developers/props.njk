@@ -169,8 +169,7 @@ order: 2
         <tr>
             <td>readabilityLang</td>
             <td>'en'</td>
-            <td>Default is English. Currently supports English (<code>en</code>), French (<code>fr</code>), German
-                (<code>de</code>), Spanish (<code>sp</code>), Italian (<code>it</code>), and Dutch (<code>nl</code>).
+            <td>English (<code>en</code>), French (<code>fr</code>), German (<code>de</code>), Spanish (<code>sp</code>), Italian (<code>it</code>), Dutch (<code>nl</code>), Danish (<code>da</code>), Finnish (<code>fi</code>), Norwegian (Bokmål & Nynorsk) (<code>no</code>, <code>nb</code>, <code>nn</code>), Swedish (<code>sv</code>).
             </td>
         </tr>
         <tr>
@@ -281,6 +280,11 @@ order: 2
             <td>true</td>
             <td>Error if meta page <code>&lt;title&gt;</code> is missing or empty.</td>
         </tr>
+        <tr>
+            <td>subscriptQA</td>
+            <td>true</td>
+            <td>Warning if <code>&lt;sup&gt;</code> and <code>&lt;sub&gt;</code> tags are used to format entire sentences.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -308,11 +312,6 @@ order: 2
             <td>embeddedContentVideo</td>
             <td>true</td>
             <td>Warning about video content and captions.</td>
-        </tr>
-        <tr>
-            <td>embeddedContentTwitter</td>
-            <td>true</td>
-            <td>Warning about endless Twitter widgets.</td>
         </tr>
         <tr>
             <td>embeddedContentDataViz</td>

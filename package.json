@@ -5,7 +5,7 @@
     "author": "Webpixels",
     "license": "MIT",
     "scripts": {
-        "start": "run-p serve:eleventy watch:parcel",
+        "serve": "run-p serve:eleventy watch:parcel",
         "serve:eleventy": "cross-env ELEVENTY_ENV=local eleventy --serve",
         "watch:parcel": "run-p watch:css watch:js watch:images",
         "watch:css": "parcel watch ./src/scss/main.scss --dist-dir ./dist/css",
