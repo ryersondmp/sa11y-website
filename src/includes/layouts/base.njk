@@ -67,9 +67,7 @@
       site.sa11yBuild }}/dist/js/sa11y.umd.min.js"></script>
     <script>
       Sa11y.Lang.addI18n(Sa11yLangEn.strings);
-      const sa11y = new Sa11y.Sa11y(
-        {customChecks: new CustomChecks, containerIgnore: 'footer', contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code'}
-      );
+      const sa11y = new Sa11y.Sa11y({customChecks: true, containerIgnore: 'footer', contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code'});
     </script>
     <!-- Cloudflare Web Analytics -->
     <script
