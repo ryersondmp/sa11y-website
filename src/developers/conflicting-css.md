@@ -1,34 +1,37 @@
 ---
 layout: base
-title: Conflicting CSS 
+title: Conflicting CSS
 permalink: '/developers/conflicting-css/'
 order: 3
 ---
 
-<h1>{{title}}</h1>
+# {{title}}
+Sometimes annotations are unreachable because of conflicting CSS or because the issue is in a hidden location on the page. Using custom CSS or the [Customizer](https://wordpress.com/support/customizer/) within WordPress, you can adjust elements on the page when **Sa11y is active.**
 
-<p>Sometimes annotations are unreachable because of conflicting CSS or because the issue is in a hidden location on the page. Using custom CSS or the <a href="https://wordpress.com/support/customizer/">Customizer</a> within WordPress, you can adjust elements on the page when <strong>Sa11y is active.</strong></p>
-
-<p>Find the element you would like to change, and add <code>[data-sa11y-active="true"]</code> before it.</p>
+Find the element you would like to change, and add `[data-sa11y-active="true"]` before it.
 
 <p class="alert alert-primary">
    <strong>Try:</strong> For each example, use a mouse or keyboard <kbd>alt</kbd> <kbd>A</kbd> to toggle Sa11y on and off.
 </p>
 
-<h2>Example #1</h2>
-<p>A simple example of revealing a hidden <code>&lt;div&gt;</code>.</p>
+## Example #1
+A simple example of revealing a hidden `<div>`.
 
 <style>[data-sa11y-active="true"] #dog {display: block !important;}</style>
-<pre class="language-css"><code class="language-css">[data-sa11y-active="true"] #dog {display: block;}</code></pre>
+```css
+[data-sa11y-active="true"] #dog {display: block;}
+```
 
 <div style="display: none" class="example mt-4 p-4" id="dog">
     <img loading="lazy" width="300" class="img-fluid" src="{{ '/images/doggy1.jpg' | url }}" alt="doggy.jpg">
 </div>
 
-<h2>Example #2</h2>
-<p>Open all accordion panels to make it easier to review the page.</p>
+## Example #2
+Open all accordion panels to make it easier to review the page.
 <style>[data-sa11y-active="true"] .accordion-collapse {display: block !important;}</style>
-<pre class="language-css"><code class="language-css">[data-sa11y-active="true"] .accordion-collapse {display: block;}</code></pre>
+```css
+[data-sa11y-active="true"] .accordion-collapse {display: block;}
+```
 
 <div class="accordion mt-4" id="accordionExample">
   <div class="accordion-item">
@@ -70,4 +73,3 @@ order: 3
 </div>
 
 {% include "partials/pagination-developers.njk" %}
-{% include "partials/prism.njk" %}

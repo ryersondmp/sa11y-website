@@ -1,64 +1,68 @@
 const htmlmin = require('html-minifier');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 
 function eleventyConfig(config) {
-	// Passthroughs
-	config.addPassthroughCopy("src/img");
-	config.addPassthroughCopy("src/fonts");
-	config.addPassthroughCopy("src/images");
-	config.addPassthroughCopy("src/favicons");
+  // Passthroughs
+  config.addPassthroughCopy("src/img");
+  config.addPassthroughCopy("src/fonts");
+  config.addPassthroughCopy("src/images");
+  config.addPassthroughCopy("src/favicons");
 
-	//Sort main pages.
-	config.addCollection("pages", collection => {
-		const docs = collection.getFilteredByGlob("src/pages/*.njk")
-		  .sort((a, b) => {
-			return Number(a.data.order) - Number(b.data.order);
-		  });
-		return docs;
-	  });
+  config.addPlugin(syntaxHighlight);
 
-	//Sort developer pages.
-	config.addCollection("developers", collection => {
-	const docs = collection.getFilteredByGlob("src/developers/*.njk")
-		.sort((a, b) => {
-		return Number(a.data.order) - Number(b.data.order);
-		});
-	return docs;
-	});
+  //Sort main pages.
+  config.addCollection("pages", collection => {
+    const docs = collection.getFilteredByGlob("src/pages/*.md")
+      .sort((a, b) => {
+        return Number(a.data.order) - Number(b.data.order);
+      });
+    return docs;
+  });
 
-	// Layout aliases
-	config.addLayoutAlias("base", "layouts/base.njk");
+  //Sort developer pages.
+  config.addCollection("developers", collection => {
+    const docs = collection.getFilteredByGlob("src/developers/*.md")
+      .sort((a, b) => {
+        return Number(a.data.order) - Number(b.data.order);
+      });
+    return docs;
+  });
 
-	// Minify HTML
-	const isProduction = process.env.ELEVENTY_ENV === "production";
+  // Layout aliases
+  config.addLayoutAlias("base", "layouts/base.njk");
 
-	var htmlMinify = function(value, outputPath) {
-		if (outputPath && outputPath.indexOf('.html') > -1) {
-			return htmlmin.minify(value, {
-				useShortDoctype: true,
-				removeComments: true,
-				collapseWhitespace: true,
-				minifyCSS: true
-			});
-		}
-	}
+  // Minify HTML
+  const isProduction = process.env.ELEVENTY_ENV === "production";
 
-	// html min only in production
-	if (isProduction) {
-		config.addTransform("htmlmin", htmlMinify);
-	}
+  var htmlMinify = function (value, outputPath) {
+    if (outputPath && outputPath.indexOf('.html') > -1) {
+      return htmlmin.minify(value, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true
+      });
+    }
+  }
 
-	// Configuration
-	return {
-		dir: {
-			input: "src",
-			output: "dist",
-			includes: "includes",
-			data: "data",
-		},
-		templateFormats: ["html", "njk", "md", "11ty.js"],
-		htmlTemplateEngine: "njk",
-		markdownTemplateEngine: "njk",
-	};
+  // html min only in production
+  if (isProduction) {
+    config.addTransform("htmlmin", htmlMinify);
+  }
+
+  // Configuration
+  return {
+    dir: {
+      input: "src",
+      output: "dist",
+      includes: "includes",
+      data: "data",
+    },
+    templateFormats: ["html", "njk", "md", "11ty.js"],
+    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk",
+  };
 };
 
 module.exports = eleventyConfig;

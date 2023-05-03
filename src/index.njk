@@ -5,95 +5,176 @@ permalink: '/'
 ---
 
 <div class="row">
-    <div class="col-lg-12 text-center">
-        <h1 id="homepage-heading">
-            <span class="sa11y sa11y-big">Sa11y</span>
-            <span class="sa11y-tagline">the accessibility quality <br>assurance assistant</span>
-        </h1>
-    </div>
+  <div class="col-lg-12 text-center">
+    <h1 id="homepage-heading">
+      <span class="sa11y sa11y-big">Sa11y</span>
+      <span class="sa11y-tagline">the accessibility quality <br>assurance assistant</span>
+    </h1>
+  </div>
 </div>
-
+<div class="row">
+  <div class="col-lg-12 text-center mt-4" style="max-width:500px;margin:0 auto;">
+    <div class="alert alert-success">
+      📣
+      <strong>May 2023:</strong>
+      Check out
+      <a href="https://github.com/ryersondmp/sa11y/releases/tag/3.0.0">what's new in version 3.0!</a>
+    </div>
+  </div>
+</div>
 <div class="homepage">
-    <div class="row align-items-md-stretch mt-4">
-        <div class="col-lg-6">
-            <div class="h-100 p-5 bg-ryerson-accent rounded-3">
-                <h2>Made for content<br> authors <i class="bi bi-people-fill"></i></h2>
-                <img src="/images/coder-vs-comms.svg" alt="Illustration of a gauge pointing to a content author instead of a web developer." class="img-fluid" width="450" />
-                <p class="lead">Sa11y visually highlights content issues at the source with a simple tooltip on how to fix them. Sa11y is <strong>not</strong> a comprehensive code analysis tool.</p>
-                <p><a href="{{ '/overview/' | url }}" class="btn btn-sa11y">Overview</a></p>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="h-100 p-5 bg-light rounded-3">
-                <h2>Developers and a11y experts <i class="bi bi-journal-code"></i></h2>
-                <p class="lead">Sa11y is a customizable, framework-agnostic JavaScript plugin.</p>
-                <ul>
-                    <li>Over 50 checks that encourage quality accessibility.</li>
-                    <li><strong>Automatic:</strong> checks content on page load.</li>
-                    <li><strong>Customizable:</strong> JSON-like props to fine tune the experience for content authors.</li>
-                    <li><strong>Focus on the issues:</strong> Turn off or hide irrelevant checks.</li>
-                    <li><strong>Scalable:</strong> Check <strong>every</strong> page for accessibility.</li>
-                </ul>
-                <p>Sa11y is <strong>not</strong> a <a href="https://www.a11yproject.com/posts/should-i-use-an-accessibility-overlay/">web accessibility overlay.</a></p>
-                <p><a href="{{ '/developers/' | url }}" class="btn btn-sa11y">Developer docs</a></p>
-            </div>
-        </div>
+  <div class="row align-items-md-stretch mt-4">
+    <div class="col-lg-6">
+      <div class="h-100 p-5 bg-ryerson-accent rounded-3">
+        <h2>Made for content<br> authors
+          <i class="bi bi-people-fill"></i>
+        </h2>
+        <img
+          src="/images/coder-vs-comms.svg"
+          alt="Illustration of a gauge pointing to a content author instead of a web developer."
+          class="img-fluid"
+          width="450"/>
+        <p class="lead">Sa11y visually highlights content issues at the source with a simple tooltip on how to fix them. Sa11y
+          is
+          <strong>not</strong>
+          a comprehensive code analysis tool.</p>
+        <p>
+          <a href="{{ '/overview/' | url }}" class="btn btn-sa11y">Overview</a>
+        </p>
+      </div>
     </div>
-    <div class="row align-items-md-stretch">
-        <div class="col-lg-6">
-            <div class="h-100 p-5 bg-light rounded-3">
-                <h2>Open source <i class="bi bi-balloon-heart"></i></h2>
-                <p class="lead">Sa11y is 100% free and open source. You can view the <a href="https://github.com/ryersondmp/sa11y">source code on GitHub.</a> Sa11y was made open source in 2020 to help content authors around the world create accessible content for people with disabilities.</p>
-                <p>Sa11y was originally developed as a custom accessibility checker for {{ site.university}}'s content management system and its several hundred content authors.</p>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="h-100 p-5 bg-ryerson-accent rounded-3">
-                <h2>Privacy <i class="bi bi-shield-lock"></i></h2>
-                <p class="lead">No personal data is ever collected when you use Sa11y. No tracking, no analytics, no third party content. Sa11y only uses your browser’s web storage to remember the state of optional rulesets and other features you enable.</p>
-                <p>Only this website uses privacy-oriented analytics. The analytics do not track IP addresses, fingerprints or cookies.</p>
-            </div>
-        </div>
+    <div class="col-lg-6">
+      <div class="h-100 p-5 bg-light rounded-3">
+        <h2>Developers and a11y experts
+          <i class="bi bi-journal-code"></i>
+        </h2>
+        <p class="lead">Sa11y is a customizable, framework-agnostic JavaScript plugin.</p>
+        <ul>
+          <li>Over 50 checks that encourage quality accessibility.</li>
+          <li>
+            <strong>Automatic:</strong>
+            checks content on page load.</li>
+          <li>
+            <strong>Customizable:</strong>
+            JSON-like props to fine tune the experience for content authors.</li>
+          <li>
+            <strong>Focus on the issues:</strong>
+            Turn off or hide irrelevant checks.</li>
+          <li>
+            <strong>Scalable:</strong>
+            Check
+            <strong>every</strong>
+            page for accessibility.</li>
+        </ul>
+        <p>Sa11y is
+          <strong>not</strong>
+          a
+          <a href="https://www.a11yproject.com/posts/should-i-use-an-accessibility-overlay/">web accessibility overlay.</a>
+        </p>
+        <p>
+          <a href="{{ '/developers/' | url }}" class="btn btn-sa11y">Developer docs</a>
+        </p>
+      </div>
     </div>
-
-    <h2 class="sa11y mt-5">Featured on</h2>
-    <div class="row align-items-md-stretch">
-        <div class="flex-container">
-            <div class="flex-item">
-                <a href="https://uit.stanford.edu/accessibility/testing/browser-plugins"><img src="{{ '/images/logos/stanford.svg' | url }}" class="img-fluid p-3" alt="Stanford University's Office of Digital Accessibility, Browser Plugins page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://www.queensu.ca/webpublish/resources/accessibility#:~:text=Sa11y"><img src="{{ '/images/logos/queens.svg' | url }}" class="img-fluid p-3" alt="Queen's University: WebPublish Service and Support accessibility resources page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://accessibility.princeton.edu/news/introducing-editoria11y#:~:text=Sa11y"><img src="{{ '/images/logos/princeton.svg' | url }}" class="img-fluid p-3" alt="Princeton University. Introducing Editoria11y: Accessibility Autocorrect page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://www.facebook.com/36388408213/posts/today-is-global-accessibility-awareness-day-the-purpose-is-to-get-everyone-talki/10158603158943214/"><img src="{{ '/images/logos/viu.jpg' | url }}" class="img-fluid p-3" alt="Vancouver Island University's Facebook post mentioning Sa11y." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://laurentian.ca/web/accessibility#:~:text=Sa11y"><img src="{{ '/images/logos/laurentian.svg' | url }}" class="img-fluid p-3" alt="Laurentian University's web accessibility resources page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://itaccessibility.arizona.edu/content/web-validation#:~:text=Sa11y"><img src="{{ '/images/logos/arizona.svg' | url }}" class="img-fluid p-3" alt="University of Arizona's browser plugins section." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://scuweb.zendesk.com/hc/en-us/articles/4412360550931-Using-the-Sa11y-Accessibility-Tool"><img src="{{ '/images/logos/santaclara.png' | url }}" class="img-fluid p-3" alt="Santa Clara University's support page on using Sa11y." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://accessibility.civicactions.com/guide/tools#:~:text=Sa11y"><img src="{{ '/images/logos/civicactions.svg' | url }}" class="img-fluid p-3" alt="Civic Actions' Accessibility Playbook tools page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://www.joomla.org/announcements/release-news/5855-joomla-4-1-0-stable-new-standards-in-accessible-website-design.html"><img src="{{ '/images/logos/joomla.png' | url }}" class="img-fluid p-3" alt="Joomla's 4.1 release note mentions accessibility checker powered by Sa11y." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://it.wisc.edu/learn/accessible-content-tech/how-to-follow-uw-madisons-new-digital-accessibility-policy/#:~:text=Sa11y"><img src="{{ '/images/logos/uwisconsinmadison.png' | url }}" class="img-fluid p-3" alt="University of Winsconsin-Madison's Digital Accessibility Policy page features Sa11y." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://www.a11yproject.com/resources/#:~:text=Sa11y"><img src="{{ '/images/logos/a11y-project.webp' | url }}" class="img-fluid p-3" alt="The A11y Project's resources page." loading="lazy"></a>
-            </div>
-            <div class="flex-item">
-                <a href="https://www.merlot.org/merlot/viewMaterial.htm?id=773412275"><img src="{{ '/images/logos/merlot.png' | url }}" class="img-fluid p-3" alt="MERLOT: Multimedia Educational Resource for Learning and Online Teaching." loading="lazy"></a>
-            </div>
-        </div>
-</div>
+  </div>
+  <div class="row align-items-md-stretch">
+    <div class="col-lg-6">
+      <div class="h-100 p-5 bg-light rounded-3">
+        <h2>Open source
+          <i class="bi bi-balloon-heart"></i>
+        </h2>
+        <p class="lead">Sa11y is 100% free and open source. You can view the
+          <a href="https://github.com/ryersondmp/sa11y">source code on GitHub.</a>
+          Sa11y was made open source in 2020 to help content authors around the world create accessible content for people with
+          disabilities.</p>
+        <p>Sa11y was originally developed as a custom accessibility checker for {{ site.university}}'s content management system
+          and its several hundred content authors.</p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="h-100 p-5 bg-ryerson-accent rounded-3">
+        <h2>Privacy
+          <i class="bi bi-shield-lock"></i>
+        </h2>
+        <p class="lead">No personal data is ever collected when you use Sa11y. No tracking, no analytics, no third party
+          content. Sa11y only uses your browser’s web storage to remember the state of optional rulesets and other features you
+          enable.</p>
+        <p>Only this website uses privacy-oriented analytics. The analytics do not track IP addresses, fingerprints or cookies.</p>
+      </div>
+    </div>
+  </div>
+  <h2 class="sa11y mt-5">Featured on</h2>
+  <div class="row align-items-md-stretch">
+    <div class="flex-container">
+      <div class="flex-item">
+        <a href="https://uit.stanford.edu/accessibility/testing/browser-plugins">
+          <img src="{{ '/images/logos/stanford.svg' | url }}" class="img-fluid p-3" alt="Stanford University's Office of Digital Accessibility, Browser Plugins page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://www.queensu.ca/webpublish/resources/accessibility#:~:text=Sa11y">
+          <img src="{{ '/images/logos/queens.svg' | url }}" class="img-fluid p-3" alt="Queen's University: WebPublish Service and Support accessibility resources page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://accessibility.princeton.edu/news/introducing-editoria11y#:~:text=Sa11y">
+          <img src="{{ '/images/logos/princeton.svg' | url }}" class="img-fluid p-3" alt="Princeton University. Introducing Editoria11y: Accessibility Autocorrect page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://www.facebook.com/36388408213/posts/today-is-global-accessibility-awareness-day-the-purpose-is-to-get-everyone-talki/10158603158943214/">
+          <img src="{{ '/images/logos/viu.jpg' | url }}" class="img-fluid p-3" alt="Vancouver Island University's Facebook post mentioning Sa11y." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://laurentian.ca/web/accessibility#:~:text=Sa11y">
+          <img src="{{ '/images/logos/laurentian.svg' | url }}" class="img-fluid p-3" alt="Laurentian University's web accessibility resources page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://itaccessibility.arizona.edu/content/web-validation#:~:text=Sa11y">
+          <img src="{{ '/images/logos/arizona.svg' | url }}" class="img-fluid p-3" alt="University of Arizona's browser plugins section." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://scuweb.zendesk.com/hc/en-us/articles/4412360550931-Using-the-Sa11y-Accessibility-Tool">
+          <img src="{{ '/images/logos/santaclara.png' | url }}" class="img-fluid p-3" alt="Santa Clara University's support page on using Sa11y." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://accessibility.civicactions.com/guide/tools#:~:text=Sa11y">
+          <img src="{{ '/images/logos/civicactions.svg' | url }}" class="img-fluid p-3" alt="Civic Actions' Accessibility Playbook tools page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://www.joomla.org/announcements/release-news/5855-joomla-4-1-0-stable-new-standards-in-accessible-website-design.html">
+          <img src="{{ '/images/logos/joomla.png' | url }}" class="img-fluid p-3" alt="Joomla's 4.1 release note mentions accessibility checker powered by Sa11y." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://it.wisc.edu/learn/accessible-content-tech/how-to-follow-uw-madisons-new-digital-accessibility-policy/#:~:text=Sa11y">
+          <img src="{{ '/images/logos/uwisconsinmadison.png' | url }}" class="img-fluid p-3" alt="University of Winsconsin-Madison's Digital Accessibility Policy page features Sa11y." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://www.a11yproject.com/resources/#:~:text=Sa11y">
+          <img src="{{ '/images/logos/a11y-project.webp' | url }}" class="img-fluid p-3" alt="The A11y Project's resources page." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://www.merlot.org/merlot/viewMaterial.htm?id=773412275">
+          <img src="{{ '/images/logos/merlot.png' | url }}" class="img-fluid p-3" alt="MERLOT: Multimedia Educational Resource for Learning and Online Teaching." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://omnicms.sdsu.edu/accessibility/sa11y">
+          <img src="{{ '/images/logos/sdsu.jpg' | url }}" class="img-fluid p-3" alt="Implemented within San Diego State University's content management system." loading="lazy">
+        </a>
+      </div>
+      <div class="flex-item">
+        <a href="https://redaxo.org/download/addons/for_sa11y/">
+          <img src="{{ '/images/logos/redaxo-logo.png' | url }}" class="img-fluid p-3" alt="Turnkey plugin available in REDAXO CMS" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </div>

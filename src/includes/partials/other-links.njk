@@ -1,14 +1,22 @@
+<li class="border-top my-3" role="presentation"></li>
 <li class="mb-1 nav-item">
-    <a class="nav-link rounded {% if page.url == "/acknowledgements/" %}active{% endif %}" {% if page.url == "/acknowledgements/" %} aria-current="page"{% endif %} href="{{ '/acknowledgements/' | url }}">Acknowledgements</a>
+  <a class="nav-link rounded" href="https://github.com/ryersondmp/sa11y">
+    <i class="bi bi-github"></i>
+    View on GitHub</a>
+</li>
+<li class="mb-1 nav-item">
+  <a class="nav-link rounded" href="https://github.com/ryersondmp/sa11y/releases">
+    <i class="bi bi-journal-code"></i>
+    Update notes ({{ site.sa11yBuild }})</a>
+</li>
+<li class="mb-1 nav-item">
+  <a class="nav-link rounded" href="https://forms.gle/sjzK9XykETaoqZv99">
+    <i class="bi bi-bug-fill"></i>
+    Report a bug</a>
 </li>
 <li class="border-top my-3" role="presentation"></li>
 <li class="mb-1 nav-item">
-    <a class="nav-link rounded" href="https://github.com/ryersondmp/sa11y"><i class="bi bi-github"></i> View on GitHub</a>
+  <a class="nav-link rounded" href="https://github.com/ryersondmp/sa11y-website/blob/main/{{ page.inputPath }}">
+    <i class="bi bi-pencil-square"></i>
+    Edit this page on GitHub</a>
 </li>
-<li class="mb-1 nav-item">
-    <a class="nav-link rounded" href="https://github.com/ryersondmp/sa11y/releases"><i class="bi bi-journal-code"></i> Update notes ({{site.sa11yBuild}})</a>
-</li>
-<li class="mb-1 nav-item">
-    <a class="nav-link rounded" href="https://forms.gle/sjzK9XykETaoqZv99"><i class="bi bi-bug-fill"></i> Report a bug</a>
-</li>
-

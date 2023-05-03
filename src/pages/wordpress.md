@@ -2,7 +2,7 @@
 layout: base
 title: WordPress Plugin
 permalink: '/wordpress/'
-order: 4
+order: 3
 ---
 
 <h1>{{title}} <i class="bi bi-wordpress"></i></h1>
@@ -19,7 +19,7 @@ order: 4
     <li>Go to <strong>Plugins</strong> <i class="bi bi-arrow-right"></i><span class="sr-only">, then</span> <strong>Add New</strong></li>
     <li>In the search field, type: <code>Sa11y</code></li>
     <li>Go to the <strong>Install Now</strong> button.</li>
-    <li>Now press the <strong>Activate</strong> button.</li>   
+    <li>Now press the <strong>Activate</strong> button.</li>
 </ol>
 
 <p>If successfully installed, Sa11y will appear in the bottom right corner when navigating between pages of your website. You can also use Sa11y in <strong>Preview</strong> mode when editing a page.</p>
@@ -63,7 +63,7 @@ order: 4
   <div class="accordion-item">
     <h3 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Advanced customization with props 
+        Advanced customization with props
       </button>
     </h3>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -92,4 +92,3 @@ order: 4
 
 
 {% include "partials/pagination.njk" %}
-{% include "partials/prism.njk" %}

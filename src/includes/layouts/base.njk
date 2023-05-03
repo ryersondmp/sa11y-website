@@ -1,76 +1,81 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang}}">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>{{ title }} - Sa11y</title>
-        <meta name="description" content="{{site.description}}">
-        <meta name="author" content="{{ site.university }}">
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://sa11y.netlify.app/">
-        <meta property="og:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
-        <meta property="og:description" content="{{site.description}}">
-        <meta property="og:image" content="https://sa11y.netlify.app/images/github-banner.png">
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://sa11y.netlify.app/">
-        <meta property="twitter:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
-        <meta property="twitter:description" content="{{site.description}}">
-        <meta property="twitter:image" content="https://sa11y.netlify.app/images/github-banner.png">
-         {% include "partials/favicons.njk" %}
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
-        <link rel="preload" href="{{ '/fonts/lineto-replica-regular.woff' | url }}" as="font" type="font/woff" crossorigin="">
-        <link rel="preload" href="{{ '/fonts/lineto-replica-bold.woff' | url }}" as="font" type="font/woff" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css"/>
-        <style>
-            @font-face {
-                font-family: "Replica-Regular";
-                font-style: normal;
-                font-weight: normal;
-                font-display: block;
-                src: url("{{ '/fonts/lineto-replica-regular.woff' | url }}") format("woff");
-            }
-            @font-face {
-                font-family: "Replica-Bold";
-                font-style: normal;
-                font-weight: normal;
-                font-display: block;
-                src: url("{{ '/fonts/lineto-replica-bold.woff' | url }}") format("woff");
-            }
-        </style>
-    </head>
-    <body>
-        {% include "partials/header.njk" %}
-        <div class="container-fluid">
-            <div class="row">
-                {% include "partials/navigation.njk" %}
-                    <main id="content" class="col-md-8 ms-sm-auto col-lg-9 px-md-5">
-                        {{ content | safe}}
-                    </main>
-                {% include "partials/footer.njk" %}
-            </div>
-        </div>
-
-        <script src="{{ '/js/main.js' | url }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
-        <script>
-            anchors.options = {
-                placement: 'right',
-                visible: 'hover'
-            };
-            anchors.add('h2:not(.accordion-header), h3:not(.accordion-header), h4:not(.accordion-header), h5, h6');
-        </script>
-        <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y-custom-checks.umd.min.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js"></script>
-        <script>
-            Sa11y.Lang.addI18n(Sa11yLangEn.strings);
-            const sa11y = new Sa11y.Sa11y({
-                customChecks: new CustomChecks,
-                containerIgnore: 'footer',
-                contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
-            });
-        </script>
-        <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
-    </body>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{{ title }} - Sa11y</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta
+    name="author" content="{{ site.university }}"> <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sa11y.netlify.app/">
+    <meta property="og:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta
+    property="og:image" content="https://sa11y.netlify.app/images/github-banner.png"> <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sa11y.netlify.app/">
+    <meta property="twitter:title" content="{{ title }} - Sa11y, the accessibility quality assurance assistant - {{ site.university }}">
+    <meta property="twitter:description" content="{{ site.description }}">
+    <meta property="twitter:image" content="https://sa11y.netlify.app/images/github-banner.png">
+    {% include "partials/favicons.njk" %}
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+    <link rel="preload" href="{{ '/fonts/lineto-replica-regular.woff' | url }}" as="font" type="font/woff" crossorigin="">
+    <link rel="preload" href="{{ '/fonts/lineto-replica-bold.woff' | url }}" as="font" type="font/woff" crossorigin="">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{ site.sa11yBuild }}/dist/css/sa11y.min.css"/>
+    <style>
+      @font-face {
+        font-family: "Replica-Regular";
+        font-style: normal;
+        font-weight: normal;
+        font-display: block;
+        src: url("{{ '/fonts/lineto-replica-regular.woff' | url }}") format("woff");
+      }
+      @font-face {
+        font-family: "Replica-Bold";
+        font-style: normal;
+        font-weight: normal;
+        font-display: block;
+        src: url("{{ '/fonts/lineto-replica-bold.woff' | url }}") format("woff");
+      }
+    </style>
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
+    <div class="container-fluid">
+      <div class="row">
+        {% include "partials/navigation.njk" %}
+        <main id="content" class="col-md-8 ms-sm-auto col-lg-9 px-md-5">
+          {{ content | safe }}
+        </main>
+        {% include "partials/footer.njk" %}
+      </div>
+    </div>
+    <script src="{{ '/js/main.js' | url }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+    <script>
+      anchors.options = {
+        placement: 'right',
+        visible: 'hover'
+      };
+      anchors.add('h2:not(.accordion-header), h3:not(.accordion-header), h4:not(.accordion-header), h5, h6');
+    </script>
+    <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{
+      site.sa11yBuild }}/dist/js/sa11y.umd.min.js"></script>
+    <script>
+      Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+      const sa11y = new Sa11y.Sa11y(
+        {customChecks: new CustomChecks, containerIgnore: 'footer', contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code'}
+      );
+    </script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src='https://static.cloudflareinsights.com/beacon.min.js'
+      data-cf-beacon='{"token": "aab6c53d3d544a00bab19bd80a18e7c7"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>
