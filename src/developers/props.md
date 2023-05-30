@@ -273,6 +273,16 @@ The readability module is based on [Flesch reading ease.](https://en.wikipedia.o
             <td>Boolean. Warning about PDF content.</td>
         </tr>
         <tr>
+            <td>documentQA</td>
+            <td>true</td>
+            <td>Boolean. Warning for Office and Google Workspace documents.</td>
+        </tr>
+        <tr>
+            <td>documentLinks</td>
+            <td>'.ppt, .doc, .xls, .csv, sway.com, docs.google.com'</td>
+            <td>String. Default values for <code>documentQA</code> prop.</td>
+        </tr>
+        <tr>
             <td>langQA</td>
             <td>true</td>
             <td>Boolean. Error if page language is not set.</td>
