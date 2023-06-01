@@ -22,7 +22,7 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
     <div class="col-lg-4">
         <div class="h-100 p-5 bg-light rounded-3">
             <h3 lang="fr">Français</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/fr-ca.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇫🇷</a>
+            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/fr.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇫🇷</a>
         </div>
     </div>
     <div class="col-lg-4">
