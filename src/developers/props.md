@@ -113,6 +113,11 @@ Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_select
             <td>Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.</td>
         </tr>
         <tr>
+            <td>missingH1</td>
+            <td>true</td>
+            <td>Boolean. Set to false if you would like to turn off this ruleset.</td>
+        </tr>
+        <tr>
             <td>showGoodLinkButton</td>
             <td>true</td>
             <td>Boolean. Show "Good" annotations on links with an accessible name that was defined with an
@@ -192,7 +197,7 @@ The readability module is based on [Flesch reading ease.](https://en.wikipedia.o
         <tr>
             <td>readabilityLang</td>
             <td>'en'</td>
-            <td>String. English (<code>en</code>), French (<code>fr</code>), German (<code>de</code>), Spanish (<code>sp</code>), Italian (<code>it</code>), Dutch (<code>nl</code>), Danish (<code>da</code>), Finnish (<code>fi</code>), Norwegian (Bokmål & Nynorsk) (<code>no</code>, <code>nb</code>, <code>nn</code>), Swedish (<code>sv</code>).
+            <td><span class="badge rounded-pill text-bg-danger">Deprecated</span> It's no longer necessary to manually specify readability language. This is now done automatically using the language code from the respective language file.
             </td>
         </tr>
         <tr>
