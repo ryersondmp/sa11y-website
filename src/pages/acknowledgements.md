@@ -32,10 +32,10 @@ Developed with the assistance of students from [{{site.university}}](https://www
 ## Other acknowledgements
 - [Brian Teeman,](https://github.com/brianteeman) [Benjamin Trenkle,](https://github.com/bembelimen) [Fedir Zinchuk,](https://github.com/Fedik) and the Joomla team who assisted with the vanilla JavaScript port. Sa11y is included in [Joomla 4.1](https://www.joomla.org/announcements/release-news/5855-joomla-4-1-0-stable-new-standards-in-accessible-website-design.html) and later - no installation necessary.
 - John Jameson (Princeton University) maintains a fork of Sa11y called [Editoria11y](https://github.com/itmaybejj/editoria11y/) which is available as a turnkey Drupal module. Sa11y and Editoria11y share a lot of code!
-- [Simon Lagerlöf Petéus](https://smn.codes/) for adding TypeScript support and a Swedish translation.
-- German translations by [@elricco](https://github.com/elricco), [@ansichtsache](https://github.com/ansichtsache), and [@skerbis](https://github.com/skerbis). Sa11y is included in [REDAXO CMS.](https://redaxo.org/)
-- Polish translation by [Stefan Wajda](https://www.facebook.com/stefan.wajda.5/)
-
+- German translation submitted by [@elricco](https://github.com/elricco), [@ansichtsache](https://github.com/ansichtsache), and [@skerbis](https://github.com/skerbis). Sa11y is also included in [REDAXO CMS.](https://redaxo.org/)
+- Polish translation submitted by [Stefan Wajda](https://github.com/zwiastunsw)
+- Swedish translation submitted by [Simon Lagerlöf](https://github.com/smncd/)
+- Spanish translation submitted by [Jose Ordaz Suay](https://github.com/JoseOrdaz)
 
 ## Libraries and hosting
 - Sa11y is an adaptation of [Tota11y by Khan Academy.](https://github.com/Khan/tota11y)
@@ -46,5 +46,6 @@ Developed with the assistance of students from [{{site.university}}](https://www
 - The icons within Sa11y are created by [FontAwesome.](https://github.com/FortAwesome/Font-Awesome)
 - This website was built with [Bootstrap 5](https://getbootstrap.com/) and [11ty.](https://www.11ty.dev/) Hosted on [GitHub](https://github.com/) and [Netlify.](https://www.netlify.com/)
 - Sa11y's bookmarklet is hosted on [jsDelivr](https://www.jsdelivr.com) - an awesome free CDN for open source projects.
+- Machine translations via [DeepL API.](https://www.deepl.com/)
 
 {% include "partials/pagination.njk" %}
