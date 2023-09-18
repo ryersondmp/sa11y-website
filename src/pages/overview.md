@@ -251,15 +251,22 @@ Sa11y can **estimate** the readability score from all paragraphs and list conten
 ### Colour filters
 Colour filters let you simulate various colour vision deficiencies (CVD) within a page. Use these colour filters on maps, charts, graphs, and other elements. CVD is caused by an abnormality in the cone cells of the retina in the eye. These cone cells are responsible for detecting color, and they come in three types: red, green, and blue. People with CVD have a deficiency or absence of one or more of these cone cell types, which affects their ability to distinguish certain colors.
 
-You can choose between four different colour filters:
+#### Limitations
+Colour filter simulations are not entirely accurate because they cannot accurately replicate how the brain of someone with CVD perceives colors. However, these colour filters can still be helpful in identifying potential color combinations that may be difficult for people with CVD to distinguish.
+
+#### How to use colour filters
+Go to Settings, and then select the Colour Filter selection button. You can choose between four different colour filters:
 
 - **Protanopia:** Unable to perceive red light.
 - **Deuteranopia:** Unable to perceive green light.
 - **Tritanopia:** Unable to perceive blue light.
 - **Monochromacy:** Unable to perceive any red, green, and blue light. People with monochromacy see shades of gray.
 
-#### Limitations
-Colour filter simulations are not entirely accurate because they cannot accurately replicate how the brain of someone with CVD perceives colors. However, these colour filters can still be helpful in identifying potential color combinations that may be difficult for people with CVD to distinguish.
+Check for elements that are difficult to perceive or distinguish against other colours.
+
+<div class="text-center p-3 bg-light rounded-3">
+  <img loading="lazy" class="img-fluid" width="800" src="{{ '/images/screenshots/colour-filters.webp' | url }}" alt="Screenshot of colour filter options within the Settings panel.">
+</div>
 
 #### About these colour filters
 The colour filters used in Sa11y are from the [DaltonLens library.](https://daltonlens.org) To learn more about the different models and literature review, please check out: [Review of Open Source Color Blindness Simulations.](https://daltonlens.org/opensource-cvd-simulation/)
