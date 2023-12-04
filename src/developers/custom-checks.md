@@ -20,7 +20,7 @@ Simply populate the `results` object to flag an issue.
 - **inline** - Display annotation inline with text. (Boolean)
 - **position** - Where to insert annotation. View [`insertAdjacentHTML()` parameters.](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML#parameters) (String)
 - **dismiss** - A string that uniquely identifies the found issue used for all warnings.
-  - All warnings **must** have have a dismiss key. Errors cannot be dismissed.
+  - Errors cannot be dismissed, only warnings can.
   - It's very **important** that the key is unique. It's recommended to pass the element's inner text for example. Use the `Utils.prepareDismissal` utility function to generate a key.
 
 ### Page Issue

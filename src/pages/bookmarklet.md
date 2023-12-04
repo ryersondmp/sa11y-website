@@ -71,6 +71,12 @@ Translated with ![DeepL](https://static.deepl.com/img/_optimized/footer/deeplLog
 <div class="row align-items-md-stretch mt-4">
   <div class="col-lg-4">
     <div class="h-100 p-5 bg-light rounded-3">
+        <h3>Bulgarian</h3>
+        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/bg.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇧🇬</a>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="h-100 p-5 bg-light rounded-3">
         <h3>Czech</h3>
         <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/cs.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇨🇿</a>
     </div>
@@ -113,6 +119,12 @@ Translated with ![DeepL](https://static.deepl.com/img/_optimized/footer/deeplLog
   </div>
   <div class="col-lg-4">
     <div class="h-100 p-5 bg-light rounded-3">
+        <h3>Hungarian</h3>
+        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/hu.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇭🇺</a>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="h-100 p-5 bg-light rounded-3">
         <h3>Japanese</h3>
         <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ja.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇯🇵</a>
     </div>
@@ -143,6 +155,12 @@ Translated with ![DeepL](https://static.deepl.com/img/_optimized/footer/deeplLog
   </div>
   <div class="col-lg-4">
     <div class="h-100 p-5 bg-light rounded-3">
+        <h3>Korean</h3>
+        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ko.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇰🇷</a>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="h-100 p-5 bg-light rounded-3">
         <h3>Portuguese (Brazil)</h3>
         <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ptBR.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇧🇷</a>
     </div>
@@ -157,6 +175,12 @@ Translated with ![DeepL](https://static.deepl.com/img/_optimized/footer/deeplLog
     <div class="h-100 p-5 bg-light rounded-3">
         <h3>Romanian</h3>
         <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ro.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇷🇴</a>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="h-100 p-5 bg-light rounded-3">
+        <h3>Slovak</h3>
+        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/sk.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇸🇰</a>
     </div>
   </div>
   <div class="col-lg-4">

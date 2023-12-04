@@ -167,6 +167,31 @@ Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_select
             String. Move position of panel in any four corners. Choose from <code>top-left</code>, <code>top-right</code>, <code>left</code>, and <code>right</code>. Accessibility note: When the panel is positioned to the left side, the CSS property <code>flex-direction: row-reverse</code> is used to reverse the items within the main panel status which contains the issue count, Skip-to-issue button and Dismiss button. This causes a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction#accessibility_concerns">disconnect between the visual order and DOM order.</a>
             </td>
         </tr>
+        <tr>
+          <td>altTextMaxCharLength</td>
+          <td>250</td>
+          <td>Integer. Modify the alt text character count for warning message about excessively long alt.</td>
+        </tr>
+         <tr>
+          <td>headingMaxCharLength</td>
+          <td>170</td>
+          <td>Integer. Modify the heading text character count for warning message about excessively long headings.</td>
+        </tr>
+        <tr>
+          <td>URLTextMaxCharLength</td>
+          <td>40</td>
+          <td>Integer. Modify the URL text character count for warning message about URLs used as link text.</td>
+        </tr>
+        <tr>
+          <td>URLAsLinkTextWarning</td>
+          <td>true</td>
+          <td>Boolean. Set to false to turn off warning message about URLs used as link text.</td>
+        </tr>
+        <tr>
+          <td>showHinPageOutline</td>
+          <td>false</td>
+          <td>Boolean. Set to true to prefix each Page Outline item with an H.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -248,6 +273,11 @@ The readability module is based on [Flesch reading ease.](https://en.wikipedia.o
             <td>checkAllHideToggles</td>
             <td>false</td>
             <td>Boolean. Set to true if you would like all optional checks to be enabled by default, and to hide the switches in the Settings panel.</td>
+        </tr>
+        <tr>
+          <td>exportResultsPlugin</td>
+          <td>false</td>
+          <td>Boolean. Set to true if you would like to add buttons that allow users to export issues as CSV or HTML.</td>
         </tr>
     </tbody>
 </table>
@@ -336,6 +366,26 @@ The readability module is based on [Flesch reading ease.](https://en.wikipedia.o
             <td>subscriptQA</td>
             <td>true</td>
             <td>Boolean. Warning if <code>&lt;sup&gt;</code> and <code>&lt;sub&gt;</code> tags are used to format entire sentences.</td>
+        </tr>
+        <tr>
+          <td>tablesQAmissingTH</td>
+          <td>true</td>
+          <td>Set to false to turn off check that flags missing table headers as an error.</td>
+        </tr>
+        <tr>
+          <td>tablesQAsemanticHeadings</td>
+          <td>true</td>
+          <td>Set to false to turn off check that flags semantic headings within a table as an error.</td>
+        </tr>
+        <tr>
+          <td>tablesQAemptyTH</td>
+          <td>true</td>
+          <td>Set to false to turn off check that flags empty table headers within a table as an error.</td>
+        </tr>
+        <tr>
+          <td>tablesQAemptyTHisError</td>
+          <td>true</td>
+          <td>Set to false to change check that flags empty table headers from an error to a warning.</td>
         </tr>
     </tbody>
 </table>
