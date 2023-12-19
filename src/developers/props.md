@@ -78,9 +78,13 @@ Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_select
         <tr>
             <td>linkIgnoreSpan</td>
             <td>''</td>
-            <td>String. Ignore elements within a link to improve accuracy of link checks. For example, pass
-                <code>.sr-only</code> to ignore the text "external link": <code>&lt;a href="#"&gt;learn more
-                    <strong>&lt;span class="sr-only"&gt;external link&lt;/span&gt;</strong>&lt;/a&gt;</code></td>
+            <td>String. Ignore elements within a link or image link to improve accuracy of link checks. For example, pass
+                <code>.sr-only</code> to ignore the text "external link": <code>&lt;a href="#"&gt;learn more <strong>&lt;span class="sr-only"&gt;external link&lt;/span&gt;</strong>&lt;/a&gt;</code></td>
+        </tr>
+        <tr>
+            <td>linkIgnoreStrings</td>
+            <td>''</td>
+            <td>Pass regex of strings to remove from link or image link text to improve accuracy of link checks. E.g.: "\(External\)|\(Opens new tab\)". This is an alternative to <code>linkIgnoreSpan</code> prop.</td>
         </tr>
         <tr>
             <td>linksToFlag</td>
