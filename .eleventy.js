@@ -11,6 +11,9 @@ function eleventyConfig(config) {
 
   config.addPlugin(syntaxHighlight);
 
+  // Shortcodes
+  config.addShortcode("year", () => `${new Date().getFullYear()}`);
+
   //Sort main pages.
   config.addCollection("pages", collection => {
     const docs = collection.getFilteredByGlob("src/pages/*.md")
