@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Props
+title: Props & methods
 permalink: '/developers/props/'
 order: 2
 ---
@@ -105,6 +105,11 @@ Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_select
         </tr>
     </thead class="table-dark">
     <tbody>
+        <tr>
+            <td>delayCheck</td>
+            <td>0</td>
+            <td>Integer. Defer the initial page check by a customizable delay of x milliseconds. Useful for accommodating slower-loading JavaScript elements. For example, pass <code>500</code> to delay the initial check by 500 milliseconds. Available as of 3.0.9</td>
+        </tr>
         <tr>
             <td>nonConsecutiveHeadingIsError</td>
             <td>true</td>
@@ -452,6 +457,15 @@ The readability module is based on [Flesch reading ease.](https://en.wikipedia.o
         </tr>
     </tbody>
 </table>
+
+## Methods
+These helper methods streamline integration into content management systems.
+
+### sa11y.disabled();
+Employ this function to temporarily deactivate the accessibility checker. It closes the panel (if open) and applies the <code>disabled</code> attribute, graying out the toggle and blocking user interaction.
+
+### sa11y.enable();
+Utilize this function to restore functionality to the accessibility checker. It removes the <code>disabled</code> attribute from the primary toggle, enabling users to interact with it again.
 
 ## Feedback
 Provide feedback on props via [GitHub](https://github.com/ryersondmp/sa11y/issues) or [Report a bug.](https://forms.gle/sjzK9XykETaoqZv99)

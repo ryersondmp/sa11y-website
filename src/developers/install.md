@@ -108,6 +108,34 @@ The CDN link below automatically fetches the `@latest` stable release. This is e
 </script>
 ```
 
+## Example Adobe Experience Manager (AEM) installation
+Ideally, Sa11y's assets would be added via AEM's clientlibs. This example script demonstrates how you would **instantiate** Sa11y in AEM environments using Touch UI. It includes a utility function to monitor switches between "Preview" and "Edit" modes in the Page Editor. To overcome Touch UI's limitations with fixed elements, Sa11y's panel is positioned at either the top left or top right corner of the page.
+
+```javascript
+/* Instantiate */
+Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+const sa11y = new Sa11y.Sa11y({
+  checkRoot: "body",
+  panelPosition: "top-right", // or "top-left"
+});
+
+// Function to check if Page Editor is in Preview or Edit mode.
+const checkEditorMode = (elementSelector, className, callback) => {
+  const targetElement = document.querySelector(elementSelector);
+  const observer = new MutationObserver(mutationsList => {
+    const isEditMode = targetElement.classList.contains(className);
+    callback(isEditMode);
+  });
+  observer.observe(targetElement, { attributes: true, attributeFilter: ['class'] });
+  return observer;
+};
+
+// If in Edit mode, Sa11y will be temporary disabled and grayed out.
+const checkPageState = checkEditorMode('html', 'aem-AuthorLayer-Edit', isEditMode => {
+  isEditMode ? sa11y.disabled() : sa11y.enabled();
+});
+```
+
 <hr class="mt-5" aria-hidden="true">
 
 ## Languages
