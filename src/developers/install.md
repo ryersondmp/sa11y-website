@@ -112,7 +112,7 @@ The CDN link below automatically fetches the `@latest` stable release. This is e
 Ideally, Sa11y's assets would be added via AEM's clientlibs. This example script demonstrates how you would **instantiate** Sa11y in AEM environments using Touch UI. It includes a utility function to monitor switches between "Preview" and "Edit" modes in the Page Editor. To overcome Touch UI's limitations with fixed elements, Sa11y's panel is positioned at either the top left or top right corner of the page.
 
 ```javascript
-/* Instantiate */
+// Instantiate
 Sa11y.Lang.addI18n(Sa11yLangEn.strings);
 const sa11y = new Sa11y.Sa11y({
   checkRoot: "body",
@@ -139,12 +139,12 @@ const checkPageState = checkEditorMode('html', 'aem-AuthorLayer-Edit', isEditMod
 <hr class="mt-5" aria-hidden="true">
 
 ## Languages
-Sa11y has been translated into: French, Polish, Ukrainian, Swedish, Spanish, and German. There are also several machine translations in other languages. You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/tree/master/src/js/lang)
+Sa11y has been translated into French, Polish, Ukrainian, Swedish, Spanish, and German, with over a dozen machine translations available in various other languages. You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/tree/master/src/js/lang)
 
-Want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
+Do you want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 
 ### CDN
-To utilize CDN links above, simply replace `lang/en.umd.js` with preferred language code.
+To utilize CDN links above, simply replace `lang/en.umd.js` with your preferred language code.
 
 ### Readability
 Sa11y's readability feature is based on [Flesch reading-ease test (Wikipedia)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease) and [Lix (Wikipedia).](https://en.wikipedia.org/wiki/Lix_(readability_test)) The Flesch reading-ease formula has been adapted to also support Dutch, Italian, French, German, Portuguese, and Spanish. Lix formula supports Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
