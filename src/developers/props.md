@@ -132,6 +132,13 @@ Integer. Defer the initial page check by a customizable delay of x milliseconds.
 delayCheck: 0,
 ```
 
+### delayCustomCheck
+Integer. Extend or decrease the amount of time that Sa11y will wait for any custom checks provided via dispatched events. Refer to [Custom Checks]({{'/developers/custom-checks/' | url}}) for guidance. Available as of 3.1.2.
+
+```js
+delayCheck: 500,
+```
+
 ### showGoodLinkButton
 Boolean. Show "Good" annotations on links with an accessible name that was defined with an `aria-label` or `aria-labelledby` attribute. Sometimes content authors may wonder why some "learn more" links are not flagged as an error.
 
@@ -205,7 +212,10 @@ showHinPageOutline: false,
 ```
 
 ### customChecks
-Boolean. If you develop your own custom checks within `sa11y-custom-checks.js`, you must set this property to `true`.
+Please refer to custom checks for guidance.
+1. Pass `listen` if you would like Sa11y to "listen" for custom checks.
+2. Pass an object if you would like to add custom checks before instantiating Sa11y.
+3. Set to `true` if Sa11y is installed locally on your system and add custom checks to  `sa11y-custom-checks.js` file.
 
 ```js
 customChecks: false,
@@ -542,6 +552,29 @@ Employ this function to temporarily deactivate the accessibility checker. It clo
 
 ### sa11y.enable();
 Utilize this function to restore functionality to the accessibility checker. It removes the <code>disabled</code> attribute from the primary toggle, enabling users to interact with it again.
+
+### sa11y.find(selector, desiredRoot, exclude)
+This is a powerful utility to find elements in the DOM that match the given selector. It will also find elements with any specified shadow DOMs. It can accept up to 3 parameters and returns an array of elements.
+
+- **selector** (string) - The CSS selector to match elements against, e.g. `a[href]`
+- **desiredRoot** (string) - The root element to start the search from. Can be one of 'document', 'readability', 'root', or a custom selector for the desired root element. In most cases, you should pass `root` which is the root area that Sa11y was specified to check.
+- <span class="badge bg-warning text-dark">Optional</span> **exclude** (string) - Elements to exclude from the search, specified as a CSS selector.
+
+<div class="ms-5">
+
+#### Example
+
+`const links = sa11y.find('a[href]', 'root', '.ignore');`
+
+This will return an array of links (with an `href` attribute) within the area that Sa11y was specified to target via the `checkRoot` prop. It excludes any links that have the class `.ignore`.
+
+</div>
+
+### sa11y.prepareDismissal(string)
+Create a dismissal key to facilitate the dismissal of items. This feature is essential if you want to enable custom warning dismissibility.
+
+### sa11y.sanitizeHTML(string)
+This function takes a string containing HTML as input and returns a sanitized version where special characters are replaced with their respective HTML entities. It's particularly useful when returning text within a tooltip, ensuring that any potentially harmful content is properly escaped to prevent security vulnerabilities.
 
 ## Feedback
 Provide feedback on props via [GitHub](https://github.com/ryersondmp/sa11y/issues) or [Report a bug.](https://forms.gle/sjzK9XykETaoqZv99)

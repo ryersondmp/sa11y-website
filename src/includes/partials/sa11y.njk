@@ -1,0 +1,67 @@
+<script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js"></script>
+
+{% if '/custom-checks' in page.url %}
+
+<script>
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    customChecks: 'listen',
+    containerIgnore: 'footer',
+    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
+    linkIgnoreSpan: '.sr-only-example',
+  });
+
+  document.addEventListener('sa11y-custom-checks', () => {
+  const announcement = sa11y.find('.sa11y-announcement-component', 'root');
+  if (announcement.length > 1) {
+    for (let i = 1; i < announcement.length; i++) {
+      const key = sa11y.prepareDismissal(announcement[i].textContent);
+      sa11y.results.push({
+        element: announcement[i],
+        type: 'warning',
+        content: 'More than one Announcement component found! The Announcement component should be used strategically and sparingly. It should be used to get attention or indicate that something is important. Misuse of this component makes it less effective or impactful. Secondly, this component is semantically labeled as an Announcement for people who use screen readers.',
+        inline: false,
+        position: 'beforebegin',
+        dismiss: key,
+      });
+    }
+  }
+
+  const accordions = sa11y.find('.sa11y-accordion-example', 'root');
+  accordions.forEach((accordion) => {
+    const form = accordion.querySelector('form');
+    if (!!form && form.length) {
+      sa11y.results.push({
+        element: accordion,
+        type: 'error',
+        content: 'Do <strong>not nest forms</strong> within the Accordion component. If the form contains validation issues, a person may not see the form feedback since the accordion panel goes back to its original closed state.',
+        inline: false,
+        position: 'beforebegin',
+      });
+    }
+  });
+
+  const currentURL = window.location.href;
+  if (currentURL.includes('custom-check')) {
+    sa11y.results.push({
+      type: 'warning',
+      content: 'This is an example <a href="#page-issue">Page Issue.</a>',
+      dismiss: 'dismissMe'
+    });
+  }
+
+  const allDone = new CustomEvent('sa11y-resume');
+  document.dispatchEvent(allDone);
+});
+</script>
+
+{% else %}
+<script>
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    containerIgnore: 'footer',
+    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
+    linkIgnoreSpan: '.sr-only-example',
+  });
+</script>
+{% endif %}

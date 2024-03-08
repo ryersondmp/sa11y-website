@@ -63,17 +63,10 @@
       };
       anchors.add('h2:not(.accordion-header), h3:not(.accordion-header), h4:not(.accordion-header), h5, h6');
     </script>
-    <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{
-      site.sa11yBuild }}/dist/js/sa11y.umd.min.js"></script>
-    <script>
-      Sa11y.Lang.addI18n(Sa11yLangEn.strings);
-      const sa11y = new Sa11y.Sa11y({
-        customChecks: true,
-        containerIgnore: 'footer',
-        contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
-        linkIgnoreSpan: '.sr-only-example',
-      });
-    </script>
+
+    <!-- Sa11y -->
+    {% include "partials/sa11y.njk" %}
+
     <!-- Cloudflare Web Analytics -->
     <script
       defer
