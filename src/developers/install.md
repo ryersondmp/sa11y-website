@@ -139,7 +139,9 @@ const checkPageState = checkEditorMode('html', 'aem-AuthorLayer-Edit', isEditMod
 <hr class="mt-5" aria-hidden="true">
 
 ## Languages
-Sa11y has been translated into French, Polish, Ukrainian, Swedish, Spanish, and German, with over a dozen machine translations available in various other languages. You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/tree/master/src/js/lang)
+Sa11y has been translated into French, Polish, Ukrainian, Swedish, Spanish, and German. The following machine translations are available: Bulgarian, Finnish, Hungarian, Indonesian, Italian, Japanese, Korean, Lithuanian, Latvian, Norwegian Bokmål, Dutch, Portuguese (Brazil), Portuguese (Portugal), Romanian, Slovak, Slovenian, Turkish, Ukrainian, and Chinese (Mandarin).
+
+You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/tree/master/src/js/lang)
 
 Do you want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 

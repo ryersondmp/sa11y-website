@@ -10,198 +10,85 @@ order: 2
 Sa11y is available as a bookmarklet and can be used in any desktop browser. Simply drag the "Sa11y" button below into your bookmarks bar. Then click the bookmark on any webpage.
 
 <img src="{{ '/images/curly-dotted-arrow.svg' | url }}" width="120px" alt="Illustration of a dotted arrow pointing towards the browser's bookmarks bar." class="p-1">
-<p><a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/sa11y-en.min.js';})(document))" class="btn btn-lg btn-sa11y"><i class="bi bi-bookmark-fill"></i> Sa11y</a></p>
+<p><a href="javascript:(function(){
+      const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
+      const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
+      const createAlert = (message) => {
+        const sa11yDialog = document.createElement(&quot;div&quot;);
+        sa11yDialog.id = &quot;sa11y-csp&quot;;
+        sa11yDialog.role = &quot;dialog&quot;;
+        sa11yDialog.textContent = message;
+        sa11yDialog.style.position = &quot;fixed&quot;;
+        sa11yDialog.style.display = &quot;block&quot;;
+        sa11yDialog.style.bottom = &quot;50px&quot;;
+        sa11yDialog.style.right = &quot;50px&quot;;
+        sa11yDialog.style.margin = &quot;auto 0&quot;;
+        sa11yDialog.style.width = &quot;400px&quot;;
+        sa11yDialog.style.zIndex = &quot;10000&quot;;
+        sa11yDialog.style.padding = &quot;10px 80px 10px 10px&quot;;
+        sa11yDialog.style.backgroundColor = &quot;#fff&quot;;
+        sa11yDialog.style.border = &quot;5px solid #ff0000&quot;;
+        sa11yDialog.style.fontWeight = &quot;bold&quot;;
+        sa11yDialog.style.fontSize = &quot;17px&quot;;
+        sa11yDialog.style.fontFamily = &quot;system-ui, sans-serif&quot;;
+        sa11yDialog.style.boxShadow = &quot;0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px
+        rgba(91,94,105,.15)&quot;;
+        sa11yDialog.style.borderRadius = &quot;5px&quot;;
+        sa11yDialog.setAttribute(&quot;role&quot;, &quot;alert&quot;);
+        document.body.appendChild(sa11yDialog);
+        const closeButton = document.createElement(&quot;button&quot;);
+        closeButton.id = &quot;csp-close&quot;;
+        closeButton.textContent = &quot;Close&quot;;
+        closeButton.style.position = &quot;absolute&quot;;
+        closeButton.style.top = &quot;10px&quot;;
+        closeButton.style.color = &quot;#000&quot;;
+        closeButton.style.right = &quot;10px&quot;;
+        closeButton.style.padding = &quot;5px 10px&quot;;
+        closeButton.style.backgroundColor = &quot;#f6f6f6&quot;;
+        closeButton.style.border = &quot;2px solid #949494&quot;;
+        closeButton.style.borderRadius = &quot;5px&quot;;
+        closeButton.style.cursor = &quot;pointer&quot;;
+        closeButton.style.fontSize = &quot;15px&quot;;
+        sa11yDialog.appendChild(closeButton);
+        closeButton.addEventListener(&quot;click&quot;, () => {
+          sa11yDialog.remove();
+        });
+        const close = document.getElementById(&quot;csp-close&quot;);
+        setTimeout(() => close.focus(), 300);
+        document.addEventListener(&quot;keyup&quot;, (event) => {
+          if (event.key === 'Escape') {
+           sa11yDialog.remove();
+          }
+        });
+      };
+      const securityListener = () => {
+        if (typeof sa11y === 'undefined') {
+          createAlert('This website has a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
+        }
+      };
+      const url = window.location.href;
+      if (url.includes('bookmarklet') && url.includes('sa11y')) {
+        createAlert('Drag the &quot;Sa11y&quot; button into your bookmarks bar. Then click the bookmark on any webpage.');
+      } else if (sa11yDialog == null && sa11yScripts.length === 0) {
+        const inject = document.createElement(&quot;script&quot;);
+        inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2.js&quot;;
+        document.body.appendChild(inject);
+      } else {
+        location.reload();
+      }
+      document.addEventListener(&quot;securitypolicyviolation&quot;, securityListener);
+      setTimeout(() => document.removeEventListener(&quot;securitypolicyviolation&quot;, securityListener), 100);
+  	})();" class="btn btn-lg btn-sa11y"><i class="bi bi-bookmark-fill"></i> Sa11y</a></p>
 
 <h2 class="h4">Please note... ⚠️</h2>
 
 - Bookmarklets do not work on all websites because of security policies that block external code.
 - It may take a few seconds to load because the code is being injected into the page you are browsing.
 
-## Also available in...
-<div class="row align-items-md-stretch mt-4 mb-4">
-<div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="en">English <small>(US)</small></h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/enUS.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇺🇸</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="fr">Français</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/fr.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇫🇷</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="pl">Polski</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/pl.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇵🇱</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="ua">Yкраїнський</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ua.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇺🇦</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="sv">Svenska</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/sv.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇸🇪</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="de">Deutsch</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/de.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇩🇪</a>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="h-100 p-5 bg-light rounded-3">
-            <h3 lang="es">Español</h3>
-            <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/es.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇪🇸</a>
-        </div>
-    </div>
-</div>
+### Languages
+The bookmarklet above automatically displays a translated version of Sa11y based on the page language. If the language is not supported, it will default to English.
 
-### Machine translations
-Translated with ![DeepL](https://static.deepl.com/img/_optimized/footer/deeplLogo.svg)
-
-**Please note:** machine-generated translations may contain errors or inaccuracies.
-
-<div class="row align-items-md-stretch mt-4">
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Bulgarian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/bg.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇧🇬</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Czech</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/cs.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇨🇿</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Danish</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/da.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇩🇰</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Greek</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/el.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇬🇷</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Estonian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/el.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇪🇪</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Finnish</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/fi.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇫🇮</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Indonesian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/id.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇮🇩</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Italian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/it.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇮🇹</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Hungarian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/hu.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇭🇺</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Japanese</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ja.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇯🇵</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Lithuanian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/lt.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇱🇹</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Latvian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/lv.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇱🇻</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Norwegian (Bokmål)</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/nb.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇳🇴</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Dutch</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/nl.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇳🇱</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Korean</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ko.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇰🇷</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Portuguese (Brazil)</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ptBR.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇧🇷</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Portuguese (Portugal)</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ptPT.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇵🇹</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Romanian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/ro.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇷🇴</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Slovak</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/sk.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇸🇰</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Slovenian</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/sl.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇸🇮</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Turkish</h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/tr.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇹🇷</a>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="h-100 p-5 bg-light rounded-3">
-        <h3>Chinese <small>(Simplified)</small></h3>
-        <a href="javascript:void((function(doc){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/zh.min.js';})(document))" class="btn btn-lg btn-sa11y">Sa11y 🇨🇳</a>
-    </div>
-  </div>
-</div>
+Sa11y has been translated into French, Polish, Ukrainian, Swedish, Spanish, and German. The following machine translations are available: Bulgarian, Finnish, Hungarian, Indonesian, Italian, Japanese, Korean, Lithuanian, Latvian, Norwegian Bokmål, Dutch, Portuguese (Brazil), Portuguese (Portugal), Romanian, Slovak, Slovenian, Turkish, Ukrainian, and Chinese (Mandarin).
 
 ## Help translate
 Want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
