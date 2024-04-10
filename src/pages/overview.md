@@ -33,6 +33,7 @@ Sa11y has over 50 checks.
                     <li>Nondescript link text like "learn more" or "click here".</li>
                     <li>Empty hyperlinks.</li>
                     <li>Links that only contain an icon font without an accessible name or label.</li>
+                    <li>Broken same-page links.</li>
                 </ul>
             </li>
             <li>Tables
@@ -53,7 +54,7 @@ Sa11y has over 50 checks.
             <li>Poor text contrast.</li>
             <li>Inputs missing labels.</li>
             <li>Page language not declared.</li>
-            <li>Elements with duplicate IDs.</li>
+            <li>Elements with duplicate IDs that are being referenced as a label.</li>
             <li>Missing page title.</li>
         </ul>
       </div>

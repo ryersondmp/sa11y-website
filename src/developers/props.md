@@ -9,13 +9,31 @@ order: 2
 
 # {{title}}
 
+<nav aria-labelledby="onthispage">
+
+<h2 class="h6" id="onthispage">On this page:</h2>
+
+- [Props](#props)
+    - [Target area and exclusions](#target-area-and-exclusions)
+    - [Other features](#other-features)
+    - [Customizing rulesets](#customizing-rulesets)
+    - [Readability module](#readability-module)
+    - [Toggleable rulesets in Settings panel](#toggleable-rulesets-in-settings-panel)
+    - [Quality assurance module](#quality-assurance-module)
+    - [Embedded content (iFrames) module](#embedded-content-iframes-module)
+- [Methods](#methods)
+
+</nav>
+
+## Props
 Props allow you to easily customize the experience for content authors. For example:
 1. Set the target area to check. If your content authors can't edit it, don't flag it!
 2. Ignore entire sections of a page.
 3. Add exclusions to ignore false positives.
 4. Turn off specific modules or checks.
 
-## Example
+Pass in props when you instantiate Sa11y, for example:
+
 ```js
 const sa11y = new Sa11y({
   checkRoot: "main",
@@ -25,59 +43,59 @@ const sa11y = new Sa11y({
 });
 ```
 
-## Target area and exclusions
+### Target area and exclusions
 Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) or [HTML sectioning elements.](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html) Use a comma to pass multiple selector unless otherwise indicated.
 
-### checkRoot
+#### checkRoot
 String. Input a **single selector** to scan a specific region of the page. This selector should exist on every page of your website. For example, pass `main` for the main content area.
 
 ```js
 checkRoot: 'body',
 ```
 
-### containerIgnore
+#### containerIgnore
 String. Ignore specific regions of the page.
 
 ```js
 containerIgnore: '.sa11y-ignore',
 ```
 
-### contrastIgnore
+#### contrastIgnore
 String. Ignore specific elements from the contrast check.
 
 ```js
 contrastIgnore: '.sr-only, [role="menu"] *',
 ```
 
-### outlineIgnore
+#### outlineIgnore
 String. Exclude specific headings from appearing in the Page Outline panel. For example, visually hidden headings that may not make sense to sighted content editors.
 
 ```js
 outlineIgnore: '',
 ```
 
-### headerIgnore
+#### headerIgnore
 String. Ignore specific headings on the page. These headings will not be annotated or labeled, nor will they appear in the Page Outline.
 
 ```js
 headerIgnore: '',
 ```
 
-### imageIgnore
+#### imageIgnore
 String. Ignore specific images on the page.
 
 ```js
 imageIgnore: '',
 ```
 
-### linkIgnore
+#### linkIgnore
 String. Ignore specific links on the page.
 
 ```js
 linkIgnore: 'nav, [role="navigation"]',
 ```
 
-### linkIgnoreSpan
+#### linkIgnoreSpan
 String. Ignore elements within a link or image link to improve accuracy of link checks.
 
 ```js
@@ -87,11 +105,11 @@ linkIgnoreSpan: '',
 
 <div class="p-4 mb-4 bg-light rounded-3">
 
-#### Example
+##### Example
 The contents of `<span class="sr-only">` will be ignored, and the non-descript link will display the appropriate error annotation.
 
 ```html
-<a href="#">learn more <span class="sr-only">external link</span></a>
+<a href="https://www.example.com">learn more <span class="sr-only">external link</span></a>
 
 <script>
   const sa11y = new Sa11y({
@@ -104,98 +122,98 @@ The contents of `<span class="sr-only">` will be ignored, and the non-descript l
    <strong>Try:</strong> Press <kbd>alt</kbd> <kbd>A</kbd> to enable Sa11y.
 </p>
 
-<a href="#" class="mt-3">learn more <span class="sr-only-example bg-dark p-1 text-white rounded">external link</span></a>
+<a href="https://www.example.com=?2" class="mt-3">learn more <span class="sr-only-example bg-dark p-1 text-white rounded">external link</span></a>
 
 </div>
 
-### linkIgnoreStrings
+#### linkIgnoreStrings
 String. An alternative prop to `linkIgnoreSpan`. Pass a string of regex that matches specific words or phrases. For example, `"\(External\)|\(Opens new tab\)"`.
 
 ```js
 linkIgnoreStrings: '',
 ```
 
-### linksToFlag
+#### linksToFlag
 String. Check for unwanted URLs, such as those pointing to development environments. For example, `a[href*="dev."]`
 
 ```js
 linksToFlag: '',
 ```
 
-## Other features
+### Other features
 Features that may help with integrations into various content management systems or frameworks.
 
-### delayCheck
+#### delayCheck
 Integer. Defer the initial page check by a customizable delay of x milliseconds. Useful for accommodating slower-loading JavaScript elements. For example, pass `500` to delay the initial check by 500 milliseconds. Available as of 3.0.9.
 
 ```js
 delayCheck: 0,
 ```
 
-### delayCustomCheck
+#### delayCustomCheck
 Integer. Extend or decrease the amount of time that Sa11y will wait for any custom checks provided via dispatched events. Refer to [Custom Checks]({{'/developers/custom-checks/' | url}}) for guidance. Available as of 3.1.2.
 
 ```js
 delayCheck: 500,
 ```
 
-### showGoodLinkButton
+#### showGoodLinkButton
 Boolean. Show "Good" annotations on links with an accessible name that was defined with an `aria-label` or `aria-labelledby` attribute. Sometimes content authors may wonder why some "learn more" links are not flagged as an error.
 
 ```js
 showGoodLinkButton: true,
 ```
 
-### detectSPArouting
+#### detectSPArouting
 Boolean. Detects URL changes and re-checks the page. This prop is designed to improve usability when testing JavaScript rendered content or single page applications (SPA).
 
 ```js
 detectSPArouting: false,
 ```
 
-### doNotRun
+#### doNotRun
 String. Using a comma seperated list, provide selectors to unique pages where you do not want Sa11y to appear or check.
 
 ```js
 doNotRun: '',
 ```
 
-### dismissAnnotations
+#### dismissAnnotations
 Boolean. Give content editors the ability to dismiss any warnings.
 
 ```js
 dismissAnnotations: true,
 ```
 
-### headless
+#### headless
 Boolean. Run checks without the GUI (graphical user interface).
 
 ```js
 headless: false,
 ```
 
-### selectorPath
+#### selectorPath
 Boolean. Generates a simple CSS selector path of the element within the `results` array.
 
 ```js
 selectorPath: false,
 ```
 
-### shadowComponents
+#### shadowComponents
 String. Provide a list of all known web components to check.
 
 ```js
 shadowComponents: '',
 ```
 
-### autoDetectShadowComponents
+#### autoDetectShadowComponents
 Boolean. Automatically check every element on the page for an open shadow DOM, and check for issues within them.
 
 ```js
 autoDetectShadowComponents: false,
 ```
 
-### panelPosition
+#### panelPosition
 String. Move position of panel in any four corners. Choose from `top-left`, `top-right`, `left`, and `right`.
 
 ```js
@@ -204,14 +222,14 @@ panelPosition: 'right',
 
 **Accessibility note:** When the panel is positioned to the left side, the CSS property `flex-direction: row-reverse` is used to reverse the items within the main panel status which contains the issue count, Skip-to-issue button and Dismiss button. This causes a [disconnect between the visual order and DOM order.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction#accessibility_concerns)
 
-### showHinPageOutline
+#### showHinPageOutline
 Boolean. Prefix each item within the Page Outline with an H.
 
 ```js
 showHinPageOutline: false,
 ```
 
-### customChecks
+#### customChecks
 Please refer to custom checks for guidance.
 1. Pass `listen` if you would like Sa11y to "listen" for custom checks.
 2. Pass an object if you would like to add custom checks before instantiating Sa11y.
@@ -221,323 +239,323 @@ Please refer to custom checks for guidance.
 customChecks: false,
 ```
 
-## Customizing rulesets
+### Customizing rulesets
 Use these props to customize specific rulesets.
 
-### nonConsecutiveHeadingIsError
+#### nonConsecutiveHeadingIsError
 Boolean. Set to `false` if you would like skipped headings to be flagged as a warning instead. By default Sa11y flags skipped headings as an error, however, this is not a WCAG failure.
 
 ```js
 nonConsecutiveHeadingIsError: true,
 ```
 
-### flagLongHeadings
+#### flagLongHeadings
 Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.
 
 ```js
 flagLongHeadings: true,
 ```
 
-### missingH1
+#### missingH1
 Boolean. Set to `false` if you would like to turn off this ruleset.
 
 ```js
 missingH1: true,
 ```
 
-### altTextMaxCharLength
+#### altTextMaxCharLength
 Integer. Modify the alt text character count for warning message about excessively long alt.
 
 ```js
 altTextMaxCharLength: 250,
 ```
 
-### headingMaxCharLength
+#### headingMaxCharLength
 Integer. Modify the heading text character count for warning message about excessively long headings.
 
 ```js
 headingMaxCharLength: 170,
 ```
 
-### URLTextMaxCharLength
+#### URLTextMaxCharLength
 Integer. Modify the URL text character count for warning message about URLs used as link text.
 
 ```js
 URLTextMaxCharLength: 40,
 ```
 
-### URLAsLinkTextWarning
+#### URLAsLinkTextWarning
 Boolean. Set to `false` to turn off warning message about URLs used as link text.
 
 ```js
 URLAsLinkTextWarning: true,
 ```
 
-## Readability module
+### Readability module
 The readability module is based on [Flesch reading ease.](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease)
 
-### readabilityPlugin
+#### readabilityPlugin
 Boolean. Set to `false` to turn off and hide Readability check from the Settings panel.
 
 ```js
 readabilityPlugin: true,
 ```
 
-### readabilityRoot
+#### readabilityRoot
 String. Target area for readability check. For example, pass `main` for main content area. Accepts a **single selector** only.
 
 ```js
 readabilityRoot: 'body'
 ```
 
-### readabilityIgnore
+#### readabilityIgnore
 String. Ignore specific content from readability check. `<li>` tags within navigation landmarks are excluded by default.
 
 ```js
 readabilityIgnore: ''
 ```
 
-## Toggleable rulesets in Settings panel
+### Toggleable rulesets in Settings panel
 Turn off specific checks within the Settings panel.
 
-### contrastPlugin
+#### contrastPlugin
 Boolean. Set to `false` to turn off and hide contrast check from Settings panel.
 
 ```js
 contrastPlugin: true,
 ```
 
-### formLabelsPlugin
+#### formLabelsPlugin
 Boolean. Set to `false` to turn off and hide Form labels check from Settings panel.
 
 ```js
 formLabelsPlugin: true,
 ```
 
-### linksAdvancedPlugin
+#### linksAdvancedPlugin
 Boolean. Set to `false` to turn off and hide Links (Advanced) check from Settings panel.
 
 ```js
 linksAdvancedPlugin: true,
 ```
 
-### colourFilterPlugin
+#### colourFilterPlugin
 Boolean. Set to `false` to turn off and hide Colour filters from Settings panel.
 
 ```js
 colourFilterPlugin: true,
 ```
 
-### checkAllHideToggles
+#### checkAllHideToggles
 Boolean. Set to `true` if you would like to visually hide all toggle switches in the Settings panel. This will not hide the Dark Mode or Colour Filter toggles.
 
 ```js
 checkAllHideToggles: false,
 ```
 
-### exportResultsPlugin
+#### exportResultsPlugin
 Boolean. Set to `true` if you would like to add buttons that allow users to export issues as CSV or HTML.
 
 ```js
 exportResultsPlugin: false,
 ```
 
-## Quality assurance module
+### Quality assurance module
 Turn off or modify specific quality assurance checks.
 
-### badLinksQA
+#### badLinksQA
 Boolean. Related to `linksToFlag` prop.
 
 ```js
 badLinksQA: true,
 ```
 
-### strongItalicsQA
+#### strongItalicsQA
 Boolean. Flags entire paragraphs that are bold or italicized.
 
 ```js
 strongItalicsQA: true,
 ```
 
-### pdfQA
+#### pdfQA
 Boolean. Warning about PDF content.
 
 ```js
 pdfQA: true,
 ```
 
-### documentQA
+#### documentQA
 Boolean. Warning for Office and Google Workspace documents.
 
 ```js
 documentQA: true,
 ```
 
-### documentLinks
+#### documentLinks
 String. Default values for `documentQA` prop.
 
 ```js
 documentLinks: '.ppt, .doc, .xls, .csv, sway.com, docs.google.com',
 ```
 
-### langQA
+#### langQA
 Boolean. Error if page language is not set.
 
 ```js
 langQA: true,
 ```
 
-### blockquotesQA
+#### blockquotesQA
 Boolean. Warning if blockquote suspiciously resembles a heading.
 
 ```js
 blockquotesQA: true,
 ```
 
-### tablesQA
+#### tablesQA
 Boolean. Various errors about inaccessible HTML tables.
 
 ```js
 tablesQA: true,
 ```
 
-### allCapsQA
+#### allCapsQA
 Boolean. Warning about use of ALL CAPS. **Note:** Sometimes this check can be problematic because of regex usage. Set to `false` if you experience any issues.
 
 ```js
 allCapsQA: true,
 ```
 
-### fakeHeadingsQA
+#### fakeHeadingsQA
 Boolean. Warning about bolded text that suspiciously resembles a heading. Uses regex.
 
 ```js
 fakeHeadingsQA: true,
 ```
 
-### fakeListQA
+#### fakeListQA
 Boolean. Warning about suspiciously formatted content that should be a semantic list.
 
 ```js
 fakeListQA: true,
 ```
 
-### duplicateIdQA
+#### duplicateIdQA
 Boolean. Error if duplicate `id` exists on the page.
 
 ```js
 duplicateIdQA: true,
 ```
 
-### underlinedTextQA
+#### underlinedTextQA
 Boolean. Warning for <u>underlined</u> text.
 
 ```js
 underlinedTextQA: true,
 ```
 
-### pageTitleQA
+#### pageTitleQA
 Boolean. Error if meta page `<title>` is missing or empty.
 
 ```js
 pageTitleQA: true,
 ```
 
-### subscriptQA
+#### subscriptQA
 Boolean. Warning if `<sup>` and `<sub>` tags are used to format entire sentences.
 
 ```js
 subscriptQA: true,
 ```
 
-### tablesQAmissingTH
+#### tablesQAmissingTH
 Set to false to turn off check that flags missing table headers as an error.
 
 ```js
 tablesQAmissingTH: true,
 ```
 
-### tablesQAsemanticHeadings
+#### tablesQAsemanticHeadings
 Set to false to turn off check that flags semantic headings within a table as an error.
 
 ```js
 tablesQAsemanticHeadings: true,
 ```
 
-### tablesQAemptyTH
+#### tablesQAemptyTH
 Set to false to turn off check that flags empty table headers within a table as an error.
 
 ```js
 tablesQAemptyTH: true,
 ```
 
-### tablesQAemptyTHisError
+#### tablesQAemptyTHisError
 Set to false to change check that flags empty table headers from an error to a warning.
 
 ```js
 tablesQAemptyTHisError: true,
 ```
 
-## Embedded content (iFrames) module
+### Embedded content (iFrames) module
 All properties related to embedded content checks.
 
-### embeddedContentAll
+#### embeddedContentAll
 Boolean. Set to `false` to ignore all iFrames.
 
 ```js
 embeddedContentAll: true,
 ```
 
-### embeddedContentAudio
+#### embeddedContentAudio
 Boolean. Warning about audio content and transcripts.
 
 ```js
 embeddedContentAudio: true,
 ```
 
-### embeddedContentVideo
+#### embeddedContentVideo
 Boolean. Warning about video content and captions.
 
 ```js
 embeddedContentVideo: true,
 ```
 
-### embeddedContentDataViz
+#### embeddedContentDataViz
 Boolean. Warning about data visualizations.
 
 ```js
 embeddedContentDataViz: true,
 ```
 
-### embeddedContentTitles
+#### embeddedContentTitles
 Boolean. Warning about iFrame missing a descriptive title or accessible name.
 
 ```js
 embeddedContentTitles: true,
 ```
 
-### embeddedContentGeneral
+#### embeddedContentGeneral
 Boolean. General warning about unknown iFrame content.
 
 ```js
 embeddedContentGeneral: true,
 ```
 
-### videoContent
+#### videoContent
 String. Common video players.
 
 ```js
 videoContent: 'video, youtube.com, vimeo.com, yuja.com, panopto.com',
 ```
 
-### audioContent
+#### audioContent
 String. Common podcast widgets or audio players.
 
 ```js
 audioContent: 'audio, soundcloud.com, simplecast.com, podbean.com, buzzsprout.com, blubrry.com, transistor.fm, fusebox.fm, libsyn.com',
 ```
 
-### dataVizContent
+#### dataVizContent
 String. Common data visualization widgets.
 
 ```js
@@ -546,6 +564,40 @@ dataVizContent: 'datastudio.google.com, tableau',
 
 ## Methods
 These helper methods streamline integration into content management systems.
+
+### sa11y.resetAll();
+Use this function to reset Sa11y's interface and remove all annotations from the page. Pass `false` as a parameter to reset the page while keeping Sa11y's panel open.
+
+### sa11y.checkAll();
+Utilize this function to initiate another scan of the page. You can optionally pass different selectors for `checkRoot` and `readabilityRoot` than those initially specified upon instantiation, like so: `sa11y.checkAll(checkRoot, readabilityRoot);`.
+
+<div class="ms-5">
+
+#### Example
+View a [live demo of "travelling" roots.](https://ryersondmp.github.io/sa11y/demo/en/traveling-root)
+
+```javascript
+// Initial instantiation.
+Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+const sa11y = new Sa11y.Sa11y({
+  checkRoot: "main",
+  readabilityRoot: "main",
+});
+
+// Re-checks the page after 2 seconds.
+setTimeout(() => {
+  sa11y.resetAll(false);
+  sa11y.checkAll();
+}, 2000);
+
+// Re-checks the page after 4 seconds, but with different target roots.
+setTimeout(() => {
+  sa11y.resetAll(false);
+  sa11y.checkAll("body", "body");
+}, 4000);
+```
+
+</div>
 
 ### sa11y.disabled();
 Employ this function to temporarily deactivate the accessibility checker. It closes the panel (if open) and applies the <code>disabled</code> attribute, graying out the toggle and blocking user interaction.
