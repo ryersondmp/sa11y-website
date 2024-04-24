@@ -102,7 +102,6 @@ String. Ignore elements within a link or image link to improve accuracy of link 
 linkIgnoreSpan: '',
 ```
 
-
 <div class="p-4 mb-4 bg-light rounded-3">
 
 ##### Example
@@ -138,6 +137,21 @@ String. Check for unwanted URLs, such as those pointing to development environme
 
 ```js
 linksToFlag: '',
+```
+
+
+#### headerIgnoreSpan
+String. Ignore elements within headings to enhance the accuracy of checks and ensure that text isn't displayed within the Page Outline. For example, this prop is used on this very website to exclude the text "Anchor" from the Page Outline.
+
+```js
+headerIgnoreSpan: '',
+```
+
+#### headerIgnoreStrings
+String. An alternative prop to `headerIgnoreSpan`. Pass a string of regex that matches specific words or phrases to be excluded from Page Outline or heading checks. For example, `"\(Anchor\)"`.
+
+```js
+headerIgnoreStrings: '',
 ```
 
 ### Other features
