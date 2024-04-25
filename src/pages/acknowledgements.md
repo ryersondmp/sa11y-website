@@ -2,7 +2,7 @@
 layout: base
 title: Acknowledgements
 permalink: '/acknowledgements/'
-order: 5
+order: 6
 ---
 
 # {{ title }}

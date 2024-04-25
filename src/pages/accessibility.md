@@ -2,7 +2,7 @@
 layout: base
 title: Accessibility
 permalink: '/accessibility/'
-order: 4
+order: 5
 ---
 
 # {{title}}

@@ -2,7 +2,7 @@
 layout: base
 title: WordPress Plugin
 permalink: '/wordpress/'
-order: 3
+order: 4
 ---
 
 <h1>{{title}} <i class="bi bi-wordpress"></i></h1>
@@ -44,6 +44,8 @@ This section contains a list of common video, audio, and data visualization sour
 You can use the extra props (properties) field to turn off specific checks or enable other features. Use a comma to seperate multiple boolean (true or false) props in this field. View a list of <a href="{{ '/developers/props/' | url}}">all props.</a>
 
 For example, if you would like to hide "Good" buttons for links that have an accessible name via ARIA attributes, you can pass the following prop `showGoodLinkButton: false` in this field.
+
+<hr aria-hidden="true" class="mt-5">
 
 ## Frequently asked questions
 
