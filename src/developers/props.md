@@ -139,7 +139,6 @@ String. Check for unwanted URLs, such as those pointing to development environme
 linksToFlag: '',
 ```
 
-
 #### headerIgnoreSpan
 String. Ignore elements within headings to enhance the accuracy of checks and ensure that text isn't displayed within the Page Outline. For example, this prop is used on this very website to exclude the text "Anchor" from the Page Outline.
 
@@ -156,6 +155,13 @@ headerIgnoreStrings: '',
 
 ### Other features
 Features that may help with integrations into various content management systems or frameworks.
+
+#### aboutContent
+String. Add a custom "About" or "Help" section within the Settings panel. This prop should only ever be populated with static content by developers to mitigate XSS attacks. Available as of 3.2.0.
+
+```js
+aboutContent: '<h2>Help</h2><p>Questions? Contact the IT Help Desk for support.</p>',
+```
 
 #### delayCheck
 Integer. Defer the initial page check by a customizable delay of x milliseconds. Useful for accommodating slower-loading JavaScript elements. For example, pass `500` to delay the initial check by 500 milliseconds. Available as of 3.0.9.
@@ -253,6 +259,34 @@ Please refer to custom checks for guidance.
 customChecks: false,
 ```
 
+#### showImageOutline
+Boolean. Display the "Images" tab between the Outline and Settings tab within the control panel. Available as of 3.2.0.
+
+```js
+showImageOutline: true,
+```
+
+#### editImageURLofCMS
+String. **Required** prop to help configure "Edit" buttons for Image outline. The content management system's edit URL or path for an image. For example, `/wp-admin/upload.php?item=` or `https://example.com/assets.html/content/dam`. Available as of 3.2.0.
+
+```js
+editImageURLofCMS: '',
+```
+
+#### relativePathImageSRC
+String. Optional prop to help configure "Edit" buttons for Image outline. This prop is only necessary if images are uploaded to another domain, otherwise it uses the website's [host](https://developer.mozilla.org/en-US/docs/Web/API/Location/host) name to check if the image has a relative path. Available as of 3.2.0.
+
+```js
+relativePathImageSRC: '',
+```
+
+#### relativePathImageID
+String. Optional prop to help configure "Edit" buttons for Image outline. Some content management system's output a unique class name which includes the image's unique ID, for example `wp-image-` for WordPress. If no string is provided, it will fallback to the image's file extension. Available as of 3.2.0.
+
+```js
+relativePathImageID: '',
+```
+
 ### Customizing rulesets
 Use these props to customize specific rulesets.
 
@@ -282,6 +316,27 @@ Integer. Modify the alt text character count for warning message about excessive
 
 ```js
 altTextMaxCharLength: 250,
+```
+
+#### susAltStopWords
+String. Overwrite the `SUSPICIOUS_ALT_STOPWORDS` array (e.g. image of, graphic of) within the language files. For instance, by passing 'image', only alt text containing the word 'image' at the beginning will be flagged. Available as of 3.2.0.
+
+```js
+susAltStopWords: '',
+```
+
+#### linkStopWords
+String. Overwrite the `WARNING_ALT_STOPWORDS` array (e.g. click here) in the language files. Available as of 3.2.0.
+
+```js
+linkStopWords: '',
+```
+
+#### extraPlaceholderStopWords
+String. Add additional stop words to flag at the beginning of an alt text string as a placeholder error. For example, if you pass the word "untitled", any image whose alt text starts with "untitled" will be flagged. Available as of 3.2.0.
+
+```js
+extraPlaceholderStopWordss: '',
 ```
 
 #### headingMaxCharLength
@@ -409,7 +464,7 @@ documentQA: true,
 String. Default values for `documentQA` prop.
 
 ```js
-documentLinks: '.ppt, .doc, .xls, .csv, sway.com, docs.google.com',
+documentLinks: 'a[href$=".doc"], a[href$=".docx"], a[href*=".doc?"], a[href*=".docx?"], a[href$=".ppt"], a[href$=".pptx"], a[href*=".ppt?"], a[href*=".pptx?"], a[href^="https://docs.google"], a[href^="https://sway."]',
 ```
 
 #### langQA

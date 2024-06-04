@@ -184,6 +184,9 @@ The Show Outline button displays the page's heading structure, similar to the ta
     </div>
 </div>
 
+## Image outline
+The **Images** tab makes it easy to review all images and their corresponding alt text within a page.
+
 <hr class="mt-5" aria-hidden="true">
 
 ## Quality assurance
