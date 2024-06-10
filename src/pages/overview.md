@@ -185,7 +185,16 @@ The Show Outline button displays the page's heading structure, similar to the ta
 </div>
 
 ## Image outline
-The **Images** tab makes it easy to review all images and their corresponding alt text within a page.
+
+<div class="row">
+    <div class="col-lg-4">
+        <p>The <strong>Images</strong> tab makes it easy to review all images and their corresponding alt text within a page for accuracy, quality and correct spelling.</p>
+        <p>Images that are hyperlinked will display a link icon <i class="bi bi-link-45deg"></i> to indicate that it's a <a href="https://www.w3.org/WAI/tutorials/images/functional/">functional image.</a></p>
+    </div>
+    <div class="col-lg-8">
+        <img loading="lazy" class="img-fluid rounded-3" width="900" src="{{ '/images/screenshots/images-panel.webp' | url }}" alt="Screenshot of the Images panel showing a list of all images on the page with their alt text.">
+    </div>
+</div>
 
 <hr class="mt-5" aria-hidden="true">
 
