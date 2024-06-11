@@ -188,7 +188,7 @@ The Show Outline button displays the page's heading structure, similar to the ta
 
 <div class="row">
     <div class="col-lg-4">
-        <p>The <strong>Images</strong> tab makes it easy to review all images and their corresponding alt text within a page for accuracy, quality and correct spelling.</p>
+        <p>The <strong>Images</strong> tab makes it easy to review all images and their corresponding alt text within a page for accuracy and quality.</p>
         <p>Images that are hyperlinked will display a link icon <i class="bi bi-link-45deg"></i> to indicate that it's a <a href="https://www.w3.org/WAI/tutorials/images/functional/">functional image.</a></p>
     </div>
     <div class="col-lg-8">
