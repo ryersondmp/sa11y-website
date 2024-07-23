@@ -1,4 +1,4 @@
-const htmlmin = require('html-minifier');
+const htmlmin = require('html-minifier-terser');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 
