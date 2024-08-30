@@ -184,6 +184,13 @@ Boolean. Show "Good" annotations on links with an accessible name that was defin
 showGoodLinkButton: true,
 ```
 
+#### showGoodImageButton
+Boolean. Show "Good" annotations on images that have alt text.
+
+```js
+showGoodImageButton: true,
+```
+
 #### detectSPArouting
 Boolean. Detects URL changes and re-checks the page. This prop is designed to improve usability when testing JavaScript rendered content or single page applications (SPA).
 
