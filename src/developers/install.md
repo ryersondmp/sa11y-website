@@ -145,8 +145,8 @@ You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/t
 
 Do you want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 
-### CDN
-To utilize CDN links above, simply replace `lang/en.umd.js` with your preferred language code.
+### Installation
+Replace `lang/en.umd.js` in the example snippets with your preferred language code (note the strings for `enUS`, `ptBR` and `ptPT` contain two capital letters) and update the language code in the line `Lang.addI18n(Sa11yLangEn.strings)` accordingly (first letter captialized, i.e. `en` becomes `En`, `enUS` becomes `EnUS`).
 
 ### Readability
 Sa11y's readability feature is based on [Flesch reading-ease test (Wikipedia)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease) and [Lix (Wikipedia).](https://en.wikipedia.org/wiki/Lix_(readability_test)) The Flesch reading-ease formula has been adapted to also support Dutch, Italian, French, German, Portuguese, and Spanish. Lix formula supports Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
