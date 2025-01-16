@@ -162,7 +162,7 @@ h5,
 h6,
 footer,
 .btn {
-  font-family: 'Replica-Regular', sans-serif;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 .homepage h2 {
@@ -200,6 +200,15 @@ main li {
 .bg-ryerson {
   --bs-bg-opacity: 1;
   background-color: var(--RUblue);
+}
+
+p {
+  max-width: 80ch;
+}
+
+footer p {
+  margin: 0 auto;
+  padding-bottom: 0.3em;
 }
 
 .bg-ryerson-accent {
@@ -259,7 +268,8 @@ main li {
 }
 
 .sa11y-nav {
-  font-family: 'Replica-Bold', sans-serif;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
 }
 
 .homepage-link:hover,
@@ -273,7 +283,8 @@ h1:not(#homepage-heading),
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Replica-Bold', sans-serif;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
 }
 
 @media (min-width: 1200px) {
@@ -473,4 +484,28 @@ tr>td:nth-child(2):before {
 tr>td:nth-child(2):after {
   content: ", ";
   opacity: 0.5;
+}
+
+details {
+  padding: .6rem 1rem;
+  background: white;
+  border: 2px solid var(--RUblue);
+  border-radius: 4px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+details[open] {
+  padding-bottom: .75rem;
+}
+
+details[open] summary {
+  margin-bottom: 6px;
+}
+
+details[open]>*:last-child {
+  margin-bottom: 0;
 }

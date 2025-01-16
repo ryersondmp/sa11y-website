@@ -9,13 +9,17 @@ order: 2
 
 # {{title}}
 
+View props for [Sa11y 3.2 and below.](/developers/3/props/)
+
 <nav aria-labelledby="onthispage">
 
-<h2 class="h6" id="onthispage">On this page:</h2>
+<h2 class="h5" id="onthispage">On this page:</h2>
 
 - [Props](#props)
     - [Target area and exclusions](#target-area-and-exclusions)
+    - [Control panel](#control-panel)
     - [Other features](#other-features)
+    - [Annotations](#annotations)
     - [Customizing rulesets](#customizing-rulesets)
     - [Readability module](#readability-module)
     - [Toggleable rulesets in Settings panel](#toggleable-rulesets-in-settings-panel)
@@ -30,7 +34,7 @@ Props allow you to easily customize the experience for content authors. For exam
 1. Set the target area to check. If your content authors can't edit it, don't flag it!
 2. Ignore entire sections of a page.
 3. Add exclusions to ignore false positives.
-4. Turn off specific modules or checks.
+4. Turn off or customize specific modules or checks.
 
 Pass in props when you instantiate Sa11y, for example:
 
@@ -38,7 +42,6 @@ Pass in props when you instantiate Sa11y, for example:
 const sa11y = new Sa11y({
   checkRoot: "main",
   readabilityRoot: "main",
-  formLabelsPlugin: false,
   containerIgnore: "#pagination, aside",
 });
 ```
@@ -64,7 +67,7 @@ containerIgnore: '.sa11y-ignore',
 String. Ignore specific elements from the contrast check.
 
 ```js
-contrastIgnore: '.sr-only, [role="menu"] *',
+contrastIgnore: '.sr-only',
 ```
 
 #### outlineIgnore
@@ -153,42 +156,113 @@ String. An alternative prop to `headerIgnoreSpan`. Pass a string of regex that m
 headerIgnoreStrings: '',
 ```
 
-### Other features
-Features that may help with integrations into various content management systems or frameworks.
+### Control panel
+Properties that affect Sa11y's control panel.
 
 #### aboutContent
-String. Add a custom "About" or "Help" section within the Settings panel. This prop should only ever be populated with static content by developers to mitigate XSS attacks. Available as of 3.2.0.
+String. Add a custom "About" or "Help" section within the Settings panel. This prop should only ever be populated with static content by developers to mitigate XSS attacks. Since 3.2.0.
 
+```js
+aboutContent: '',
+```
+
+<div class="p-4 mb-4 bg-light rounded-3">
+
+##### Example
 ```js
 aboutContent: '<h2>Help</h2><p>Questions? Contact the IT Help Desk for support.</p>',
 ```
 
+</div>
+
+
+#### panelPosition
+String. Move position of panel in any four corners. Choose from `top-left`, `top-right`, `left`, and `right`.
+
+```js
+panelPosition: 'right',
+```
+**Accessibility note:** When the panel is positioned to the left side, the CSS property `flex-direction: row-reverse` is used to reverse the items within the main panel status which contains the issue count, Skip-to-issue button and Dismiss button. This causes a [disconnect between the visual order and DOM order.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction#accessibility_concerns)
+
+
+#### colourFilterPlugin
+Boolean. Set to `false` to turn off and hide Colour filters from Settings panel.
+
+```js
+colourFilterPlugin: true,
+```
+
+#### exportResultsPlugin
+Boolean. Set to `true` if you would like to add buttons that allow users to export issues as CSV or HTML.
+
+```js
+exportResultsPlugin: false,
+```
+
+#### checkAllHideToggles
+Boolean. Set to `true` if you would like to visually hide the "Developer Check" toggle.
+
+```js
+checkAllHideToggles: false,
+```
+
+#### showHinPageOutline
+Boolean. Prefix each item within the Page Outline with an H.
+
+```js
+showHinPageOutline: false,
+```
+
+#### showTitleInPageOutline
+Boolean. Show the page's meta title in the Page Outline. Since 3.2.2.
+
+```js
+ showTitleInPageOutline: true,
+```
+
+#### showImageOutline
+Boolean. Display the "Images" tab between the Outline and Settings tab within the control panel. Since 3.2.0.
+
+```js
+showImageOutline: true,
+```
+
+#### editImageURLofCMS
+String. **Required** prop to help configure "Edit" buttons for Image outline. The content management system's edit URL or path for an image. For example, `/wp-admin/upload.php?item=` or `https://example.com/assets.html/content/dam`. Since 3.2.0.
+
+```js
+editImageURLofCMS: '',
+```
+
+#### relativePathImageSRC
+String. Optional prop to help configure "Edit" buttons for Image outline. This prop is only necessary if images are uploaded to another domain, otherwise it uses the website's [host](https://developer.mozilla.org/en-US/docs/Web/API/Location/host) name to check if the image has a relative path. Since 3.2.0.
+
+```js
+relativePathImageSRC: '',
+```
+
+#### relativePathImageID
+String. Optional prop to help configure "Edit" buttons for Image outline. Some content management system's output a unique class name which includes the image's unique ID, for example `wp-image-` for WordPress. If no string is provided, it will fallback to the image's file extension. Since 3.2.0.
+
+```js
+relativePathImageID: '',
+```
+
+### Other features
+Features that may help with integrations into various content management systems or frameworks.
+
 #### delayCheck
-Integer. Defer the initial page check by a customizable delay of x milliseconds. Useful for accommodating slower-loading JavaScript elements. For example, pass `500` to delay the initial check by 500 milliseconds. Available as of 3.0.9.
+Integer. Defer the initial page check by a customizable delay of x milliseconds. Useful for accommodating slower-loading JavaScript elements. For example, pass `500` to delay the initial check by 500 milliseconds. Since 3.0.9.
 
 ```js
 delayCheck: 0,
 ```
 
 #### delayCustomCheck
-Integer. Extend or decrease the amount of time that Sa11y will wait for any custom checks provided via dispatched events. Refer to [Custom Checks]({{'/developers/custom-checks/' | url}}) for guidance. Available as of 3.1.2.
+Integer. Extend or decrease the amount of time that Sa11y will wait for any custom checks provided via dispatched events. Refer to [Custom Checks]({{'/developers/custom-checks/' | url}}) for guidance. Since 3.1.2.
 
 ```js
 delayCheck: 500,
-```
-
-#### showGoodLinkButton
-Boolean. Show "Good" annotations on links with an accessible name that was defined with an `aria-label` or `aria-labelledby` attribute. Sometimes content authors may wonder why some "learn more" links are not flagged as an error.
-
-```js
-showGoodLinkButton: true,
-```
-
-#### showGoodImageButton
-Boolean. Show "Good" annotations on images that have alt text.
-
-```js
-showGoodImageButton: true,
 ```
 
 #### detectSPArouting
@@ -205,59 +279,36 @@ String. Using a comma seperated list, provide selectors to unique pages where yo
 doNotRun: '',
 ```
 
-#### dismissAnnotations
-Boolean. Give content editors the ability to dismiss any warnings.
-
-```js
-dismissAnnotations: true,
-```
-
 #### headless
-Boolean. Run checks without the GUI (graphical user interface).
+Boolean. Run checks without the GUI (graphical user interface). Since 3.0.0.
 
 ```js
 headless: false,
 ```
 
 #### selectorPath
-Boolean. Generates a simple CSS selector path of the element within the `results` array.
+Boolean. Generates a simple CSS selector path of the element within the `results` array. Since 3.0.0.
 
 ```js
 selectorPath: false,
 ```
 
 #### shadowComponents
-String. Provide a list of all known web components to check.
+String. Provide a list of all known web components to check. Since 3.0.0.
 
 ```js
 shadowComponents: '',
 ```
 
 #### autoDetectShadowComponents
-Boolean. Automatically check every element on the page for an open shadow DOM, and check for issues within them.
+Boolean. Automatically check every element on the page for an open shadow DOM, and check for issues within them. Since 3.0.0.
 
 ```js
 autoDetectShadowComponents: false,
 ```
 
-#### panelPosition
-String. Move position of panel in any four corners. Choose from `top-left`, `top-right`, `left`, and `right`.
-
-```js
-panelPosition: 'right',
-```
-
-**Accessibility note:** When the panel is positioned to the left side, the CSS property `flex-direction: row-reverse` is used to reverse the items within the main panel status which contains the issue count, Skip-to-issue button and Dismiss button. This causes a [disconnect between the visual order and DOM order.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction#accessibility_concerns)
-
-#### showHinPageOutline
-Boolean. Prefix each item within the Page Outline with an H.
-
-```js
-showHinPageOutline: false,
-```
-
 #### customChecks
-Please refer to custom checks for guidance.
+Please refer to custom checks for guidance. Since 3.0.0.
 1. Pass `listen` if you would like Sa11y to "listen" for custom checks.
 2. Pass an object if you would like to add custom checks before instantiating Sa11y.
 3. Set to `true` if Sa11y is installed locally on your system and add custom checks to  `sa11y-custom-checks.js` file.
@@ -266,106 +317,112 @@ Please refer to custom checks for guidance.
 customChecks: false,
 ```
 
-#### showImageOutline
-Boolean. Display the "Images" tab between the Outline and Settings tab within the control panel. Available as of 3.2.0.
+## Annotations
+Props related to annotations.
+
+#### dismissAnnotations
+Boolean. Give content editors the ability to dismiss any warnings. Since 3.0.0.
 
 ```js
-showImageOutline: true,
+dismissAnnotations: true,
 ```
 
-#### editImageURLofCMS
-String. **Required** prop to help configure "Edit" buttons for Image outline. The content management system's edit URL or path for an image. For example, `/wp-admin/upload.php?item=` or `https://example.com/assets.html/content/dam`. Available as of 3.2.0.
+#### dismissAll
+Boolean. Set to `false` to turn off "Dismiss all" functionality for all tooltips. Note, only some checks have a "Dismiss all" button by default. Since 4.0.0.
 
 ```js
-editImageURLofCMS: '',
+dismissAll: true,
 ```
 
-#### relativePathImageSRC
-String. Optional prop to help configure "Edit" buttons for Image outline. This prop is only necessary if images are uploaded to another domain, otherwise it uses the website's [host](https://developer.mozilla.org/en-US/docs/Web/API/Location/host) name to check if the image has a relative path. Available as of 3.2.0.
+#### showGoodLinkButton
+Boolean. Show "Good" annotations on links with an accessible name that was defined with an `aria-label` or `aria-labelledby` attribute. Sometimes content authors may wonder why some "learn more" links are not flagged as an error.
 
 ```js
-relativePathImageSRC: '',
+showGoodLinkButton: true,
 ```
 
-#### relativePathImageID
-String. Optional prop to help configure "Edit" buttons for Image outline. Some content management system's output a unique class name which includes the image's unique ID, for example `wp-image-` for WordPress. If no string is provided, it will fallback to the image's file extension. Available as of 3.2.0.
+#### showGoodImageButton
+Boolean. Show "Good" annotations on images that have alt text.
 
 ```js
-relativePathImageID: '',
+showGoodImageButton: true,
 ```
 
 ### Customizing rulesets
-Use these props to customize specific rulesets.
+As of 4.0, any check can be individually turned off or customized upon instantiation. You can now easily change a:
+- Tooltip’s message.
+- Classification as a warning or error.
+- Classification as a “Developer check”.
+- Give “Dismiss all” ability to a check.
 
-#### nonConsecutiveHeadingIsError
-Boolean. Set to `false` if you would like skipped headings to be flagged as a warning instead. By default Sa11y flags skipped headings as an error, however, this is not a WCAG failure.
-
-```js
-nonConsecutiveHeadingIsError: true,
-```
-
-#### flagLongHeadings
-Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.
+Here's an example:
 
 ```js
-flagLongHeadings: true,
+const sa11y = new Sa11y({
+  checkRoot: "main",
+  checks: {
+
+    // Turn off the "Missing Heading 1" check.
+    HEADING_MISSING_ONE: false,
+
+    // Change "Empty table heading" error to a warning,
+    // overwrite tooltip content, and
+    // allow editors to "Dismiss all"
+    TABLES_EMPTY_HEADING: {
+      content: 'Please avoid empty table headers within tables!',
+      type: 'warning',
+      dismissAll: true,
+    }
+
+    // Adjust max character count of "Alt is too long" check.
+    LINK_IMAGE_LONG_ALT: {
+      maxLength: 100,
+    },
+    IMAGE_ALT_TOO_LONG: {
+      maxLength: 100,
+    },
+  }
+});
 ```
 
-#### missingH1
-Boolean. Set to `false` if you would like to turn off this ruleset.
-
-```js
-missingH1: true,
-```
-
-#### altTextMaxCharLength
-Integer. Modify the alt text character count for warning message about excessively long alt.
-
-```js
-altTextMaxCharLength: 250,
-```
+The props below are shared between different checks and are not nested under the "checks" object.
 
 #### susAltStopWords
-String. Overwrite the `SUSPICIOUS_ALT_STOPWORDS` array (e.g. image of, graphic of) within the language files. For instance, by passing 'image', only alt text containing the word 'image' at the beginning will be flagged. Available as of 3.2.0.
+String. Overwrite the `SUSPICIOUS_ALT_STOPWORDS` array (e.g. image of, graphic of) within the language files. For instance, by passing 'image', only alt text containing the word 'image' at the beginning will be flagged. Since 3.2.0.
 
 ```js
 susAltStopWords: '',
 ```
 
 #### linkStopWords
-String. Overwrite the `WARNING_ALT_STOPWORDS` array (e.g. click here) in the language files. Available as of 3.2.0.
+String. Overwrite the `WARNING_ALT_STOPWORDS` array (e.g. click here) in the language files. Since 3.2.0.
 
 ```js
 linkStopWords: '',
 ```
 
 #### extraPlaceholderStopWords
-String. Add additional stop words to flag at the beginning of an alt text string as a placeholder error. For example, if you pass the word "untitled", any image whose alt text starts with "untitled" will be flagged. Available as of 3.2.0.
+String. Add additional stop words to flag at the beginning of an alt text string as a placeholder error. For example, if you pass the word "untitled", any image whose alt text starts with "untitled" will be flagged. Since 3.2.0.
 
 ```js
 extraPlaceholderStopWordss: '',
 ```
 
-#### headingMaxCharLength
-Integer. Modify the heading text character count for warning message about excessively long headings.
+
+#### contrastPlugin
+Boolean. Set to `false` to turn off all contrast checking.
 
 ```js
-headingMaxCharLength: 170,
+contrastPlugin: true,
 ```
 
-#### URLTextMaxCharLength
-Integer. Modify the URL text character count for warning message about URLs used as link text.
+#### formLabelsPlugin
+Boolean. Set to `false` to turn off all input/form labels checks.
 
 ```js
-URLTextMaxCharLength: 40,
+formLabelsPlugin: true,
 ```
 
-#### URLAsLinkTextWarning
-Boolean. Set to `false` to turn off warning message about URLs used as link text.
-
-```js
-URLAsLinkTextWarning: true,
-```
 
 ### Readability module
 The readability module is based on [Flesch reading ease.](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease)
@@ -391,22 +448,11 @@ String. Ignore specific content from readability check. `<li>` tags within navig
 readabilityIgnore: ''
 ```
 
-### Toggleable rulesets in Settings panel
-Turn off specific checks within the Settings panel.
+### Deprecated properties as of 4.0
+The following props are deprecated, but their functionality can still be achieved using the new props structure for checks.
 
-#### contrastPlugin
-Boolean. Set to `false` to turn off and hide contrast check from Settings panel.
-
-```js
-contrastPlugin: true,
-```
-
-#### formLabelsPlugin
-Boolean. Set to `false` to turn off and hide Form labels check from Settings panel.
-
-```js
-formLabelsPlugin: true,
-```
+<details>
+  <summary>View deprecated props</summary>
 
 #### linksAdvancedPlugin
 Boolean. Set to `false` to turn off and hide Links (Advanced) check from Settings panel.
@@ -415,29 +461,55 @@ Boolean. Set to `false` to turn off and hide Links (Advanced) check from Setting
 linksAdvancedPlugin: true,
 ```
 
-#### colourFilterPlugin
-Boolean. Set to `false` to turn off and hide Colour filters from Settings panel.
+#### nonConsecutiveHeadingIsError
+Boolean. Set to `false` if you would like skipped headings to be flagged as a warning instead. By default Sa11y flags skipped headings as an error, however, this is not a WCAG failure.
 
 ```js
-colourFilterPlugin: true,
+nonConsecutiveHeadingIsError: true,
 ```
 
-#### checkAllHideToggles
-Boolean. Set to `true` if you would like to visually hide all toggle switches in the Settings panel. This will not hide the Dark Mode or Colour Filter toggles.
+
+#### flagLongHeadings
+Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.
 
 ```js
-checkAllHideToggles: false,
+flagLongHeadings: true,
 ```
 
-#### exportResultsPlugin
-Boolean. Set to `true` if you would like to add buttons that allow users to export issues as CSV or HTML.
+#### missingH1
+Boolean. Set to `false` if you would like to turn off this ruleset.
 
 ```js
-exportResultsPlugin: false,
+missingH1: true,
 ```
 
-### Quality assurance module
-Turn off or modify specific quality assurance checks.
+#### altTextMaxCharLength
+Integer. Modify the alt text character count for warning message about excessively long alt.
+
+```js
+altTextMaxCharLength: 250,
+```
+
+#### headingMaxCharLength
+Integer. Modify the heading text character count for warning message about excessively long headings.
+
+```js
+headingMaxCharLength: 170,
+```
+
+#### URLTextMaxCharLength
+Integer. Modify the URL text character count for warning message about URLs used as link text.
+
+```js
+URLTextMaxCharLength: 40,
+```
+
+#### URLAsLinkTextWarning
+Boolean. Set to `false` to turn off warning message about URLs used as link text.
+
+```js
+URLAsLinkTextWarning: true,
+```
 
 #### badLinksQA
 Boolean. Related to `linksToFlag` prop.
@@ -572,9 +644,6 @@ Set to false to change check that flags empty table headers from an error to a w
 tablesQAemptyTHisError: true,
 ```
 
-### Embedded content (iFrames) module
-All properties related to embedded content checks.
-
 #### embeddedContentAll
 Boolean. Set to `false` to ignore all iFrames.
 
@@ -637,6 +706,8 @@ String. Common data visualization widgets.
 ```js
 dataVizContent: 'datastudio.google.com, tableau',
 ```
+
+</details>
 
 ## Methods
 These helper methods streamline integration into content management systems.
