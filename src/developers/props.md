@@ -9,8 +9,6 @@ order: 2
 
 # {{title}}
 
-View props for [Sa11y 3.2 and below.](/developers/3/props/)
-
 <nav aria-labelledby="onthispage">
 
 <h2 class="h5" id="onthispage">On this page:</h2>
@@ -25,6 +23,7 @@ View props for [Sa11y 3.2 and below.](/developers/3/props/)
     - [Toggleable rulesets in Settings panel](#toggleable-rulesets-in-settings-panel)
     - [Quality assurance module](#quality-assurance-module)
     - [Embedded content (iFrames) module](#embedded-content-iframes-module)
+- [Deprecated props](#deprecated-props)
 - [Methods](#methods)
 
 </nav>
@@ -317,7 +316,7 @@ Please refer to custom checks for guidance. Since 3.0.0.
 customChecks: false,
 ```
 
-## Annotations
+### Annotations
 Props related to annotations.
 
 #### dismissAnnotations
@@ -448,7 +447,7 @@ String. Ignore specific content from readability check. `<li>` tags within navig
 readabilityIgnore: ''
 ```
 
-### Deprecated properties as of 4.0
+## Deprecated props
 The following props are deprecated, but their functionality can still be achieved using the new props structure for checks.
 
 <details>
@@ -596,7 +595,7 @@ duplicateIdQA: true,
 ```
 
 #### underlinedTextQA
-Boolean. Warning for <u>underlined</u> text.
+Boolean. Warning for underlined text.
 
 ```js
 underlinedTextQA: true,
