@@ -198,8 +198,15 @@ Boolean. Set to `true` if you would like to add buttons that allow users to expo
 exportResultsPlugin: false,
 ```
 
+#### developerChecksOnByDefault
+Boolean. Set to `true` if you would like "Developer checks" enabled by default.
+
+```js
+developerChecksOnByDefault: false,
+```
+
 #### checkAllHideToggles
-Boolean. Set to `true` if you would like to visually hide the "Developer Check" toggle.
+Boolean. Set to `true` if you would like to visually hide the "Developer checks" toggle.
 
 ```js
 checkAllHideToggles: false,
