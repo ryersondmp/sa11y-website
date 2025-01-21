@@ -92,7 +92,7 @@ const sa11y = new Sa11y({
 ```
 
 ### 3. Locally using build step
-Install Sa11y locally and create custom checks within `/src/sa11y-custom-checks.js`.
+Install Sa11y locally and create custom checks within `/src/js/sa11y-custom-checks.js`.
 - **Benefits:** Full access to all helper [utilities](https://github.com/ryersondmp/sa11y/tree/master/src/js/utils/utils.js) and [elements](https://github.com/ryersondmp/sa11y/blob/master/src/js/utils/elements.js). Custom checks compiled into core library resulting in a single, minified JavaScript file.
 - **Cons:** Requires Sa11y to be installed locally and a build step.
 - **Good for:** developers who prefer to have a local installation and keep everything in one place.
