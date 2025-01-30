@@ -2,7 +2,7 @@
 layout: base
 title: Checks
 permalink: '/get-started/checks/'
-order: 4
+order: 5
 ---
 
 # {{title}}
