@@ -34,6 +34,15 @@ function eleventyConfig(config) {
     return docs;
   });
 
+  //Sort Get Started pages.
+  config.addCollection("getstarted", collection => {
+    const docs = collection.getFilteredByGlob("src/get-started/*.md")
+      .sort((a, b) => {
+        return Number(a.data.order) - Number(b.data.order);
+      });
+    return docs;
+  });
+
   // Layout aliases
   config.addLayoutAlias("base", "layouts/base.njk");
 
