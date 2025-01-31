@@ -110,10 +110,6 @@ List of content author errors and warnings.
 
 1. **Text within this input does not have enough contrast with the background.**
 
-1. **SVG graphic has unknown contrast.** SVGs with multiple `<path>` elements will recieve a warning to manually review contrast.
-
-1. **SVG graphic has poor contrast with background.** For simple SVGs, with a single `<path>`, Sa11y is able to calculate the contrast against the background.
-
 ### Tables
 1. **Table is missing header cells.** Tables should have header cells that accurately describe their respective column or row. Avoid using tables for aesthetic purposes.
 
@@ -147,6 +143,8 @@ List of content author errors and warnings.
 
 1. **Small text is harder to read, particularly for those with low vision.** To ensure better readability, avoid using font sizes smaller than the default.
 
+1. **Reset buttons should not be used unless specifically needed because they are easy to activate by mistake.** Learn why [Reset and Cancel buttons pose usability issues.](https://www.nngroup.com/articles/reset-and-cancel-buttons/)
+
 ### Successes
 1. **Image is marked as decorative, although the link is using the surrounding text as a descriptive label.**
 
@@ -169,8 +167,6 @@ To enable the following checks, toggle **Developer checks** in the **Settings** 
 ### Buttons & links
 
 1. **Image button is missing alt text.** Please add alt text to provide an accessible name. For example: *Search* or *Submit*.
-
-1. **Reset buttons should not be used unless specifically needed because they are easy to activate by mistake.** Learn why [Reset and Cancel buttons pose usability issues.](https://www.nngroup.com/articles/reset-and-cancel-buttons/)
 
 1. **Link has an invalid "aria-labelledby" attribute.** This may result in an empty accessible name.
 
@@ -203,6 +199,10 @@ To enable the following checks, toggle **Developer checks** in the **Settings** 
 1. **Elements with duplicate ID attributes.** Duplicate ID errors are known to cause problems for assistive technologies when they are trying to interact with content.
 
 1. **All `<li>` list items must be placed inside `<ul>` unordered or `<ol>` ordered elements.** This structure helps screen readers announce the list and its items accurately.
+
+1. **SVG graphic has unknown contrast.** SVGs with multiple `<path>` elements will recieve a warning to manually review contrast.
+
+1. **SVG graphic has poor contrast with background.** For simple SVGs, with a single `<path>`, Sa11y is able to calculate the contrast against the background.
 
 
 
