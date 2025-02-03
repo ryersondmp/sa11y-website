@@ -24,9 +24,6 @@ Jooa11y works out-of-the-box, although you can use the settings page to customiz
 
 For additional assistance navigating through the different settings, select the **Toggle Inline Help** button.
 
-
-<img width="1100" class="img-fluid img-thumbnail mb-4" alt="Screenshot of the settings page within the Joomla Administrator area." src="{{ '/images/screenshots/joomla-advanced-settings.png' | url }}">
-
 ### Adding exclusions
 
 <p class="alert alert-warning"><i class="bi bi-exclamation-octagon-fill"></i> <strong>Note:</strong> Basic knowledge of HTML and CSS is recommended.</p>

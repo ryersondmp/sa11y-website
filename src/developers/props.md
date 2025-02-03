@@ -355,7 +355,7 @@ showGoodImageButton: true,
 ```
 
 ### Customizing rulesets
-As of 4.0, any check can be individually turned off or customized upon instantiation. You can now easily change a:
+As of 4.0, any check can be individually turned off or customized upon instantiation. To customize or turn off a check, find the desired key within the [language file](https://github.com/ryersondmp/sa11y/blob/master/src/js/lang/en.js#L127) or [default options.](https://github.com/ryersondmp/sa11y/blob/master/src/js/utils/default-options.js#L73) You can easily change a:
 - Tooltip’s message.
 - Classification as a warning or error.
 - Classification as a “Developer check”.
