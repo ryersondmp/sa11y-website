@@ -38,9 +38,9 @@ You can ignore repetitive elements or create exclusions using [CSS selectors](ht
 
   Setting the <a href="{{ '/developers/props/#colourfilterplugin' | url}}">`colourFilterPlugin`</a> property to `false` will hide the **Colour filter** feature in the Settings panel.
 
-  <img class="img-fluid img-thumbnail mb-4" alt="Extra Properties field in Joomla admin settings." src="{{ '/images/screenshots/joomla-extra-props.png' | url }}">
+  <img width="800" class="img-fluid img-thumbnail mb-4" alt="Extra Properties field in Joomla admin settings." src="{{ '/images/screenshots/joomla-extra-props.png' | url }}">
 
-  <img class="img-fluid img-thumbnail mb-4" alt="Colour filter featured hidden within Settings panel." src="{{ '/images/screenshots/joomla-colour-filter.webp' | url }}">
+  <img width="800" class="img-fluid img-thumbnail mb-4" alt="Colour filter featured hidden within Settings panel." src="{{ '/images/screenshots/joomla-colour-filter.webp' | url }}">
 
 </details>
 
@@ -52,7 +52,7 @@ Available in **Joomla 5.3** and above. To turn off a check, find the desired key
 
   Setting the `QA_UPPERCASE` key to `false` will turn off the check for excessive uppercase or all-caps text.
 
-  <img class="img-fluid img-thumbnail mb-4" alt="Turn off checks field in Joomla admin settings." src="{{ '/images/screenshots/joomla-turn-off-checks.png' | url }}">
+  <img width="800" class="img-fluid img-thumbnail mb-4" alt="Turn off checks field in Joomla admin settings." src="{{ '/images/screenshots/joomla-turn-off-checks.png' | url }}">
 </details>
 
 
