@@ -411,7 +411,7 @@ linkStopWords: '',
 String. Add additional stop words to flag at the beginning of an alt text string as a placeholder error. For example, if you pass the word "untitled", any image whose alt text starts with "untitled" will be flagged. Since 3.2.0.
 
 ```js
-extraPlaceholderStopWordss: '',
+extraPlaceholderStopWords: '',
 ```
 
 
