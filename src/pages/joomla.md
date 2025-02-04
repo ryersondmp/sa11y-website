@@ -24,14 +24,37 @@ Jooa11y works out-of-the-box, although you can use the settings page to customiz
 
 For additional assistance navigating through the different settings, select the **Toggle Inline Help** button.
 
+<p class="alert alert-warning"><i class="bi bi-exclamation-octagon-fill"></i> <strong>Note:</strong> Basic knowledge of HTML and CSS is recommended for the following settings.</p>
+
 ### Adding exclusions
-
-<p class="alert alert-warning"><i class="bi bi-exclamation-octagon-fill"></i> <strong>Note:</strong> Basic knowledge of HTML and CSS is recommended.</p>
-
 You can ignore repetitive elements or create exclusions using [CSS selectors](https://www.w3schools.com/cssref/css_selectors.asp) or [HTML sectioning elements](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html) within the **Ignore Regions** field. Use a comma to seperate multiple selectors or elements.
 
-### Advanced customization with props
-You can pass in additional props via **Extra Properties**. Each prop should have a key and value pair. View a list of <a href="{{ '/developers/props/' | url}}">all props.</a>
+### Extra Properties
+
+**Extra Properties** allow you to further customize the experience for content authors or ensure compatibility with your Joomla template. Each prop should have a key and value pair. View a list of <a href="{{ '/developers/props/' | url}}">all props.</a>
+
+<details class="mb-3">
+  <summary>Example: adding extra properties</summary>
+
+  Setting the <a href="{{ '/developers/props/#colourfilterplugin' | url}}">`colourFilterPlugin`</a> property to `false` will hide the **Colour filter** feature in the Settings panel.
+
+  <img class="img-fluid img-thumbnail mb-4" alt="Extra Properties field in Joomla admin settings." src="{{ '/images/screenshots/joomla-extra-props.png' | url }}">
+
+  <img class="img-fluid img-thumbnail mb-4" alt="Colour filter featured hidden within Settings panel." src="{{ '/images/screenshots/joomla-colour-filter.webp' | url }}">
+
+</details>
+
+### Turn Off Checks
+Available in **Joomla 5.3** and above. To turn off a check, find the desired key within the [language file](https://github.com/ryersondmp/sa11y/blob/master/src/js/lang/en.js#L127) or [default options.](https://github.com/ryersondmp/sa11y/blob/master/src/js/utils/default-options.js#L73)
+
+<details>
+  <summary>Example: turning off a check</summary>
+
+  Setting the `QA_UPPERCASE` key to `false` will turn off the check for excessive uppercase or all-caps text.
+
+  <img class="img-fluid img-thumbnail mb-4" alt="Turn off checks field in Joomla admin settings." src="{{ '/images/screenshots/joomla-turn-off-checks.png' | url }}">
+</details>
+
 
 <hr aria-hidden="true" class="mt-5">
 

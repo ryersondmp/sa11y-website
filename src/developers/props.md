@@ -18,11 +18,8 @@ order: 2
     - [Control panel](#control-panel)
     - [Other features](#other-features)
     - [Annotations](#annotations)
-    - [Customizing rulesets](#customizing-rulesets)
+    - [Customize checks](#customize-checks)
     - [Readability module](#readability-module)
-    - [Toggleable rulesets in Settings panel](#toggleable-rulesets-in-settings-panel)
-    - [Quality assurance module](#quality-assurance-module)
-    - [Embedded content (iFrames) module](#embedded-content-iframes-module)
 - [Deprecated props](#deprecated-props)
 - [Methods](#methods)
 
@@ -354,7 +351,7 @@ Boolean. Show "Good" annotations on images that have alt text.
 showGoodImageButton: true,
 ```
 
-### Customizing rulesets
+### Customize checks
 As of 4.0, any check can be individually turned off or customized upon instantiation. To customize or turn off a check, find the desired key within the [language file](https://github.com/ryersondmp/sa11y/blob/master/src/js/lang/en.js#L127) or [default options.](https://github.com/ryersondmp/sa11y/blob/master/src/js/utils/default-options.js#L73) You can easily change a:
 - Tooltip’s message.
 - Classification as a warning or error.
@@ -411,7 +408,7 @@ linkStopWords: '',
 String. Add additional stop words to flag at the beginning of an alt text string as a placeholder error. For example, if you pass the word "untitled", any image whose alt text starts with "untitled" will be flagged. Since 3.2.0.
 
 ```js
-extraPlaceholderStopWordss: '',
+extraPlaceholderStopWords: '',
 ```
 
 
