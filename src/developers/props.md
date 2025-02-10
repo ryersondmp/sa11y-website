@@ -152,6 +152,13 @@ String. An alternative prop to `headerIgnoreSpan`. Pass a string of regex that m
 headerIgnoreStrings: '',
 ```
 
+#### ignoreHiddenOverflow
+String. Prevent Sa11y from unhiding containers with `overflow: hidden` by passing specific selectors. Since 4.0.6.
+
+```js
+ignoreHiddenOverflow: '',
+```
+
 ### Control panel
 Properties that affect Sa11y's control panel.
 
