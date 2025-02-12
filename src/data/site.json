@@ -1,7 +1,7 @@
 {
   "name": "Sa11y",
   "description": "Sa11y is an accessibility quality assurance tool that visually highlights common accessibility and usability issues.",
-  "sa11yBuild": "4.0.7",
+  "sa11yBuild": "4.0.8",
   "lang": "en",
   "university": "Toronto Metropolitan University",
   "contactEmail": "adam.chaboryk@torontomu.ca"

@@ -483,7 +483,7 @@ extraPlaceholderStopWords: '',
 
 #### imageWithinLightbox
 
-String. Use this prop to customize how images within links are processed. This is ideal for scenarios like lightboxes or image galleries, where images are wrapped in anchor tags solely for magnifying purposes. In such cases, the tooltip will provide more appropriate guidance, as these images are not typical functional links pointing to specific URLs. To configure, pass a unique selector specific to the lightbox or image gallery container. Since 4.0.7.
+String. Use this prop to customize how images within links are processed. This is ideal for scenarios like lightboxes or image galleries, where images are wrapped in anchor tags solely for magnifying purposes. In such cases, the tooltip will provide more appropriate guidance, as these images are not typical functional links pointing to specific URLs. To configure, pass a unique selector specific to the anchor wrapped around the lightbox image. For example, pass `.lightbox` for `<a href="#" class="lightbox"><img src="car.png" alt/></a>`. Since 4.0.7.
 
 ```js
 imageWithinLightbox: '',
