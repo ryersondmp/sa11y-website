@@ -1,7 +1,7 @@
 ---
 layout: base
 title: Install
-permalink: '/developers/'
+permalink: "/developers/"
 order: 1
 ---
 
@@ -16,9 +16,11 @@ To install on your website, insert Sa11y right before the closing `<body>` tag. 
 - **sa11y.js** - The main script which contains all logic.
 
 ## Install via GitHub or npm
+
 Fork on [GitHub](https://github.com/ryersondmp/sa11y) or `npm i sa11y`
 
 ## Demo and local development
+
 A light server for development is included. Any change inside `/src` folder files will trigger the build process for the files and will reload the page with the new changes. To use this environment:
 
 1. Fork or download the [latest release](https://github.com/ryersondmp/sa11y/releases)
@@ -29,14 +31,15 @@ A light server for development is included. Any change inside `/src` folder file
 <p><a href="https://ryersondmp.github.io/sa11y/demo/" class="btn btn-sa11y">View live demo</a></p>
 
 ## Example installation (modules)
+
 ```html
 <!-- Stylesheet -->
-<link rel="stylesheet" href="sa11y.min.css"/>
+<link rel="stylesheet" href="sa11y.min.css" />
 
 <!-- Javascript -->
 <script type="module">
-  import { Sa11y, Lang } from '../assets/js/sa11y.esm.js';
-  import Sa11yLangEn from '../assets/js/lang/en.js';
+  import { Sa11y, Lang } from "../assets/js/sa11y.esm.js";
+  import Sa11yLangEn from "../assets/js/lang/en.js";
 
   // Set translations
   Lang.addI18n(Sa11yLangEn.strings);
@@ -49,8 +52,9 @@ A light server for development is included. Any change inside `/src` folder file
 ```
 
 ## Example installation (regular script)
+
 ```html
-<link rel="stylesheet" href="sa11y.min.css"/>
+<link rel="stylesheet" href="sa11y.min.css" />
 
 <!-- Sa11y (fork the latest code from GitHub) -->
 <script src="/dist/js/sa11y.umd.min.js"></script>
@@ -67,11 +71,15 @@ A light server for development is included. Any change inside `/src` folder file
 ```
 
 ## CDN via jsDelivr
+
 The CDN link below is the latest and greatest (stable) release of Sa11y. Current version: `@{{site.sa11yBuild}}`
 
 ```html
 <!-- Stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css"/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/css/sa11y.min.css"
+/>
 
 <!-- Script -->
 <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@{{site.sa11yBuild}}/dist/js/sa11y.umd.min.js"></script>
@@ -87,13 +95,17 @@ The CDN link below is the latest and greatest (stable) release of Sa11y. Current
 ```
 
 ### CDN with automatic updates
+
 The CDN link below automatically fetches the `@latest` stable release. This is essentially how the bookmarklet is served.
 
 <p class="alert alert-danger"><strong>Warning:</strong> This is not recommended for production... or you know, use at your own risk. 😬</p>
 
 ```html
 <!-- Stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/dist/css/sa11y.min.css"/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/dist/css/sa11y.min.css"
+/>
 
 <!-- Script -->
 <script src="https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@latest/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@latest/dist/js/sa11y.umd.min.js"></script>
@@ -109,6 +121,7 @@ The CDN link below automatically fetches the `@latest` stable release. This is e
 ```
 
 ## Example Adobe Experience Manager (AEM) installation
+
 Ideally, Sa11y's assets would be added via AEM's clientlibs. This example script demonstrates how you would **instantiate** Sa11y in AEM environments using Touch UI. It includes a utility function to monitor switches between "Preview" and "Edit" modes in the Page Editor. To overcome Touch UI's limitations with fixed elements, Sa11y's panel is positioned at either the top left or top right corner of the page.
 
 ```javascript
@@ -119,19 +132,23 @@ const sa11y = new Sa11y.Sa11y({
   panelPosition: "top-right", // or "top-left"
 });
 
-// Function to check if Page Editor is in Preview or Edit mode.
-const checkEditorMode = (elementSelector, className, callback) => {
-  const targetElement = document.querySelector(elementSelector);
-  const observer = new MutationObserver(mutationsList => {
-    const isEditMode = targetElement.classList.contains(className);
-    callback(isEditMode);
+/**
+ * Utility to detect whether the Page Editor is in Preview or Edit mode.
+ * @param {string} selector - The CSS selector for the target element.
+ * @param {string} className - The class name that indicates "Edit" mode.
+ */
+const checkEditorMode = (selector, className, callback) => {
+  const target = document.querySelector(selector);
+  if (!target) return;
+  const observer = new MutationObserver(() => {
+    callback(target.classList.contains(className));
   });
-  observer.observe(targetElement, { attributes: true, attributeFilter: ['class'] });
+  observer.observe(target, { attributes: true, attributeFilter: ["class"] });
   return observer;
 };
 
-// If in Edit mode, Sa11y will be temporary disabled and grayed out.
-const checkPageState = checkEditorMode('html', 'aem-AuthorLayer-Edit', isEditMode => {
+// If in "Edit" mode, Sa11y will be temporary disabled and grayed out.
+checkEditorMode("html", "aem-AuthorLayer-Edit", (isEditMode) => {
   isEditMode ? sa11y.disabled() : sa11y.enabled();
 });
 ```
@@ -139,6 +156,7 @@ const checkPageState = checkEditorMode('html', 'aem-AuthorLayer-Edit', isEditMod
 <hr class="mt-5" aria-hidden="true">
 
 ## Languages
+
 Sa11y has been translated into French, Polish, Ukrainian, Swedish, Spanish, and German. The following machine translations are available: Bulgarian, Finnish, Hungarian, Indonesian, Italian, Japanese, Korean, Lithuanian, Latvian, Norwegian Bokmål, Dutch, Portuguese (Brazil), Portuguese (Portugal), Romanian, Slovak, Slovenian, Turkish, Ukrainian, and Chinese (Mandarin).
 
 You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/tree/master/src/js/lang)
@@ -146,10 +164,11 @@ You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/t
 Do you want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 
 ### Installation
+
 Replace `lang/en.umd.js` in the example snippets with your preferred language code (note the strings for `enUS`, `ptBR` and `ptPT` contain two capital letters) and update the language code in the line `Lang.addI18n(Sa11yLangEn.strings)` accordingly (first letter captialized, i.e. `en` becomes `En`, `enUS` becomes `EnUS`).
 
 ### Readability
-Sa11y's readability feature is based on [Flesch reading-ease test (Wikipedia)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease) and [Lix (Wikipedia).](https://en.wikipedia.org/wiki/Lix_(readability_test)) The Flesch reading-ease formula has been adapted to also support Dutch, Italian, French, German, Portuguese, and Spanish. Lix formula supports Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
 
+Sa11y's readability feature is based on [Flesch reading-ease test (Wikipedia)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease) and [Lix (Wikipedia).](<https://en.wikipedia.org/wiki/Lix_(readability_test)>) The Flesch reading-ease formula has been adapted to also support Dutch, Italian, French, German, Portuguese, and Spanish. Lix formula supports Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
 
 {% include "partials/pagination-developers.njk" %}
