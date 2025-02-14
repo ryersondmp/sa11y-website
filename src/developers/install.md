@@ -122,35 +122,28 @@ The CDN link below automatically fetches the `@latest` stable release. This is e
 
 ## Example Adobe Experience Manager (AEM) installation
 
-Ideally, Sa11y's assets would be added via AEM's clientlibs. This example script demonstrates how you would **instantiate** Sa11y in AEM environments using Touch UI. It includes a utility function to monitor switches between "Preview" and "Edit" modes in the Page Editor. To overcome Touch UI's limitations with fixed elements, Sa11y's panel is positioned at either the top left or top right corner of the page.
+Ideally Sa11y's assets are added via AEM's clientlibs. This example script demonstrates how you would **instantiate** Sa11y in AEM environments using Touch UI. To overcome Touch UI's limitations with fixed elements, Sa11y's panel is positioned at either the top left or top right corner of the page.
 
 ```javascript
-// Instantiate
-Sa11y.Lang.addI18n(Sa11yLangEn.strings);
-const sa11y = new Sa11y.Sa11y({
-  checkRoot: "body",
-  panelPosition: "top-right", // or "top-left"
-});
-
-/**
- * Utility to detect whether the Page Editor is in Preview or Edit mode.
- * @param {string} selector - The CSS selector for the target element.
- * @param {string} className - The class name that indicates "Edit" mode.
- */
-const checkEditorMode = (selector, className, callback) => {
-  const target = document.querySelector(selector);
-  if (!target) return;
-  const observer = new MutationObserver(() => {
-    callback(target.classList.contains(className));
+// Only load Sa11y in Edit/Preview mode.
+if (window.top.location.href.includes("/editor.html/")) {
+  // Instantiate
+  Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+  const sa11y = new Sa11y.Sa11y({
+    checkRoot: "body",
+    panelPosition: "top-right", // or "top-left"
   });
-  observer.observe(target, { attributes: true, attributeFilter: ["class"] });
-  return observer;
-};
 
-// If in "Edit" mode, Sa11y will be temporary disabled and grayed out.
-checkEditorMode("html", "aem-AuthorLayer-Edit", (isEditMode) => {
-  isEditMode ? sa11y.disabled() : sa11y.enabled();
-});
+  // Checks if the editor is in "Edit" mode and disables Sa11y if true.
+  // Sa11y's panel is visually closed and greyed out to indicate a disabled state for UX.
+  const checkEditMode = () => {
+    const mode = window.parent.Granite.author.layerManager._currentLayer?.name;
+    if (mode === "Edit") sa11y.disabled(), clearInterval(checkingPageState);
+  };
+  const checkingPageState = setInterval(checkEditMode, 50);
+  const maxWaitTime = 10000;
+  setTimeout(() => clearInterval(checkingPageState), maxWaitTime);
+}
 ```
 
 <hr class="mt-5" aria-hidden="true">
