@@ -9,9 +9,7 @@ We welcome contributions from everyone, regardless of background or experience. 
 
 If you experience or witness unacceptable behavior, please report it by emailing **adam.chaboryk@torontomu.ca**
 
-Maintainers have the right to remove, edit, or reject contributions and comments that do not align with this Code of Conduct. Repeated or severe violations may result in a ban from participation in Sa11y spaces.
-
-By contributing to this project, you affirm that you have read and agree to follow this Code of Conduct.
+Maintainers have the right to remove, edit, or reject contributions and comments that do not align with this Code of Conduct. By contributing to this project, you affirm that you have read and agree to follow this Code of Conduct.
 
 ## Acknowledgments
 This Code of Conduct is inspired by and adapted from the [Project Include guidelines](https://projectinclude.org/writing_cocs) and the [Contributor Covenant](https://www.contributor-covenant.org/).
