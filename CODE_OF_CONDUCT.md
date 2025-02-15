@@ -7,7 +7,7 @@ We welcome contributions from everyone, regardless of background or experience. 
 - Respect differing viewpoints and experiences.
 - Be mindful of the impact your words and actions may have on others.
 
-If you experience or witness unacceptable behavior, please report it by emailing **[adam.chaboryk@torontomu.ca]**
+If you experience or witness unacceptable behavior, please report it by emailing **adam.chaboryk@torontomu.ca**
 
 Maintainers have the right to remove, edit, or reject contributions and comments that do not align with this Code of Conduct. Repeated or severe violations may result in a ban from participation in Sa11y spaces.
 
