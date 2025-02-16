@@ -27,6 +27,7 @@ A light server for development is included. Any change inside `/src` folder file
 2. Be sure you have node installed and up to date.
 3. Execute `npm install`
 4. In a terminal execute: `npm run serve`. Then open `http://localhost:8080/docs/demo/en/` in your browser.
+5. For unit testing, execute: `npm run test`
 
 <p><a href="https://ryersondmp.github.io/sa11y/demo/" class="btn btn-sa11y">View live demo</a></p>
 
@@ -94,11 +95,9 @@ The CDN link below is the latest and greatest (stable) release of Sa11y. Current
 </script>
 ```
 
-### CDN with automatic updates
+## CDN with automatic updates
 
 The CDN link below automatically fetches the `@latest` stable release. This is essentially how the bookmarklet is served.
-
-<p class="alert alert-danger"><strong>Warning:</strong> This is not recommended for production... or you know, use at your own risk. 😬</p>
 
 ```html
 <!-- Stylesheet -->
@@ -156,12 +155,34 @@ You can view all [translations on GitHub.](https://github.com/ryersondmp/sa11y/t
 
 Do you want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 
-### Installation
+### Language setup
 
-Replace `lang/en.umd.js` in the example snippets with your preferred language code (note the strings for `enUS`, `ptBR` and `ptPT` contain two capital letters) and update the language code in the line `Lang.addI18n(Sa11yLangEn.strings)` accordingly (first letter captialized, i.e. `en` becomes `En`, `enUS` becomes `EnUS`).
+Replace `lang/en.umd.js` in the example snippets with the appropriate language code of your choice. Note that language codes like `enUS`, `ptBR`, and `ptPT` contain two uppercase letters.
+
+Additionally, update the language code in the following line to match your chosen language, ensuring the **first letter is capitalized.**
+
+If using Portuguese (Brazil), for example:
+
+```js
+import Sa11yLangPtBR from 'lang/ptBR.umd.js';
+
+Lang.addI18n(Sa11yLangPtBR.strings);
+const sa11y = new Sa11y.Sa11y();
+```
+
+
+If using French, for example:
+
+```js
+import Sa11yLangFr from 'lang/fr.umd.js';
+
+Lang.addI18n(Sa11yLangFr.strings);
+const sa11y = new Sa11y.Sa11y();
+```
 
 ### Readability
 
 Sa11y's readability feature is based on [Flesch reading-ease test (Wikipedia)](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease) and [Lix (Wikipedia).](<https://en.wikipedia.org/wiki/Lix_(readability_test)>) The Flesch reading-ease formula has been adapted to also support Dutch, Italian, French, German, Portuguese, and Spanish. Lix formula supports Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
 
-{% include "partials/pagination-developers.njk" %}
+{% set collectionName = "developers" %}
+{% include "partials/pagination.njk" %}

@@ -72,4 +72,5 @@ Open all accordion panels to make it easier to review the page.
   </div>
 </div>
 
-{% include "partials/pagination-developers.njk" %}
+{% set collectionName = "developers" %}
+{% include "partials/pagination.njk" %}

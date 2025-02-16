@@ -25,5 +25,3 @@ Sa11y was created with a simple goal of helping all content editors create acces
 
 ## Feedback and issues
 Accessibility is an ongoing process and we are committed to continually improving the accessibility of Sa11y. Although we're also human and sometimes make mistakes or get things wrong. So if you have any suggestions or encounter any accessibility barriers while using Sa11y, please contact [{{site.contactEmail}}](mailto:{{site.contactEmail}}) or submit an [issue on GitHub.](https://github.com/ryersondmp/sa11y/issues)
-
-{% include "partials/pagination.njk" %}

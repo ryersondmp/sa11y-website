@@ -217,4 +217,5 @@ accordions.forEach(($el) => {
 ## Add or suggest a recipe
 Share your recipe on [GitHub.](https://github.com/ryersondmp/sa11y/issues)
 
-{% include "partials/pagination-developers.njk" %}
+{% set collectionName = "developers" %}
+{% include "partials/pagination.njk" %}

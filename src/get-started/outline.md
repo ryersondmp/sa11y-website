@@ -39,3 +39,6 @@ localStorage.setItem("sa11y-outline", "Opened");
 localStorage.removeItem("sa11y-images");
 localStorage.removeItem("sa11y-settings");
 </script>
+
+{% set collectionName = "getstarted" %}
+{% include "partials/pagination.njk" %}

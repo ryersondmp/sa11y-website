@@ -204,5 +204,6 @@ To enable the following checks, toggle **Developer checks** in the **Settings** 
 
 1. **SVG graphic has poor contrast with background.** For simple SVGs, with a single `<path>`, Sa11y is able to calculate the contrast against the background.
 
-
+{% set collectionName = "getstarted" %}
+{% include "partials/pagination.njk" %}
 

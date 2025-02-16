@@ -909,4 +909,5 @@ This function takes a string containing HTML as input and returns a sanitized ve
 
 Provide feedback on props via [GitHub](https://github.com/ryersondmp/sa11y/issues) or [Report a bug.](https://forms.gle/sjzK9XykETaoqZv99)
 
-{% include "partials/pagination-developers.njk" %}
+{% set collectionName = "developers" %}
+{% include "partials/pagination.njk" %}

@@ -47,5 +47,3 @@ Developed with the assistance of students from [{{site.university}}](https://www
 - This website was built with [Bootstrap 5](https://getbootstrap.com/) and [11ty.](https://www.11ty.dev/) Hosted on [GitHub](https://github.com/) and [Netlify.](https://www.netlify.com/)
 - Sa11y's bookmarklet is hosted on [jsDelivr](https://www.jsdelivr.com) - an awesome free CDN for open source projects.
 - Machine translations via [DeepL API.](https://www.deepl.com/)
-
-{% include "partials/pagination.njk" %}

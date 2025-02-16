@@ -59,5 +59,3 @@ Sa11y is not able to check for accessibility issues within PDFs. Sa11y will flag
 
 ### My videos have closed captions, although I still get a warning?
 If your video has accurate closed captions, please ignore this warning. Sa11y is not able to validate or confirm if videos have accurate captions.
-
-{% include "partials/pagination.njk" %}

@@ -14,131 +14,18 @@ Sa11y includes some developer related checks, but it is not a comprehensive code
 "a11y" is a numeronym for the word "accessibility," where *11* represents the number of letters between *a* and *y*. The use of "a11y" on the internet is mostly used to identify content or tools related to digital accessibility. The "S" in Sa11y stands for "straightforward" or "simple," conveying the idea of "straightforward accessibility."
 
 ## Checks
-Sa11y has over 80 checks.
+Sa11y helps identify accessibility issues with images, links, heading structure, and contrast. It also prompts manual reviews and reminders for other things, like whether videos have closed captions, audio widgets include transcripts, and excessive uppercase letters.
 
-<div class="accordion" id="accordionExample" style="max-width: 800px;">
-  <div class="accordion-item">
-    <h3 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Errors
-      </button>
-    </h3>
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <ul class="ul-dual">
-            <li>Images
-                <ul>
-                    <li>Missing alternative text.</li>
-                    <li>Alt text contains a file extension.</li>
-                    <li>Alt text contains only placeholder text.</li>
-                </ul>
-            </li>
-            <li>Links
-                <ul>
-                    <li>Nondescript link text like "learn more" or "click here".</li>
-                    <li>Empty hyperlinks.</li>
-                    <li>Links that only contain an icon font without an accessible name or label.</li>
-                    <li>Broken same-page links.</li>
-                </ul>
-            </li>
-            <li>Tables
-                <ul>
-                    <li>Missing table headers.</li>
-                    <li>Empty table headers.</li>
-                    <li>Table contains semantic headings.</li>
-                </ul>
-            </li>
-            <li>Headings
-                <ul>
-                    <li>Headings that skip levels.</li>
-                    <li>Page does not start with a Heading 1 or Heading 2.</li>
-                    <li>Empty headings.</li>
-                    <li>Missing Heading 1.</li>
-                </ul>
-            </li>
-            <li>Poor text contrast.</li>
-            <li>Inputs missing labels.</li>
-            <li>Page language not declared.</li>
-            <li>Elements with duplicate IDs that are being referenced as a label.</li>
-            <li>Missing page title.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h3 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Warnings
-      </button>
-    </h3>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-          <ul class="ul-dual">
-            <li>Headings
-                <ul>
-                    <li>Headings that are too long (Not a WCAG 2.1 requirement).</li>
-                    <li>Suspiciously short blockquotes that may actually be headings.</li>
-                    <li>Suspicious bold text that may actually be headings.</li>
-                </ul>
-            </li>
-            <li>Images
-                <ul>
-                    <li>Decorative images</li>
-                    <li>Hyperlinked images: ensure alt text describes link location.</li>
-                    <li>Images containing redundant words in alt text like "image of" or "graphic of".</li>
-                    <li>&lt;figure&gt; images that have duplicate alt and caption text.</li>
-                    <li>&lt;figure&gt; images that are indicated as decorative and have caption text.</li>
-                </ul>
-            </li>
-            <li>A list of items that should be converted into a semantic list.</li>
-            <li>Large quantities of ALL CAPS/Uppercase.</li>
-            <li>Contrast that cannot be programmatically determined, such as text with an image background.</li>
-            <li>Closed captions for videos.</li>
-            <li>Transcripts for podcasts and audio content.</li>
-            <li>Twitter widgets that may be problematic for keyboard users.</li>
-            <li>Reminder to manually review social media and other iFrame embeds</li>
-            <li>Check PDF for accessibility or recommend to convert into an accessible web page.</li>
-            <li>Links (Advanced)
-                <ul>
-                    <li>Links that open in a new tab without warning.</li>
-                    <li>Links with identical names should have an equivalent purpose.</li>
-                    <li>Links to PDF and other files without warning.</li>
-                </ul>
-            </li>
-            <li>Underlined text.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h3 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Successes
-      </button>
-    </h3>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <ul>
-            <li>Images that have alternative text.</li>
-            <li>Links that have an accessible name using ARIA.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+Building an inclusive experience requires intention. Sa11y is designed to facilitate **quality** content accessibility. For example, beyond flagging missing alt text, it allows you to review alt text across all images to ensure it is relevant and high quality.
 
+For developers, Sa11y checks for issues like missing page titles, unlabelled buttons and form elements. However, it does not detect invalid ARIA attributes.
+
+In total, [Sa11y has over 80 checks]({{ '/get-started/checks/' | url }}).
 
 ## Automatic
-<div class="row">
-    <div class="col-lg-8">
-        <p>Sa11y does a quick scan after the page is fully loaded. If there are any errors or warnings, Sa11y will display a notification badge with the total number of issues detected. Red indicates errors, while yellow indicates there are warnings only. Be sure to review your page even if there are no errors or warnings!</p>
-    </div>
-    <div class="col-lg-4">
-        <div class="p-1 bg-light rounded-3">
-            <img src="{{ '/images/screenshots/notification.webp' | url }}" alt="Three Sa11y toggles: one with a red notification badge, one yellow, and one without any badge." class="img-fluid" loading="lazy">
-        </div>
-    </div>
-</div>
+Sa11y does a quick scan after the page is fully loaded. If there are any errors or warnings, Sa11y will display a notification badge with the total number of issues detected. Red indicates errors, while yellow indicates there are warnings only. Be sure to review your page even if there are no errors or warnings!
+
+<img width="300" src="{{ '/images/screenshots/notification.webp' | url }}" alt="Three Sa11y toggles: one with a red notification badge, one yellow, and one without any badge." class="img-fluid" loading="lazy">
 
 ## States
 Sa11y has three states.
@@ -179,7 +66,9 @@ Sa11y has three states.
     </div>
 </div>
 
-## Quality assurance
-Creating an inclusive experience requires intention. Sa11y does not only flag images missing alt text, but you can easily review the alt text on all images for relevance and quality. Sa11y has several checks to ensure content follows best practices for accessibility.
-
-{% include "partials/pagination.njk" %}
+<hr class="mt-5" aria-hidden="true">
+<nav aria-label="Pagination" class="pt-4">
+  <ul class="pagination justify-content-center">
+    <li class="mx-2"><a class="btn btn-sa11y" href="{{ '/get-started/how-to-use/' | url }}">Next: How to use <i class="bi bi-arrow-right"></i></a></li>
+ </ul>
+</nav>

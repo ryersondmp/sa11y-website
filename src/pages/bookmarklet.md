@@ -166,4 +166,3 @@ The bookmarklet below will **only** display English.
 Want to help translate or improve Sa11y? Consider [contributing!](https://github.com/ryersondmp/sa11y/blob/master/CONTRIBUTING.md) Translations may either be contributed back to the repository with a pull request on GitHub, or translated files can be returned to: [{{site.contactEmail}}](mailto:{{site.contactEmail}})
 
 
-{% include "partials/pagination.njk" %}
