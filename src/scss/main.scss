@@ -143,11 +143,6 @@ a:focus {
   margin-bottom: 2rem;
 }
 
-a.anchorjs-link:hover,
-a.anchorjs-link:focus {
-  opacity: 1;
-}
-
 ul.social-list>li {
   display: inline-block;
   margin-right: 1rem;
@@ -422,6 +417,13 @@ h2,
   background-color: #a6daff;
 }
 
+@media (max-width: 480px) {
+  header {
+    margin-bottom: .2rem;
+  }
+}
+
+// Misc
 .btn-sa11y {
   color: #fff;
   background-color: #8446c2;
@@ -475,6 +477,7 @@ tr>td:nth-child(2):after {
   opacity: 0.5;
 }
 
+// Accordions
 details {
   padding: .6rem 1rem;
   background: white;
@@ -497,6 +500,18 @@ details[open] summary {
 
 details[open]>*:last-child {
   margin-bottom: 0;
+}
+
+// Anchor JS
+@media (max-width: 480px) {
+  a.anchorjs-link {
+    display: none;
+  }
+}
+
+a.anchorjs-link:hover,
+a.anchorjs-link:focus {
+  opacity: 1;
 }
 
 // Featured section logos
