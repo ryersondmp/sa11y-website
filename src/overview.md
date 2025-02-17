@@ -10,13 +10,13 @@ Most accessibility tools are designed for developers and often require knowledge
 
 Sa11y includes some developer related checks, but it is not a comprehensive code analysis tool, nor is it a [web accessibility overlay.](https://www.a11yproject.com/posts/should-i-use-an-accessibility-overlay/) Sa11y works best in an accessibility-ready theme or website.
 
-## What does "Sa11y" mean?
+## What does "Sa11y" mean
 "a11y" is a numeronym for the word "accessibility," where *11* represents the number of letters between *a* and *y*. The use of "a11y" on the internet is mostly used to identify content or tools related to digital accessibility. The "S" in Sa11y stands for "straightforward" or "simple," conveying the idea of "straightforward accessibility."
 
 ## Checks
-Sa11y helps identify accessibility issues with images, links, heading structure, and contrast. It also prompts manual reviews and reminders for other things, like whether videos have closed captions, audio widgets include transcripts, and excessive uppercase letters.
+Sa11y helps identify accessibility issues with images, links, heading structure, and contrast. It also prompts you to review other things, like closed captions for videos, excessive uppercase letters, text that is too small, and much more.
 
-Building an inclusive experience requires intention. Sa11y is designed to facilitate **quality** content accessibility. For example, beyond flagging missing alt text, it allows you to review alt text across all images to ensure it is relevant and high quality.
+Building an inclusive experience requires intention. Sa11y is designed to facilitate **quality** content accessibility. For example, it not only flags missing alt text but also lets you review alt text across all images to ensure relevance and quality.
 
 For developers, Sa11y checks for issues like missing page titles, unlabelled buttons and form elements. However, it does not detect invalid ARIA attributes.
 

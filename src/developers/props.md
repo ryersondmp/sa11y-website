@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Props & methods
+title: Props and methods
 permalink: "/developers/props/"
 order: 2
 ---
@@ -121,9 +121,7 @@ linkIgnoreSpan: '',
 The contents of `<span class="sr-only">` will be ignored, and the non-descript link will display the appropriate error annotation.
 
 ```html
-<a href="https://www.example.com"
-  >learn more <span class="sr-only">external link</span></a
->
+<a href="https://www.example.com">learn more <span class="sr-only">external link</span></a>
 
 <script>
   const sa11y = new Sa11y({

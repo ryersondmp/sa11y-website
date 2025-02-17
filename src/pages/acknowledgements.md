@@ -22,12 +22,15 @@ order: 6
 
 ## Previous student contributors
 Developed with the assistance of students from [{{site.university}}](https://www.torontomu.ca/cs/)'s Computer Science program.
-- Dylan Le (2021)
-- Janice Wong (2021)
-- Farhan Mohammed (2020/2021)
-- Kyle Padernilla (2019/2020)
-- Arshad Mohammed (2018/2019)
-- Benjamin Luong (2016/2017)
+
+- Michael Nesci
+- Rishabh Seth
+- Dylan Le
+- Janice Wong
+- Farhan Mohammed
+- Kyle Padernilla
+- Arshad Mohammed
+- Benjamin Luong
 
 ## Other acknowledgements
 - [Brian Teeman,](https://github.com/brianteeman) [Benjamin Trenkle,](https://github.com/bembelimen) [Fedir Zinchuk,](https://github.com/Fedik) and the Joomla team who assisted with the vanilla JavaScript port. Sa11y is included in [Joomla 4.1](https://www.joomla.org/announcements/release-news/5855-joomla-4-1-0-stable-new-standards-in-accessible-website-design.html) and later - no installation necessary.

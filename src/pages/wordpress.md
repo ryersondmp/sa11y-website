@@ -7,8 +7,6 @@ order: 4
 
 <h1>{{title}} <i class="bi bi-wordpress"></i></h1>
 
-The WordPress plugin was released April 2022. Please [report bugs or leave feedback](https://forms.gle/sjzK9XykETaoqZv99) to improve Sa11y. If you have a GitHub account, you can submit your [issue on GitHub.](https://github.com/ryersondmp/sa11y/issues)
-
 ## Install
 The easiest way to install Sa11y on WordPress is to use the plugin search. Alternatively, you can download and install Sa11y manually from the [plugin page.](https://wordpress.org/plugins/sa11y/)
 
@@ -59,3 +57,6 @@ Sa11y is not able to check for accessibility issues within PDFs. Sa11y will flag
 
 ### My videos have closed captions, although I still get a warning?
 If your video has accurate closed captions, please ignore this warning. Sa11y is not able to validate or confirm if videos have accurate captions.
+
+## Feedback
+Please [report bugs or leave feedback](https://forms.gle/sjzK9XykETaoqZv99) to improve Sa11y. If you have a GitHub account, you can submit your [issue on GitHub.](https://github.com/ryersondmp/sa11y/issues)

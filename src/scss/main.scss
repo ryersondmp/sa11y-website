@@ -7,9 +7,9 @@
 }
 
 :root {
-  --RUblue: #004C9B;
-  --RUdarkBlue: #002d72;
-  --RUaccent: #5bc2f4;
+  --TMUblue: #004C9B;
+  --TMUdarkBlue: #002d72;
+  --TMUaccent: #5bc2f4;
   --textDark: #000000;
 }
 
@@ -25,7 +25,7 @@
   margin-top: 20px;
 }
 
-.bg-ryerson-accent a:not(.btn) {
+.bg-tmu-accent a:not(.btn) {
   color: #13376f;
 }
 
@@ -34,26 +34,26 @@ a.overlay-link:focus .text {
   background-color: #002e5f;
 }
 
-.skip:focus {
-  background: white;
-  border: 8px solid var(--RUaccent);
-  color: var(--text);
-  display: block;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, sans-serif;
-  font-size: 1.2rem;
-  height: auto;
-  left: 10px;
-  line-height: normal;
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  top: 12px;
-  width: auto;
-  z-index: 100000;
-}
-
 .skip {
   position: absolute;
   top: -1000em;
+
+  &:focus {
+    background: white;
+    border: 8px solid var(--TMUaccent);
+    color: var(--text);
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, sans-serif;
+    font-size: 1.2rem;
+    height: auto;
+    left: 10px;
+    line-height: normal;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    top: 12px;
+    width: auto;
+    z-index: 100000;
+  }
 }
 
 .icon-large {
@@ -154,15 +154,14 @@ ul.social-list>li {
   margin-top: 0.8rem;
 }
 
-h1,
+h1:not(#homepage-heading),
 h2,
 h3,
 h4,
 h5,
-h6,
-footer,
-.btn {
-  font-family: "Atkinson Hyperlegible", sans-serif;
+h6 {
+  font-family: "Polaris-Bold", sans-serif;
+  color: #333333;
 }
 
 .homepage h2 {
@@ -170,7 +169,7 @@ footer,
 }
 
 h2:not(.accordion-header) {
-  padding-top: 1.75rem;
+  padding-top: 1.3rem;
 }
 
 h3:not(.accordion-header) {
@@ -197,9 +196,9 @@ main li {
   font-size: 1.25rem !important;
 }
 
-.bg-ryerson {
+.bg-tmu {
   --bs-bg-opacity: 1;
-  background-color: var(--RUblue);
+  background-color: var(--TMUblue);
 }
 
 p {
@@ -211,9 +210,9 @@ footer p {
   padding-bottom: 0.3em;
 }
 
-.bg-ryerson-accent {
+.bg-tmu-accent {
   --bs-bg-opacity: 1;
-  background-color: var(--RUaccent);
+  background-color: var(--TMUaccent);
 }
 
 .background-image {
@@ -230,8 +229,8 @@ footer p {
 
 .bg-light h2,
 .bg-light h3,
-.bg-ryerson-accent h2,
-.bg-ryerson-accent h3 {
+.bg-tmu-accent h2,
+.bg-tmu-accent h3 {
   padding-top: 0;
 }
 
@@ -256,7 +255,8 @@ footer p {
 }
 
 .sa11y-big {
-  font-size: 9rem;
+  font-size: 8rem;
+  margin-bottom: .5rem;
 }
 
 .sa11y-tagline {
@@ -265,8 +265,10 @@ footer p {
   line-height: 1.1;
   color: #8446c3;
   margin-left: 0.2rem;
+  font-family: "Polaris-Bold", sans-serif;
 }
 
+#homepage-heading,
 .sa11y-nav {
   font-family: "Atkinson Hyperlegible", sans-serif;
   font-weight: 700;
@@ -274,7 +276,7 @@ footer p {
 
 .homepage-link:hover,
 .homepage-link:focus,
-h1:not(#homepage-heading),
+h1,
 .sa11y {
   background: #E040FB;
   background: -webkit-linear-gradient(to top right, #E040FB 0%, #00BCD4 100%);
@@ -283,21 +285,16 @@ h1:not(#homepage-heading),
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "Atkinson Hyperlegible", sans-serif;
-  font-weight: 700;
 }
 
-@media (min-width: 1200px) {
+h1,
+.h1 {
+  font-size: clamp(3.3rem, 3vw, 4rem);
+}
 
-  h1,
-  .h1 {
-    font-size: 3.5rem;
-  }
-
-  h2,
-  .h2 {
-    font-size: 2.2rem;
-  }
+h2,
+.h2 {
+  font-size: clamp(2.4rem, 2vw, 3rem);
 }
 
 .sr-only {
@@ -354,17 +351,12 @@ h1:not(#homepage-heading),
 .sidebar-sticky {
   position: relative;
   top: 0;
-  /* height: calc(100vh - 60px); */
   padding-top: .5rem;
   overflow-x: hidden;
   overflow-y: auto;
-  /* Scrollable contents if viewport is shorter than content. */
 }
 
-/*
-   * Navbar
-   */
-
+// Navbar
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
@@ -376,6 +368,7 @@ h1:not(#homepage-heading),
 .navbar .navbar-toggler {
   top: 1.25rem;
   right: 1.25rem;
+  border: 3px solid #585c5e;
 }
 
 .btn-toggle {
@@ -421,10 +414,6 @@ h1:not(#homepage-heading),
   width: 95%;
 }
 
-nav .btn {
-  font-size: 1.1rem;
-}
-
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus,
 .nav-link:not(.homepage-link):hover,
@@ -436,8 +425,7 @@ nav .btn {
   color: #fff;
   background-color: #8446c2;
   border-color: #8446c2;
-  font-size: 1.1rem;
-
+  font-size: 1.2rem;
 }
 
 .btn-sa11y:hover,
@@ -489,7 +477,7 @@ tr>td:nth-child(2):after {
 details {
   padding: .6rem 1rem;
   background: white;
-  border: 2px solid var(--RUblue);
+  border: 2px solid var(--TMUblue);
   border-radius: 4px;
 }
 
@@ -508,4 +496,24 @@ details[open] summary {
 
 details[open]>*:last-child {
   margin-bottom: 0;
+}
+
+// Featured section logos
+.flex-item {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+@media (min-width: 768px) {
+  .flex-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (min-width: 992px) {
+  .flex-item {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 }

@@ -8,6 +8,15 @@ order: 6
 # {{title}}
 Sa11y has over 80 checks.
 
+<nav aria-labelledby="onthispage">
+
+<h2 class="h5" id="onthispage">On this page:</h2>
+
+- [Content author checks](#content-author-checks)
+- [Developer checks](#developer-checks)
+
+</nav>
+
 ## Content author checks
 List of content author errors and warnings.
 

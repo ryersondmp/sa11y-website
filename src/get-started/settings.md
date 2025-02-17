@@ -9,6 +9,17 @@ order: 4
 
 Sa11y has additional settings and checks that can be enabled in the **Settings** tab.
 
+<nav aria-labelledby="onthispage">
+
+<h2 class="h5" id="onthispage">On this page:</h2>
+
+- [Developer checks](#developer-checks)
+- [Readability](#readability)
+- [Export results](#export-results)
+- [Colour filters](#colour-filters)
+
+</nav>
+
 ## Developer checks
 Developer checks include more complex issues that may require some code knowledge to fix. Although these checks can be toggled on and off, it does not mean they are unimportant! Depending on the website theme or plugin, they may not need to be tested every time. For example, some form plugins automatically provide a label for each form input.
 

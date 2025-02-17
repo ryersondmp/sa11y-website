@@ -32,6 +32,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
+    <link rel="preload" href="{{ '/fonts/PolarisCondensedTrial-Bold.otf' | url }}" as="font" type="font/otf" crossorigin="anonymous">
+    <style>
+      @font-face {
+        font-family: "Polaris-Bold";
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url("{{ '/fonts/PolarisCondensedTrial-Bold.otf' | url }}") format("opentype");
+      }
+    </style>
+
+
     <!-- Sa11y stylesheet -->
     <link
       rel="stylesheet"
