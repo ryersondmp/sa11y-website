@@ -290,6 +290,20 @@ String. Optional prop to help configure "Edit" buttons for Image outline. Some c
 relativePathImageID: '',
 ```
 
+#### ignoreEditImageURL
+Array. Optional prop to help configure "Edit" buttons for Image outline. If an image's src attribute contains any of the strings in this array, the edit button will not be shown for that image.
+
+```js
+ignoreEditImageURL: [],
+```
+
+#### ignoreEditImageClass
+Array. Optional prop to help configure "Edit" buttons for Image outline. If an image has any of the class names listed in this array, the edit button will not be shown for that image.
+
+```js
+ignoreEditImageClass: [],
+```
+
 ### Other features
 
 Features that may help with integrations into various content management systems or frameworks.
