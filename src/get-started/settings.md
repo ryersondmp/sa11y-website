@@ -41,7 +41,8 @@ Sa11y can **estimate** the readability score from all paragraphs and list conten
 - Avoid complex words or words with many syllables.
 
 ### Supported languages
-English, Dutch, Italian, French, German, Portuguese, and Spanish. The [Lix readability formula](https://en.wikipedia.org/wiki/Lix_(readability_test) is used for Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
+
+English, Dutch, Italian, French, German, Portuguese, and Spanish. The [Lix readability formula](https://en.wikipedia.org/wiki/Lix_(readability_test)) is used for Danish, Finnish, Norwegian (Bokmål & Nynorsk), and Swedish.
 
 <hr aria-hidden="true" class="my-5">
 
