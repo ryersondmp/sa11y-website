@@ -509,6 +509,21 @@ Boolean. Set to `false` to turn off all contrast checking.
 contrastPlugin: true,
 ```
 
+### contrastAPCA
+
+Boolean. Set to `true` to use the Advanced Perceptual Contrast Algorithm (APCA) contrast algorithn. APCA is a new colour contrast model that is based on colour perception. In addition to lightness/darkness contrast, it also considers font size and weight. APCA is the candidate contrast method for WCAG 3, but it is still in beta. WCAG 3 is still in development and subject to change. The APCA model should not be used for WCAG 2 conformance.
+
+```js
+contrastAPCA: false,
+```
+
+### contrastAAA
+Boolean. Set to `true` to use Level AAA contrast thresholds. WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+
+```js
+contrastAAA: false,
+```
+
 #### formLabelsPlugin
 
 Boolean. Set to `false` to turn off all input/form labels checks.
