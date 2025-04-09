@@ -6,7 +6,37 @@ order: 3
 ---
 
 # {{title}}
-Sometimes annotations are unreachable because of conflicting CSS or because the issue is in a hidden location on the page. Using custom CSS or the [Customizer](https://wordpress.com/support/customizer/) within WordPress, you can adjust elements on the page when **Sa11y is active.**
+
+## Moving toggle and panel position ()
+Developers can override the placement of Sa11y's toggle/control panel using CSS variables or [CSS shadow parts.](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) Since 4.0.0.
+
+### CSS variables
+This is the best method to change the panel position. These two variables will adjust the horizontal and vertical positioning.
+
+```css
+:root {
+  --sa11y-toggle-x-offset: 18px; /* Horizontally adjust (right to left) */
+  --sa11y-toggle-y-offset: 15px; /* Vertically adjust (bottom to top) */
+}
+```
+
+### Shadow parts
+Alternative panel positioning method requiring manual adjustment, offering greater creative control to override default styling of toggle and panel.
+
+```css
+sa11y-control-panel::part(toggle) {
+  bottom: 15px;
+  inset-inline-end: 18px;
+}
+
+sa11y-control-panel::part(panel) {
+  bottom: 25px;
+  inset-inline-end: 42px;
+}
+```
+
+## Hidden or unreachable annotations
+Sometimes annotations are unreachable because of conflicting CSS or because the issue is in a hidden location on the page. Using custom CSS or the [Customizer](https://wordpress.com/support/customizer/) within WordPress, you can adjust elements on the page when **Sa11y is active.** Since 3.0.0.
 
 Find the element you would like to change, and add `[data-sa11y-active="true"]` before it.
 
@@ -14,7 +44,7 @@ Find the element you would like to change, and add `[data-sa11y-active="true"]` 
    <strong>Try:</strong> For each example, use a mouse or keyboard <kbd>alt</kbd> <kbd>A</kbd> to toggle Sa11y on and off.
 </p>
 
-## Example #1
+### Example #1
 A simple example of revealing a hidden `<div>`.
 
 <style>[data-sa11y-active="true"] #dog {display: block !important;}</style>
@@ -26,7 +56,7 @@ A simple example of revealing a hidden `<div>`.
     <img loading="lazy" width="300" class="img-fluid" src="{{ '/images/doggy1.jpg' | url }}" alt="doggy.jpg">
 </div>
 
-## Example #2
+### Example #2
 Open all accordion panels to make it easier to review the page.
 <style>[data-sa11y-active="true"] .accordion-collapse {display: block !important;}</style>
 ```css
