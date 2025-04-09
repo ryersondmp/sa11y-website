@@ -7,7 +7,7 @@ order: 3
 
 # {{title}}
 
-## Moving toggle and panel position ()
+## Moving toggle and panel position
 Developers can override the placement of Sa11y's toggle/control panel using CSS variables or [CSS shadow parts.](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) Since 4.0.0.
 
 ### CSS variables
