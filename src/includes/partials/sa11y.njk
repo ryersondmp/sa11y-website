@@ -7,7 +7,7 @@
   const sa11y = new Sa11y.Sa11y({
     customChecks: 'listen',
     containerIgnore: 'footer',
-    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
+    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code, svg',
     linkIgnoreSpan: '.sr-only-example',
   });
 
@@ -60,7 +60,7 @@
   Sa11y.Lang.addI18n(Sa11yLangEn.strings);
   const sa11y = new Sa11y.Sa11y({
     containerIgnore: 'footer',
-    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code',
+    contrastIgnore: 'code *, nav *, h1, h1 *, .sa11y, code, svg',
     showTitleInPageOutline: false,
     linkIgnoreSpan: '.sr-only-example',
     headerIgnoreSpan: '.anchorjs-link',

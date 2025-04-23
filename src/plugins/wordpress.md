@@ -1,8 +1,7 @@
 ---
 layout: base
-title: WordPress Plugin
-permalink: '/wordpress/'
-order: 4
+title: WordPress
+permalink: '/plugins/wordpress/'
 ---
 
 <h1>{{title}} <i class="bi bi-wordpress"></i></h1>

@@ -159,6 +159,11 @@ h6 {
   color: #333333;
 }
 
+h1:not(#homepage-heading) {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .homepage h2 {
   padding-top: 0rem;
 }

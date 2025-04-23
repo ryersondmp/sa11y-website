@@ -26,6 +26,21 @@
         </div>
       </li>
 
+       <li class="mb-1">
+        <button class="btn btn-toggle w-100 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#plugins-collapse" aria-expanded="{% if '/plugins' in page.url %}true{% else %}false{% endif %}">
+          Plugins
+        </button>
+        <div class="collapse {% if '/plugins' in page.url %}show{% endif %}" id="plugins-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+            {% for post in collections.plugins %}
+              <li>
+                <a href="{{ post.url }}" class="link-dark rounded {% if page.url == post.url %}active{% endif %}" {% if page.url == post.url %} aria-current="page" {% endif %}>{{ post.data.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+
       {% for post in collections.pages %}
         <li class="nav-item">
           <a href="{{ post.url }}" class="nav-link link-dark rounded {% if page.url == post.url %}active{% endif %}" {% if page.url == post.url %} aria-current="page" {% endif %}>{{ post.data.title }}</a>

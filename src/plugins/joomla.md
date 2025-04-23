@@ -1,8 +1,7 @@
 ---
 layout: base
-title: Joomla Plugin
-permalink: '/joomla/'
-order: 3
+title: Joomla
+permalink: '/plugins/joomla/'
 ---
 
 # {{title}} {% joomlaIcon %}
