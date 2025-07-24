@@ -29,6 +29,8 @@ A light server for development is included. Any change inside `/src` folder file
 4. In a terminal execute: `npm run serve`. Then open `http://localhost:8080/docs/demo/en/` in your browser.
 5. For unit testing, execute: `npm run test`
 
+**Tip!** To speed up compile time while developing, navigate to `rollup.config.js` and change `developmentMode` to `true`. This will only compile javascript, SCSS, and English translation strings.
+
 <p><a href="https://ryersondmp.github.io/sa11y/demo/" class="btn btn-sa11y">View live demo</a></p>
 
 ## Example installation (modules)
