@@ -236,7 +236,7 @@ developerChecksOnByDefault: false,
 
 #### externalDeveloperChecks
 
-Boolean. Set to `true` to disable internal developer checks but keep the "Developer checks" toggle visible. This helps facilitate integrations with third-party accessibility checkers. Data should be passed in via [Custom Checks]({{'/developers/custom-checks/' | url}}) using the `developer: 'external'` property within the results object. Here's an [example integrating axe-core.](https://codepen.io/adamchaboryk/pen/dPYVqzW)
+Boolean. Set to `true` to disable internal developer checks but keep the "Developer checks" toggle visible. This helps facilitate integrations with third-party accessibility checkers. Data should be passed in via [Custom Checks]({{'/developers/custom-checks/' | url}}) using the `external: true` property within the results object. Here's an [example integrating axe-core.](https://codepen.io/adamchaboryk/pen/dPYVqzW)
 
 Since 4.2.0.
 
