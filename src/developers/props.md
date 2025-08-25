@@ -236,7 +236,7 @@ developerChecksOnByDefault: false,
 
 #### externalDeveloperChecks
 
-Boolean. Set to `true` to disable internal developer checks but keep the "Developer checks" toggle visible. This helps facilitate integrations with third-party accessibility checkers. Here's an [example integrating axe-core.](https://codepen.io/adamchaboryk/pen/dPYVqzW)
+Boolean. Set to `true` to disable internal developer checks but keep the "Developer checks" toggle visible. This helps facilitate integrations with third-party accessibility checkers. Here's an [example integrating axe-core.](https://codepen.io/adamchaboryk/pen/dPYVqzW) Since 4.2.0.
 
 ```js
 externalDeveloperChecks: false,
@@ -942,7 +942,7 @@ This function takes a string containing HTML as input and returns a sanitized ve
 
 ### sa11y.truncateString(string, maxLength)
 
-Truncates a string to the specified length and appends an ellipsis. Useful for shortening content in tooltip messages.
+Truncates a string to the specified length and appends an ellipsis. Useful for shortening content in tooltip messages. Since 4.2.0.
 
 ## Feedback
 
