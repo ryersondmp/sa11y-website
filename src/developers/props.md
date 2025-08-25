@@ -234,6 +234,14 @@ Boolean. Set to `true` if you would like "Developer checks" enabled by default.
 developerChecksOnByDefault: false,
 ```
 
+#### externalDeveloperChecks
+
+Boolean. Set to `true` to disable internal developer checks but keep the "Developer checks" toggle visible. This helps facilitate integrations with third-party accessibility checkers. Here's an [example integrating axe-core.](https://codepen.io/adamchaboryk/pen/dPYVqzW)
+
+```js
+externalDeveloperChecks: false,
+```
+
 #### checkAllHideToggles
 
 Boolean. Set to `true` if you would like to visually hide the "Developer checks" toggle.
@@ -931,6 +939,10 @@ Create a dismissal key to facilitate the dismissal of items. This feature is ess
 ### sa11y.sanitizeHTML(string)
 
 This function takes a string containing HTML as input and returns a sanitized version where special characters are replaced with their respective HTML entities. It's particularly useful when returning text within a tooltip, ensuring that any potentially harmful content is properly escaped to prevent security vulnerabilities.
+
+### sa11y.truncateString(string, maxLength)
+
+Truncates a string to the specified length and appends an ellipsis. Useful for shortening content in tooltip messages.
 
 ## Feedback
 
