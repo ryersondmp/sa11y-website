@@ -214,6 +214,22 @@ accordions.forEach(($el) => {
 
 <hr aria-hidden="true" class="mt-5">
 
+### Integrating axe-core into Sa11y
+Need more _power?_ Combine axe-core with Sa11y for extra test coverage. This demo integrates axe-core into Sa11y by routing axe-core data through Sa11y’s custom checks feature. Specific axe-core checks are disabled and Sa11y's internal developer checks are supressed to prevent duplicate errors and warnings. This integration works by:
+
+1. Adding both libraries on a page via script tag.
+2. Sa11y is instantiated with two key props: `customChecks: 'listen'` and `externalDeveloperChecks: true`.
+3. Using Sa11y's custom checks feature, axe-core data is passed into Sa11y programatically.
+
+<p class="codepen" data-height="600" data-default-tab="html,result" data-slug-hash="dPYVqzW" data-pen-title="Sa11y + Axe Core Demo" data-preview="true" data-editable="true" data-user="adamchaboryk" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/adamchaboryk/pen/dPYVqzW">
+  Sa11y + Axe Core Demo</a> by Adam Chaboryk (<a href="https://codepen.io/adamchaboryk">@adamchaboryk</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+<hr aria-hidden="true" class="mt-5">
+
 ## Add or suggest a recipe
 Share your recipe on [GitHub.](https://github.com/ryersondmp/sa11y/issues)
 
