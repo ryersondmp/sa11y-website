@@ -23,7 +23,7 @@ Sa11y has additional settings and checks that can be enabled in the **Settings**
 ## Developer checks
 Developer checks include more complex issues that may require some code knowledge to fix. Although these checks can be toggled on and off, it does not mean they are unimportant! Depending on the website theme or plugin, they may not need to be tested every time. For example, some form plugins automatically provide a label for each form input.
 
-<p><strong><i class="bi bi-journal-code"></i> Developers:</strong> You can use use <a href="/developers/props">props</a> to hide "Developer checks" from your content authors if necessary.</p>
+<p><strong><i class="bi bi-journal-code"></i> Developers:</strong> You can use <a href="/developers/props">props</a> to hide "Developer checks" from your content authors if necessary.</p>
 <p><strong><i class="bi bi-wordpress"></i> WordPress admins:</strong> You can hide these checks from the plugin settings page.</p>
 
 ### Note on developer checks

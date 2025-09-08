@@ -115,10 +115,6 @@ List of content author errors and warnings.
 
 1. **Text has unknown contrast.** Background may be an image or gradient, or colour space may be unsupported. Please manually review the text contrast.
 
-1. **Placeholder text within input has poor contrast.**
-
-1. **Text within this input does not have enough contrast with the background.**
-
 ### Tables
 1. **Table is missing header cells.** Tables should have header cells that accurately describe their respective column or row. Avoid using tables for aesthetic purposes.
 
@@ -212,6 +208,10 @@ To enable the following checks, toggle **Developer checks** in the **Settings** 
 1. **SVG graphic has unknown contrast.** SVGs with multiple `<path>` elements will recieve a warning to manually review contrast.
 
 1. **SVG graphic has poor contrast with background.** For simple SVGs, with a single `<path>`, Sa11y is able to calculate the contrast against the background.
+
+1. **Placeholder text within input has poor contrast.**
+
+1. **Text within this input does not have enough contrast with the background.**
 
 {% set collectionName = "getstarted" %}
 {% include "partials/pagination.njk" %}
