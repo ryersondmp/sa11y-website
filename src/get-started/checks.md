@@ -84,6 +84,8 @@ List of content author errors and warnings.
 
 1. **Linked image's alt text contains file extension.** Alt text should describe destination of the link.
 
+1. **Image contains unpronounceable characters in alt text.** Such as empty space, a single period, etc.
+
 1. **Image has non-descript or placeholder alt text.**
 
 1. **Linked image has non-descript or placeholder alt text.** Alt text should describe destination of the link.

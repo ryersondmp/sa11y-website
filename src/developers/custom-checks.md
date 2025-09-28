@@ -115,6 +115,7 @@ Simply populate the `results` object.
 - **content** (String) - Tooltip message.
 - **inline** (Boolean) - Optional. Set to `true` to display annotation inline with text.
 - **position** (String) - Where to insert annotation. View [`insertAdjacentHTML()` parameters.](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML#parameters)
+- **margin** (String) - Optional. Override an annotations default margin to avoid overlapping annotations if necessary.
 - **dismiss** (String) - Optional. A string that uniquely identifies the found issue.
   - **Important:** Errors cannot be dismissed, only warnings can.
   - **Important:** The dismissal key must be unique for each check. It's recommended to pass the element's inner text for example.
