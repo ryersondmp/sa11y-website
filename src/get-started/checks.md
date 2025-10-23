@@ -86,6 +86,8 @@ List of content author errors and warnings.
 
 1. **Image contains unpronounceable characters in alt text.** Such as empty space, a single period, etc.
 
+1. **Image contains automatically generated or placeholder alt text values.** Such as "~ai-3a3cb8f0-1554-4e2b-b159". The detection logic identifies alt text that appears to be machine-generated using two conditions: Single long string (15 characters or more) and contains non-alphabetic characters (e.g., digits, underscores, UUID fragments, or symbols).
+
 1. **Image has non-descript or placeholder alt text.**
 
 1. **Linked image has non-descript or placeholder alt text.** Alt text should describe destination of the link.
