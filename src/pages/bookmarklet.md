@@ -14,9 +14,6 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
       const createAlert = (message) => {
-        if (document.getElementById(&quot;sa11y-csp)&quot;) {
-          return;
-        }
         const sa11yDialog = document.createElement(&quot;div&quot;);
         sa11yDialog.id = &quot;sa11y-csp&quot;;
         sa11yDialog.role = &quot;dialog&quot;;
@@ -76,9 +73,6 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
       } else if (sa11yDialog == null && sa11yScripts.length === 0) {
         const inject = document.createElement(&quot;script&quot;);
         inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2.js&quot;;
-        inject.onerror = () => {
-          createAlert('Sa11y script failed to load. This website may have a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
-        };
         document.body.appendChild(inject);
       } else {
         location.reload();
@@ -103,9 +97,6 @@ The bookmarklet below will **only** display English.
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
       const createAlert = (message) => {
-        if (document.getElementById(&quot;sa11y-csp)&quot;) {
-          return;
-        }
         const sa11yDialog = document.createElement(&quot;div&quot;);
         sa11yDialog.id = &quot;sa11y-csp&quot;;
         sa11yDialog.role = &quot;dialog&quot;;
@@ -165,9 +156,6 @@ The bookmarklet below will **only** display English.
       } else if (sa11yDialog == null && sa11yScripts.length === 0) {
         const inject = document.createElement(&quot;script&quot;);
         inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2-en.js&quot;;
-        inject.onerror = () => {
-          createAlert('This website has a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
-        };
         document.body.appendChild(inject);
       } else {
         location.reload();
