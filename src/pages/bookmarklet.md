@@ -101,7 +101,7 @@ The bookmarklet below will **only** display English.
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
       const createAlert = (message) => {
-        if (document.getElementById('sa11y-csp)') return;
+        if (document.getElementById(&quot;sa11y-csp)&quot;) return;
         const sa11yDialog = document.createElement(&quot;div&quot;);
         sa11yDialog.id = &quot;sa11y-csp&quot;;
         sa11yDialog.role = &quot;dialog&quot;;
