@@ -26,6 +26,7 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
         sa11yDialog.style.width = &quot;400px&quot;;
         sa11yDialog.style.zIndex = &quot;10000&quot;;
         sa11yDialog.style.padding = &quot;10px 80px 10px 10px&quot;;
+        sa11yDialog.style.color = &quot;#000000&quot;;
         sa11yDialog.style.backgroundColor = &quot;#fff&quot;;
         sa11yDialog.style.border = &quot;5px solid #ff0000&quot;;
         sa11yDialog.style.fontWeight = &quot;bold&quot;;
@@ -72,6 +73,9 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
       } else if (sa11yDialog == null && sa11yScripts.length === 0) {
         const inject = document.createElement(&quot;script&quot;);
         inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2.js&quot;;
+        inject.onerror = () => {
+          createAlert('Sa11y script failed to load. This website may have a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
+        };
         document.body.appendChild(inject);
       } else {
         location.reload();
@@ -129,6 +133,7 @@ The bookmarklet below will **only** display English.
         closeButton.style.backgroundColor = &quot;#f6f6f6&quot;;
         closeButton.style.border = &quot;2px solid #949494&quot;;
         closeButton.style.borderRadius = &quot;5px&quot;;
+        sa11yDialog.style.color = &quot;#000000&quot;;
         closeButton.style.cursor = &quot;pointer&quot;;
         closeButton.style.fontSize = &quot;15px&quot;;
         sa11yDialog.appendChild(closeButton);
@@ -154,6 +159,9 @@ The bookmarklet below will **only** display English.
       } else if (sa11yDialog == null && sa11yScripts.length === 0) {
         const inject = document.createElement(&quot;script&quot;);
         inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2-en.js&quot;;
+        inject.onerror = () => {
+          createAlert('Sa11y script failed to load. This website may have a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
+        };
         document.body.appendChild(inject);
       } else {
         location.reload();
