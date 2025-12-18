@@ -54,8 +54,24 @@ Identify elements by [CSS selectors](https://www.w3schools.com/cssref/css_select
 
 String. Input a **single selector** to scan a specific region of the page. This selector should exist on every page of your website. For example, pass `main` for the main content area.
 
+**Note:** As of 4.4.0, you can now pass in multiple selectors.
+
 ```js
 checkRoot: 'body',
+```
+
+#### fixedRoots
+
+DOM reference. This prop enables passing DOM references directly as evaluation targets. Since 4.4.0.
+
+```js
+Sa11y.Lang.addI18n(Sa11yLangEn.strings);
+setTimeout(() => {
+  const fixedRoots = document.querySelector('iframe').contentWindow.document.body.querySelector('main');
+  const sa11y = new Sa11y.Sa11y({
+    fixedRoots: [fixedRoots],
+  });
+}, 100);
 ```
 
 #### containerIgnore
@@ -114,6 +130,14 @@ String. Ignore elements within a link or image link to improve accuracy of link 
 linkIgnoreSpan: '',
 ```
 
+#### ignoreContentOutsideRoots
+
+Boolean. When set to `true`, any elements identified by Sa11y will be ignored entirely. For example, the Page Outline excludes headings outside the specified root(s). Previously, all headings under `<body>` were shown regardless of designated root.
+
+```js
+ignoreContentOutsideRoots: false,
+```
+
 <div class="p-4 mb-4 bg-light rounded-3">
 
 ##### Example
@@ -140,7 +164,7 @@ The contents of `<span class="sr-only">` will be ignored, and the non-descript l
 
 #### linkIgnoreStrings
 
-String. An alternative prop to `linkIgnoreSpan`. Pass a string of regex that matches specific words or phrases. For example, `"\(External\)|\(Opens new tab\)"`.
+Accepts an array, comma seperated string, or a regular expression. An alternative prop to `linkIgnoreSpan`. Pass in regex that matches specific words or phrases. For example, `"\(External\)|\(Opens new tab\)"` or an array of strings `['(External)']`.
 
 ```js
 linkIgnoreStrings: '',
@@ -164,7 +188,7 @@ headerIgnoreSpan: '',
 
 #### headerIgnoreStrings
 
-String. An alternative prop to `headerIgnoreSpan`. Pass a string of regex that matches specific words or phrases to be excluded from Page Outline or heading checks. For example, `"\(Anchor\)"`.
+Accepts an array, comma seperated string, or a regular expression. An alternative prop to `headerIgnoreSpan`. Pass a string of regex that matches specific words or phrases to be excluded from Page Outline or heading checks. For example, `"\(Anchor\)"`.
 
 ```js
 headerIgnoreStrings: '',
@@ -176,6 +200,20 @@ String. Prevent Sa11y from unhiding containers with `overflow: hidden` by passin
 
 ```js
 ignoreHiddenOverflow: '',
+```
+
+#### ignoreAriaOnElements
+String. Allow developers to exclude specific elements from accessible-name calculations, improving compatibility with WYSIWYG editors and CMS-generated markup. For example, `'h1,h2,h3,h4,h5,h6'`. Since 4.4.0.
+
+```js
+ignoreAriaOnElements: false,
+```
+
+#### ignoreTextInElements
+String. Allow developers to exclude specific elements from accessible-name calculations, improving compatibility with WYSIWYG editors and CMS-generated markup. For example, `'.inner-node-hidden-in-CSS'`. Since 4.4.0.
+
+```js
+ignoreTextInElements: false,
 ```
 
 ### Control panel
@@ -394,6 +432,25 @@ Please refer to custom checks for guidance. Since 3.0.0.
 customChecks: false,
 ```
 
+#### initialHeadingLevel
+Array. Specifies the heading level a section should begin with to prevent false “skipped heading level” errors. This is useful when WYSIWYG content begins with an `<h3>` but appears after an `<h2>` from the page template. Since 4.4.0.
+
+```js
+initialHeadingLevel: false,
+```
+
+##### Example
+The `selector` key represents the target area. The `previousHeading` key represents the starting heading level for that section.
+
+```js
+initialHeadingLevel: [
+  {
+    selector: '#h4-root',
+    previousHeading: 2,
+  }
+],
+```
+
 ### Annotations
 
 Props related to annotations.
@@ -481,7 +538,7 @@ The props below are shared between different checks and are not nested under the
 
 #### susAltStopWords
 
-String. Overwrite the `SUSPICIOUS_ALT_STOPWORDS` array (e.g. image of, graphic of) within the language files. For instance, by passing 'image', only alt text containing the word 'image' at the beginning will be flagged. Since 3.2.0.
+String. Adds to the suspicious alt words array (e.g. image of, graphic of) within the language files. For instance, by passing 'image', only alt text containing the word 'image' at the beginning will be flagged. Since 3.2.0.
 
 ```js
 susAltStopWords: '',
@@ -489,7 +546,7 @@ susAltStopWords: '',
 
 #### linkStopWords
 
-String. Overwrite the `WARNING_ALT_STOPWORDS` array (e.g. click here) in the language files. Since 3.2.0.
+String. Adds to the link stop words array (e.g. click here, learn more) in the language files. Since 3.2.0.
 
 ```js
 linkStopWords: '',
@@ -502,6 +559,9 @@ String. Add additional stop words to flag at the beginning of an alt text string
 ```js
 extraPlaceholderStopWords: '',
 ```
+
+#### altPlaceholder
+Array. Accepts an array of CMS-generated placeholder strings used when alt attributes are empty. Matching values ensure the image is treated as decorative. For example: `<img src="/dog.png" alt="This image has an empty alt attribute; its file name is dog.png">` will be flagged as decorative. Since 4.4.0.
 
 #### imageWithinLightbox
 
@@ -519,19 +579,12 @@ Boolean. Set to `false` to turn off all contrast checking.
 contrastPlugin: true,
 ```
 
-### contrastAPCA
+#### contrastAlgorithm
 
-Boolean. Set to `true` to use the Advanced Perceptual Contrast Algorithm (APCA) contrast algorithn. APCA is a new colour contrast model that is based on colour perception. In addition to lightness/darkness contrast, it also considers font size and weight. APCA is the candidate contrast method for WCAG 3, but it is still in beta. WCAG 3 is still in development and subject to change. The APCA model should not be used for WCAG 2 conformance.
-
-```js
-contrastAPCA: false,
-```
-
-### contrastAAA
-Boolean. Set to `true` to use Level AAA contrast thresholds. WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+String. The `contrastAPCA` and `contrastAAA` props have been removed and replaced with a single contrastAlgorithm prop, which accepts one of: `AA`, `AAA`, or `APCA`.
 
 ```js
-contrastAAA: false,
+contrastAlgorithm: 'AA',
 ```
 
 #### formLabelsPlugin
@@ -556,7 +609,7 @@ readabilityPlugin: true,
 
 #### readabilityRoot
 
-String. Target area for readability check. For example, pass `main` for main content area. Accepts a **single selector** only.
+String. Target area for readability check. For example, pass `main` for main content area. Accepts a **single selector** only. **Note:** As of 4.4.0, you can now pass in multiple selectors.
 
 ```js
 readabilityRoot: "body";
@@ -575,11 +628,26 @@ readabilityIgnore: "";
 The following props are deprecated, but their functionality can still be achieved using the new props structure for checks.
 
 <details>
-  <summary>View deprecated props</summary>
+  <summary><h3 class="h5 d-inline">View deprecated props</h3></summary>
+
+#### contrastAPCA
+
+Boolean. Set to `true` to use the Advanced Perceptual Contrast Algorithm (APCA) contrast algorithn. APCA is a new colour contrast model that is based on colour perception. In addition to lightness/darkness contrast, it also considers font size and weight. APCA is the candidate contrast method for WCAG 3, but it is still in beta. WCAG 3 is still in development and subject to change. The APCA model should not be used for WCAG 2 conformance. Removed in 4.4.0. and superseded by `contrastAlgorithm`.
+
+```js
+contrastAPCA: false,
+```
+
+#### contrastAAA
+Boolean. Set to `true` to use Level AAA contrast thresholds. WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text. Removed in 4.4.0. and superseded by `contrastAlgorithm`.
+
+```js
+contrastAAA: false,
+```
 
 #### linksAdvancedPlugin
 
-Boolean. Set to `false` to turn off and hide Links (Advanced) check from Settings panel.
+Boolean. Set to `false` to turn off and hide Links (Advanced) check from Settings panel. Removed in 4.4.0.
 
 ```js
 linksAdvancedPlugin: true,
