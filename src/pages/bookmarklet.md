@@ -14,7 +14,9 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
       const createAlert = (message) => {
-        if (document.getElementById(&quot;sa11y-csp)&quot;) return;
+        if (document.getElementById(&quot;sa11y-csp)&quot;) {
+          return;
+        }
         const sa11yDialog = document.createElement(&quot;div&quot;);
         sa11yDialog.id = &quot;sa11y-csp&quot;;
         sa11yDialog.role = &quot;dialog&quot;;
@@ -101,7 +103,9 @@ The bookmarklet below will **only** display English.
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
       const createAlert = (message) => {
-        if (document.getElementById(&quot;sa11y-csp)&quot;) return;
+        if (document.getElementById(&quot;sa11y-csp)&quot;) {
+          return;
+        }
         const sa11yDialog = document.createElement(&quot;div&quot;);
         sa11yDialog.id = &quot;sa11y-csp&quot;;
         sa11yDialog.role = &quot;dialog&quot;;
