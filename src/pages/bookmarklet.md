@@ -9,7 +9,7 @@ order: 2
 
 Sa11y is available as a bookmarklet and can be used in any desktop browser. Simply drag the "Sa11y" button below into your bookmarks bar. Then click the bookmark on any webpage.
 
-<img src="{{ '/images/curly-dotted-arrow.svg' | url }}" width="120px" alt="Illustration of a dotted arrow pointing towards the browser's bookmarks bar." class="p-1">
+<img src="{{ '/images/curly-dotted-arrow.svg' | url }}" width="120px" alt="Dashed arrow pointing toward the browser's bookmarks bar." class="p-1">
 <p><a href="javascript:(function(){
       const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
       const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
