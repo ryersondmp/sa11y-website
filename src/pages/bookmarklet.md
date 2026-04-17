@@ -90,6 +90,100 @@ Sa11y is available as a bookmarklet and can be used in any desktop browser. Simp
 - Bookmarklets do not work on all websites because of security policies that block external code.
 - It may take a few seconds to load because the code is being injected into the page you are browsing.
 
+<hr aria-hidden="true">
+
+### Bookmarklet with experimental checks
+This bookmarklet includes new rulesets that leverage on-device AI to automatically detect and validate the language of your content, ensuring it matches a web page’s language declaration.
+
+<p><a href="javascript:(function(){
+      const sa11yDialog = document.getElementById(&quot;sa11y-csp&quot;);
+      const sa11yScripts = document.querySelectorAll(&quot;script[src*='sa11y']&quot;);
+      const createAlert = (message) => {
+        if (document.querySelector(&quot;#sa11y-csp&quot;)) return;
+        const sa11yDialog = document.createElement(&quot;div&quot;);
+        sa11yDialog.id = &quot;sa11y-csp&quot;;
+        sa11yDialog.role = &quot;dialog&quot;;
+        sa11yDialog.textContent = message;
+        sa11yDialog.style.position = &quot;fixed&quot;;
+        sa11yDialog.style.display = &quot;block&quot;;
+        sa11yDialog.style.bottom = &quot;50px&quot;;
+        sa11yDialog.style.right = &quot;50px&quot;;
+        sa11yDialog.style.margin = &quot;auto 0&quot;;
+        sa11yDialog.style.width = &quot;400px&quot;;
+        sa11yDialog.style.zIndex = &quot;10000&quot;;
+        sa11yDialog.style.color = &quot;#000000&quot;;
+        sa11yDialog.style.padding = &quot;10px 80px 10px 10px&quot;;
+        sa11yDialog.style.backgroundColor = &quot;#fff&quot;;
+        sa11yDialog.style.border = &quot;5px solid #ff0000&quot;;
+        sa11yDialog.style.fontWeight = &quot;bold&quot;;
+        sa11yDialog.style.fontSize = &quot;17px&quot;;
+        sa11yDialog.style.fontFamily = &quot;system-ui, sans-serif&quot;;
+        sa11yDialog.style.boxShadow = &quot;0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px
+        rgba(91,94,105,.15)&quot;;
+        sa11yDialog.style.borderRadius = &quot;5px&quot;;
+        sa11yDialog.setAttribute(&quot;role&quot;, &quot;alert&quot;);
+        document.body.appendChild(sa11yDialog);
+        const closeButton = document.createElement(&quot;button&quot;);
+        closeButton.id = &quot;csp-close&quot;;
+        closeButton.textContent = &quot;Close&quot;;
+        closeButton.style.position = &quot;absolute&quot;;
+        closeButton.style.top = &quot;10px&quot;;
+        closeButton.style.color = &quot;#000&quot;;
+        closeButton.style.right = &quot;10px&quot;;
+        closeButton.style.padding = &quot;5px 10px&quot;;
+        closeButton.style.backgroundColor = &quot;#f6f6f6&quot;;
+        closeButton.style.border = &quot;2px solid #949494&quot;;
+        closeButton.style.borderRadius = &quot;5px&quot;;
+        closeButton.style.cursor = &quot;pointer&quot;;
+        closeButton.style.fontSize = &quot;15px&quot;;
+        sa11yDialog.appendChild(closeButton);
+        closeButton.addEventListener(&quot;click&quot;, () => {
+          sa11yDialog.remove();
+        });
+        const close = document.getElementById(&quot;csp-close&quot;);
+        setTimeout(() => close.focus(), 300);
+        document.addEventListener(&quot;keyup&quot;, (event) => {
+          if (event.key === 'Escape') {
+           sa11yDialog.remove();
+          }
+        });
+      };
+      const securityListener = () => {
+        if (typeof sa11y === 'undefined') {
+          createAlert('This website has a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
+        }
+      };
+      const url = window.location.href;
+      if (url.includes('bookmarklet') && url.includes('sa11y')) {
+        createAlert('Drag the &quot;Sa11y&quot; button into your bookmarks bar. Then click the bookmark on any webpage.');
+      } else if (sa11yDialog == null && sa11yScripts.length === 0) {
+        const inject = document.createElement(&quot;script&quot;);
+        inject.src = &quot;https://cdn.jsdelivr.net/gh/ryersondmp/sa11y@latest/bookmarklet/v2-lang-detect.js&quot;;
+        inject.onerror = () => {
+          createAlert('This website has a security policy that prevents Sa11y from working on its pages. Press Escape to dismiss this message.');
+        };
+        document.body.appendChild(inject);
+      } else {
+        location.reload();
+      }
+      document.addEventListener(&quot;securitypolicyviolation&quot;, securityListener);
+      setTimeout(() => document.removeEventListener(&quot;securitypolicyviolation&quot;, securityListener), 100);
+  	})();" class="btn btn-lg btn-sa11y"><i class="bi bi-bookmark-fill"></i> Sa11y (Experimental)</a></p>
+
+
+This feature helps identify issues pertaining to the following WCAG success criteria:
+- **Language of Page (Level A):** Verifies that the primary language declared in the document matches the actual content on the page.
+- **Language of Parts (Level AA):** Scans individual text blocks and image alt text to ensure shifts in language are correctly identified via the lang attribute.
+
+#### Notes about language detection
+- This is an experimental browser API and is only available in Chrome at this time.
+- For better performance, Sa11y will only run this check once on a page. It will stop scanning remaining element nodes after the first detection. If significant text changes are detected on the page, Sa11y will trigger a fresh scan.
+- This feature utilizes a built-in browser [Language Detector API](https://developer.chrome.com/docs/ai/language-detection). All language analysis is performed locally on your machine, ensuring your page content is never sent to a cloud server or external third party for processing.
+
+**Disclaimer:** Please note that AI-detection is not 100% accurate and is intended only to flag glaring issues for manual review; results should always be verified by a human.
+
+<hr aria-hidden="true">
+
 ### Languages
 The bookmarklet above **automatically displays a translated version** of Sa11y based on the page language. If the language is not supported, it will default to English.
 

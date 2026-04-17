@@ -72,6 +72,8 @@ List of content author errors and warnings.
 
 1. **Broken same-page link.** The link target does not match any element on the page.
 
+1. **Links containing only symbols (e.g., ., >, ?) or unpronounceable characters.**
+
 ### Images
 
 1. **Image missing alt text.**
@@ -216,6 +218,23 @@ To enable the following checks, toggle **Developer checks** in the **Settings** 
 1. **Placeholder text within input has poor contrast.**
 
 1. **Text within this input does not have enough contrast with the background.**
+
+1. **Language tag validation.** All `lang` tags are validated to ensure BCP 47 conformance.
+
+1. **Same page links which resemble a scripted UI control** will receive an error and recommendation to use proper semantics.
+
+1. The `headers` attribute within a table contains a valid reference.
+
+1. ARIA-based input or switch fields contain an accessible name.
+
+## Experimental checks
+These checks are disabled by default. This new ruleset leverages on-device AI to automatically detect and validate the language of your content, ensuring it matches a web page’s language declaration. This feature helps identify issues pertaining to the following WCAG success criteria:
+
+1. **Language of Page (Level A):** Verifies that the primary language declared in the document matches the actual content on the page.
+
+1. **Language of Parts (Level AA):** Scans individual text blocks and image alt text to ensure shifts in language are correctly identified via the lang attribute.
+
+For more information, please visit [Language of Parts module.](/developers/props/#language-of-parts-module)
 
 {% set collectionName = "getstarted" %}
 {% include "partials/pagination.njk" %}

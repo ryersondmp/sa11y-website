@@ -82,6 +82,17 @@ String. Ignore specific regions of the page.
 containerIgnore: '.sa11y-ignore',
 ```
 
+#### ignoreByTest
+
+Object. Ignore specific elements for individual tests. Since 5.0.0.
+
+```js
+ignoreByTest: {
+    LABELS_ARIA_LABELS_INPUT: ':is(header, footer) [type="search"]',
+    LABELS_PLACEHOLDER: ':is(header, footer) [type="search"]',
+  },
+```
+
 #### contrastIgnore
 
 String. Ignore specific elements from the contrast check.
@@ -623,321 +634,37 @@ String. Ignore specific content from readability check. `<li>` tags within navig
 readabilityIgnore: "";
 ```
 
-## Deprecated props
+### Language of parts module
+This new ruleset leverages on-device AI to automatically detect and validate the language of your content, ensuring it matches a web page’s language declaration. This feature helps identify issues pertaining to the following WCAG success criteria:
+- **Language of Page (Level A):** Verifies that the primary language declared in the document matches the actual content on the page.
+- **Language of Parts (Level AA):** Scans individual text blocks and image alt text to ensure shifts in language are correctly identified via the lang attribute.
 
-The following props are deprecated, but their functionality can still be achieved using the new props structure for checks.
+#### Implementation notes
+- This is an experimental browser API and is only available in Chrome at this time.
+- For better performance, Sa11y will only run this check once on a page. It will stop scanning remaining element nodes after the first detection. If significant text changes are detected on the page, Sa11y will trigger a fresh scan.
+- This feature utilizes a built-in browser [Language Detector API](https://developer.chrome.com/docs/ai/language-detection). All language analysis is performed locally on your machine, ensuring your page content is never sent to a cloud server or external third party for processing.
 
-<details>
-  <summary><h3 class="h5 d-inline">View deprecated props</h3></summary>
+**Disclaimer:** Please note that AI-detection is not 100% accurate and is intended only to flag glaring issues for manual review; results should always be verified by a human.
 
-#### contrastAPCA
-
-Boolean. Set to `true` to use the Advanced Perceptual Contrast Algorithm (APCA) contrast algorithn. APCA is a new colour contrast model that is based on colour perception. In addition to lightness/darkness contrast, it also considers font size and weight. APCA is the candidate contrast method for WCAG 3, but it is still in beta. WCAG 3 is still in development and subject to change. The APCA model should not be used for WCAG 2 conformance. Removed in 4.4.0. and superseded by `contrastAlgorithm`.
-
-```js
-contrastAPCA: false,
-```
-
-#### contrastAAA
-Boolean. Set to `true` to use Level AAA contrast thresholds. WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text. Removed in 4.4.0. and superseded by `contrastAlgorithm`.
+#### langOfPartsPlugin
+Boolean. This experimental check is off by default. To start using these rules, update your configuration with the following properties:
 
 ```js
-contrastAAA: false,
+langOfPartsPlugin: false,
 ```
 
-#### linksAdvancedPlugin
-
-Boolean. Set to `false` to turn off and hide Links (Advanced) check from Settings panel. Removed in 4.4.0.
+#### langOfPartsCache
+Boolean. Set to `true` to enable smarter caching. This prevents redundant scans by storing results for up to 200 URLs and only triggers a fresh analysis if it detects a change in page text, declared language, or previously flagged elements.
 
 ```js
-linksAdvancedPlugin: true,
+langOfPartsCache: true,
 ```
-
-#### nonConsecutiveHeadingIsError
-
-Boolean. Set to `false` if you would like skipped headings to be flagged as a warning instead. By default Sa11y flags skipped headings as an error, however, this is not a WCAG failure.
-
-```js
-nonConsecutiveHeadingIsError: true,
-```
-
-#### flagLongHeadings
-
-Boolean. Flag headings longer than 170 characters. This is not a WCAG criterion.
-
-```js
-flagLongHeadings: true,
-```
-
-#### missingH1
-
-Boolean. Set to `false` if you would like to turn off this ruleset.
-
-```js
-missingH1: true,
-```
-
-#### altTextMaxCharLength
-
-Integer. Modify the alt text character count for warning message about excessively long alt.
-
-```js
-altTextMaxCharLength: 250,
-```
-
-#### headingMaxCharLength
-
-Integer. Modify the heading text character count for warning message about excessively long headings.
-
-```js
-headingMaxCharLength: 170,
-```
-
-#### URLTextMaxCharLength
-
-Integer. Modify the URL text character count for warning message about URLs used as link text.
-
-```js
-URLTextMaxCharLength: 40,
-```
-
-#### URLAsLinkTextWarning
-
-Boolean. Set to `false` to turn off warning message about URLs used as link text.
-
-```js
-URLAsLinkTextWarning: true,
-```
-
-#### badLinksQA
-
-Boolean. Related to `linksToFlag` prop.
-
-```js
-badLinksQA: true,
-```
-
-#### strongItalicsQA
-
-Boolean. Flags entire paragraphs that are bold or italicized.
-
-```js
-strongItalicsQA: true,
-```
-
-#### pdfQA
-
-Boolean. Warning about PDF content.
-
-```js
-pdfQA: true,
-```
-
-#### documentQA
-
-Boolean. Warning for Office and Google Workspace documents.
-
-```js
-documentQA: true,
-```
-
-#### documentLinks
-
-String. Default values for `documentQA` prop.
-
-```js
-documentLinks: 'a[href$=".doc"], a[href$=".docx"], a[href*=".doc?"], a[href*=".docx?"], a[href$=".ppt"], a[href$=".pptx"], a[href*=".ppt?"], a[href*=".pptx?"], a[href^="https://docs.google"], a[href^="https://sway."]',
-```
-
-#### langQA
-
-Boolean. Error if page language is not set.
-
-```js
-langQA: true,
-```
-
-#### blockquotesQA
-
-Boolean. Warning if blockquote suspiciously resembles a heading.
-
-```js
-blockquotesQA: true,
-```
-
-#### tablesQA
-
-Boolean. Various errors about inaccessible HTML tables.
-
-```js
-tablesQA: true,
-```
-
-#### allCapsQA
-
-Boolean. Warning about use of ALL CAPS. **Note:** Sometimes this check can be problematic because of regex usage. Set to `false` if you experience any issues.
-
-```js
-allCapsQA: true,
-```
-
-#### fakeHeadingsQA
-
-Boolean. Warning about bolded text that suspiciously resembles a heading. Uses regex.
-
-```js
-fakeHeadingsQA: true,
-```
-
-#### fakeListQA
-
-Boolean. Warning about suspiciously formatted content that should be a semantic list.
-
-```js
-fakeListQA: true,
-```
-
-#### duplicateIdQA
-
-Boolean. Error if duplicate `id` exists on the page.
-
-```js
-duplicateIdQA: true,
-```
-
-#### underlinedTextQA
-
-Boolean. Warning for underlined text.
-
-```js
-underlinedTextQA: true,
-```
-
-#### pageTitleQA
-
-Boolean. Error if meta page `<title>` is missing or empty.
-
-```js
-pageTitleQA: true,
-```
-
-#### subscriptQA
-
-Boolean. Warning if `<sup>` and `<sub>` tags are used to format entire sentences.
-
-```js
-subscriptQA: true,
-```
-
-#### tablesQAmissingTH
-
-Set to false to turn off check that flags missing table headers as an error.
-
-```js
-tablesQAmissingTH: true,
-```
-
-#### tablesQAsemanticHeadings
-
-Set to false to turn off check that flags semantic headings within a table as an error.
-
-```js
-tablesQAsemanticHeadings: true,
-```
-
-#### tablesQAemptyTH
-
-Set to false to turn off check that flags empty table headers within a table as an error.
-
-```js
-tablesQAemptyTH: true,
-```
-
-#### tablesQAemptyTHisError
-
-Set to false to change check that flags empty table headers from an error to a warning.
-
-```js
-tablesQAemptyTHisError: true,
-```
-
-#### embeddedContentAll
-
-Boolean. Set to `false` to ignore all iFrames.
-
-```js
-embeddedContentAll: true,
-```
-
-#### embeddedContentAudio
-
-Boolean. Warning about audio content and transcripts.
-
-```js
-embeddedContentAudio: true,
-```
-
-#### embeddedContentVideo
-
-Boolean. Warning about video content and captions.
-
-```js
-embeddedContentVideo: true,
-```
-
-#### embeddedContentDataViz
-
-Boolean. Warning about data visualizations.
-
-```js
-embeddedContentDataViz: true,
-```
-
-#### embeddedContentTitles
-
-Boolean. Warning about iFrame missing a descriptive title or accessible name.
-
-```js
-embeddedContentTitles: true,
-```
-
-#### embeddedContentGeneral
-
-Boolean. General warning about unknown iFrame content.
-
-```js
-embeddedContentGeneral: true,
-```
-
-#### videoContent
-
-String. Common video players.
-
-```js
-videoContent: 'video, youtube.com, vimeo.com, yuja.com, panopto.com',
-```
-
-#### audioContent
-
-String. Common podcast widgets or audio players.
-
-```js
-audioContent: 'audio, soundcloud.com, simplecast.com, podbean.com, buzzsprout.com, blubrry.com, transistor.fm, fusebox.fm, libsyn.com',
-```
-
-#### dataVizContent
-
-String. Common data visualization widgets.
-
-```js
-dataVizContent: 'datastudio.google.com, tableau',
-```
-
-</details>
 
 ## Methods
 
 These helper methods streamline integration into content management systems.
+
+As of Sa11y 5.0, all [utility functions](https://github.com/ryersondmp/sa11y/blob/master/src/js/utils/utils.js) are exposed and can be used in a similar fashion.
 
 ### sa11y.resetAll();
 
