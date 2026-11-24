@@ -6,7 +6,7 @@ order: 6
 ---
 
 # {{title}}
-Sa11y has over 80 checks.
+Sa11y has over 100 checks.
 
 <nav aria-labelledby="onthispage">
 
